@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 *,
 *::before,
 *::after {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+}
+
+body {
+    background-color: #F9F9FC;
+    font-family: "Public Sans", sans-serif;
 }
