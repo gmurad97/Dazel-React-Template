@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar/Sidebar.jsx";
 const BlankPage = () => {
     return (
         <MainRow>
-
+            <Sidebar />
         </MainRow>
     );
 }

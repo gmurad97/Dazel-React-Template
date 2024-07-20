@@ -1,0 +1,16 @@
+.logo__container {
+    width: 100%;
+    height: auto;
+    padding: 24px 20px;
+}
+
+.logo__wrapper {
+    width: 224px;
+    height: 34px;
+}
+
+.logo__svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

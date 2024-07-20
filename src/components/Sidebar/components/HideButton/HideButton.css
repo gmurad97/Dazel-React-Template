@@ -1,0 +1,35 @@
+.sidebar__hide-btn{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.sidebar__hide-btn>i[class^="fi"]{
+    display: flex;
+    font-size: 18px;
+    vertical-align: middle;
+    color: #858D9D;
+    margin-right: 8px;
+}
+
+.hide-btn__name{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    color: #4A4C56;
+}

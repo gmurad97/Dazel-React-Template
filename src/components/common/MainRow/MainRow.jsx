@@ -1,8 +1,8 @@
-import classes from "./MainRow.module.css";
+import "./MainRow.css";
 
 const MainRow = ({ children }) => {
     return (
-        <main className={classes.main}>
+        <main className="main__row">
             {children}
         </main>
     );
