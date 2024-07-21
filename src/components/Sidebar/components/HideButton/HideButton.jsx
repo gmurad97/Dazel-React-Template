@@ -2,9 +2,13 @@ import "./HideButton.css";
 
 const HideButton = () => {
     return (
-        <button className="sidebar__hide-btn">
-            <span className="hide-btn__name">Hide Menu</span>
-            <i className="fi fi-sr-caret-left"></i>
+        <button className="hide-btn">
+            <div className="hide-btn__text-container">
+                <span className="hide-btn__text">Hide Menu</span>
+            </div>
+            <div className="hide-btn__icon-container">
+                <i className="fi fi-sr-caret-left"></i>
+            </div>
         </button>
     );
 }

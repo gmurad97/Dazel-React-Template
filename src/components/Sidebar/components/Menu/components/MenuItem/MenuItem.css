@@ -7,6 +7,10 @@
     align-items: flex-start;
 }
 
+.menu__item:first-child {
+    margin-top: 16px;
+}
+
 .menu__item:not(:last-of-type) {
     margin-bottom: 8px;
 }
@@ -22,19 +26,22 @@
     font-size: 14px;
     line-height: 20px;
     text-decoration: none;
-    color: #4A4C56;
     padding: 12px 24px;
 }
-.menu__link-name{
-    width: 100%;
-}
+
 .menu__link--active {
     position: relative;
     background-color: #F0F1F3;
     color: #1D1F2C;
 }
 
-.menu__link--active>i[class^="fi"] {
+.menu__link:active,
+.menu__link:hover {
+    background-color: #F0F1F3;
+    color: #1D1F2C;
+}
+
+.menu__link--active .menu__icon-wrapper>i[class^="fi"] {
     color: #1D1F2C !important;
 }
 
@@ -49,46 +56,41 @@
     background-image: linear-gradient(180deg, rgba(50, 80, 255, 1) 0%, rgba(43, 178, 254, 1) 100%);
 }
 
-
-.menu__link>i[class^="fi"] {
+.menu__content {
+    width: 100%;
+    height: auto;
     display: flex;
-    font-size: 18px;
-    vertical-align: middle;
-    color: #858D9D;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu__icon-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin-right: 8px;
 }
 
-.menu__list-dropdown {
+.menu__icon-wrapper>i[class^="fi"] {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    color: #858D9D;
+}
+
+.menu__text-wrapper {
     width: 100%;
     height: auto;
-    max-height: 0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    list-style-type: none;
-    overflow: hidden;
-    transition: max-height 128ms ease-out;
 }
 
-
-/* .menu__link > i[class*="fi-sr-caret"]{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-
-} */
-
-/* .menu__item-dropdown::before {
-    content: "\f0d7";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-} */
-
-.menu__list-dropdown .menu__link {
-    padding: 12px 48px;
+.menu__text {
+    color: #4A4C56;
 }

@@ -1,12 +1,8 @@
-import MainRow from "../components/common/MainRow/MainRow.jsx";
-import Sidebar from "../components/Sidebar/Sidebar.jsx";
+const BlankPage = () =>{
+    return(
+        <div className="Blank">
 
-
-const BlankPage = () => {
-    return (
-        <MainRow>
-            <Sidebar />
-        </MainRow>
+        </div>
     );
 }
 

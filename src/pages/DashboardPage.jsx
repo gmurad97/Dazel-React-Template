@@ -1,17 +1,17 @@
-import MainRow from "../components/common/MainRow/MainRow.jsx";
-import Sidebar from "../components/Sidebar/Sidebar.jsx";
-import Section from "../components/common/Section/Section.jsx";
-import Navbar from "../components/Navbar/Navbar.jsx";
+import Sidebar from "../components/Sidebar/Sidebar";
 
-const Dashboard = () => {
+import Content from "../components/Content/Content";
+import SectionRow from "../components/common/SectionRow/SectionRow";
+const DashboardPage = () => {
     return (
-        <MainRow>
-            <Sidebar />
-            <Section>
-                <Navbar />
-            </Section>
-        </MainRow>
+        <div className="dashboard">
+            <SectionRow>
+                <Sidebar />
+                <Content />
+            </SectionRow>
+
+        </div>
     );
 }
 
-export default Dashboard;
+export default DashboardPage;
