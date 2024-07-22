@@ -11,7 +11,7 @@ const Profile = ({ full_name, position, img }) => {
                 <p className="topbar__profile-position">{position}</p>
             </div>
             <div className="topbar__profile-icon">
-                <i class="fi fi-sr-caret-down"></i>
+                <i className="fi fi-sr-caret-down"></i>
             </div>
         </div>
     );

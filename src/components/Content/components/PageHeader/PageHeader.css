@@ -1,0 +1,59 @@
+.page-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.page-header__welcome {}
+
+.page-header__welcome-title {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37.6px;
+    color: #1D1F2C;
+    margin-bottom: 8px;
+}
+
+.page-header__welcome-description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #667085;
+}
+
+.page-header__filter-container {}
+
+.page-header__filter {
+    border: 1px solid #E0E2E7;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.page-header__filter-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #667085;
+    padding: 6px 12px;
+    transition: background-color 128ms linear, color 128ms linear;
+    cursor: pointer;
+}
+
+.page-header__filter-btn:hover{
+    background-color: #F0F1F3;
+    color: #1D1F2C;
+}
+
+.page-header__filter-btn--active {
+    background-color: #F0F1F3;
+    color: #1D1F2C;
+    font-weight: 600;
+}
