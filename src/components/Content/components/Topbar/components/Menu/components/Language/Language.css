@@ -1,0 +1,11 @@
+.topbar__menu-language {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+}
+
+.topbar__menu-language-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}

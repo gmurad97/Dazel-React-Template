@@ -9,9 +9,9 @@ const Content = () => {
             <SectionContent>
                 <Topbar />
             </SectionContent>
-            <SectionContent>
+            {/* <SectionContent>
                 <BadgeCards />
-            </SectionContent>
+            </SectionContent> */}
         </section>
     );
 }

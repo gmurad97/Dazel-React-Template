@@ -26,6 +26,7 @@
     font-size: 14px;
     line-height: 20px;
     text-decoration: none;
+    transition: background-color 128ms linear, color 128ms linear;
     padding: 12px 24px;
 }
 

@@ -1,0 +1,47 @@
+.topbar__menu-item {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #858D9D;
+    padding: 8px;
+    transition: background-color 128ms linear, color 128ms linear;
+    cursor: pointer;
+}
+
+.topbar__menu-item:hover{
+    background-color: #F0F1F3;
+    color: #1D1F2C;
+}
+
+.topbar__menu-item>i[class^="fi"]{
+    display: flex;
+}
+
+.topbar__menu-item:not(:last-of-type) {
+    margin-right: 16px;
+}
+
+.topbar__menu-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(43, 178, 254);
+    background-image: linear-gradient(180deg, rgba(43, 178, 254, 1) 0%, rgba(34, 202, 173, 1) 100%);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 13.6px;
+    color: #FFFFFF;
+}

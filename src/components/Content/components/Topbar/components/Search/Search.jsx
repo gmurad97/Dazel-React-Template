@@ -1,11 +1,13 @@
+import "./Search.css";
+
 const Search = () => {
-    return(
+    return (
         <div className="topbar__search">
-        <input type="text" className="topbar__search-input" placeholder="Search" />
-        <div className="topbar__search-icon">
-            <i class="fi fi-rr-search"></i>
+            <input type="text" className="topbar__search-input" placeholder="Search" />
+            <div className="topbar__search-icon">
+                <i class="fi fi-rr-search"></i>
+            </div>
         </div>
-    </div>
     );
 }
 

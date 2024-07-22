@@ -1,0 +1,62 @@
+.topbar__profile {
+    width: 178px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.topbar__profile-img-container {
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.topbar__profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.topbar__profile-img-container::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 10px;
+    height: 10px;
+    background-color: #22CAAD;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+}
+
+.topbar__profile-content {
+    margin: 0px 12px;
+}
+
+.topbar__profile-name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #07080B;
+}
+
+.topbar__profile-position {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: #4A4C56;
+}
+
+.topbar__profile-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.topbar__profile-icon>i[class^="fi"] {
+    font-size: 18px;
+    color: #858D9D;
+}

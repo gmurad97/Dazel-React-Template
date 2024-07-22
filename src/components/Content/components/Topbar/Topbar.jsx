@@ -1,6 +1,6 @@
 import "./Topbar.css";
-import Menu from "./components/Menu/Menu";
-import Search from "./components/Search/Search";
+import Menu from "./components/Menu/Menu.jsx";
+import Search from "./components/Search/Search.jsx";
 
 const Topbar = () => {
     return (
