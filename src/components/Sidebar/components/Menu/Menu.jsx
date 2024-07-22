@@ -9,63 +9,69 @@ const menuItems = [
         "dropdown": [],
     },
     {
+        "name": "Blank",
+        "icon": "fi fi-sr-empty-set",
+        "href": "/blank",
+        "dropdown": [],
+    },
+    {
         "name": "E-Commerce",
         "icon": "fi fi-sr-shopping-cart",
-        "href": "/#",
+        "href": "/e-commerce",
         "dropdown": [
             {
                 "name": "E-Commerce 1",
-                "href": "/#",
+                "href": "/e-commerce/1",
             },
             {
                 "name": "E-Commerce 2",
-                "href": "/#",
+                "href": "/e-commerce/2",
             },
         ],
     },
     {
         "name": "Project",
         "icon": "fi fi-sr-assept-document",
-        "href": "/#",
+        "href": "/project",
         "dropdown": [],
     },
     {
         "name": "Contact",
         "icon": "fi fi-sr-comment-user",
-        "href": "/#",
+        "href": "/contact",
         "dropdown": [
             {
                 "name": "Contact 1",
-                "href": "/#",
+                "href": "/contact/1",
             },
             {
                 "name": "Contact 2",
-                "href": "/#",
+                "href": "/contact/2",
             },
         ],
     },
     {
         "name": "Finance",
         "icon": "fi fi-sr-money",
-        "href": "/#",
+        "href": "/finance",
         "dropdown": [],
     },
     {
         "name": "File Manager",
         "icon": "fi fi-sr-folder",
-        "href": "/#",
+        "href": "/file-manager",
         "dropdown": [],
     },
     {
         "name": "Chat",
         "icon": "fi fi-sr-comment-alt",
-        "href": "/#",
+        "href": "/chat",
         "dropdown": [],
     },
     {
         "name": "Calendar",
         "icon": "fi fi-sr-calendar",
-        "href": "/#",
+        "href": "/calendar",
         "dropdown": [],
     }
 ]
