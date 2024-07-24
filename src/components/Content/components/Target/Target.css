@@ -1,4 +1,75 @@
-.kek{
-    border-radius: 50%; /* превращаем квадрат в круг */
-    transform: translateY(-125px); /* сдвигаем круг наверх, чтобы осталась только нижняя часть */
+.target {
+    height: 376px;
+    width: 360px;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E2E7;
+    border-radius: 8px;
+    padding: 24px;
 }
+
+.target__header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.target__heading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.target__title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #1D1F2C;
+}
+
+.target__description {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #777980;
+}
+
+.target__icon {
+    color: #667085;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.target__icon>i[class^="fi"] {
+    display: flex;
+    font-size: 18px;
+}
+
+.target__progress-bar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.target__detail {}
+
+.target__detail-today {}
+
+.target__statistic {}
+
+.target__statistic-item {}
+
+.target__statistic-title {}
+
+.target__statistic-value {}
+
+.target__statistic-value i {}
