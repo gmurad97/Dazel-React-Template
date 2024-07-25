@@ -1,5 +1,5 @@
 import "./Target.css";
-import ArcProgressBar from "./components/ProgressBar/ProgressBar.jsx";
+import ProgressBar from "./components/ProgressBar/ProgressBar.jsx";
 
 const Target = () => {
     return (
@@ -14,30 +14,42 @@ const Target = () => {
                 </div>
             </div>
             <div className="target__progress-bar">
-                <ArcProgressBar strokeWidth={4} progress={100}>
-                    test invariant
-                </ArcProgressBar>
+                <ProgressBar strokeWidth={8} progress={75.55}>
+                    <div className="target__progress-bar-detail">
+                        <span className="target__pbd-percent">
+                            +10%
+                            <i className="fi fi-rr-caret-up"></i>
+                        </span>
+                        <span className="target__pbd-today">
+                            +$150 today
+                        </span>
+                    </div>
+                </ProgressBar>
             </div>
             <div className="target__detail">
-                <h1 className="target__detail-today"></h1>
+                <h1 className="target__detail-today">
+                    You succeed earn
+                    <span className="target__detail-today-bold"> $150 </span>
+                    today, its higher than yesterday
+                </h1>
                 <div className="target__statistic">
                     <div className="target__statistic-item">
                         <h1 className="target__statistic-title">Target</h1>
-                        <div className="target__statistic-value">
+                        <div className="target__statistic-value target__statistic-value--plus">
                             $100k
                             <i className="fi fi-rr-caret-up"></i>
                         </div>
                     </div>
                     <div className="target__statistic-item">
                         <h1 className="target__statistic-title">Revenue</h1>
-                        <div className="target__statistic-value">
+                        <div className="target__statistic-value target__statistic-value--minus">
                             $75k
                             <i className="fi fi-rr-caret-down"></i>
                         </div>
                     </div>
                     <div className="target__statistic-item">
                         <h1 className="target__statistic-title">This Week</h1>
-                        <div className="target__statistic-value">
+                        <div className="target__statistic-value target__statistic-value--plus">
                             $1.5k
                             <i className="fi fi-rr-caret-up"></i>
                         </div>

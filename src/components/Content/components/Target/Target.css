@@ -60,16 +60,105 @@
     align-items: center;
 }
 
-.target__detail {}
+.target__progress-bar-detail {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
-.target__detail-today {}
+.target__pbd-percent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1A9882;
+    margin-right: 4px;
+}
 
-.target__statistic {}
+.target__pbd-percent>i[class^="fi"] {
+    display: flex;
+}
 
-.target__statistic-item {}
+.target__pbd-today {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #858D9D;
+}
 
-.target__statistic-title {}
+.target__detail {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-.target__statistic-value {}
+.target__detail-today {
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #858D9D;
+    margin-bottom: 10px;
+}
 
-.target__statistic-value i {}
+.target__detail-today-bold {
+    font-weight: 600;
+    color: #1D1F2C;
+}
+
+.target__statistic {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.target__statistic-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.target__statistic-item:not(:last-of-type) {
+    margin-right: 18px;
+}
+
+.target__statistic-title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    color: #667085;
+}
+
+.target__statistic-value {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #1D1F2C;
+}
+
+.target__statistic-value--plus>i[class^="fi"] {
+    display: flex;
+    color: #1A9882;
+}
+
+.target__statistic-value--minus>i[class^="fi"] {
+    display: flex;
+    color: #EB3D4D;
+}
