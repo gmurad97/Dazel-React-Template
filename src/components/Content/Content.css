@@ -1,7 +1,58 @@
-.content{
-    width: 100%;
-    height: 100vh;
-
+.content {
+    width: calc(100% - 264px);
+    /*264 sidebar if 100% page size that => 100% - 264px = content full size*/
+    /*this is interactive*/
     margin-left: 264px;
     padding: 14px 24px;
+}
+
+
+/*TEMPORARY STABS*/
+
+.stab2__section {
+    margin-top: 28px;
+}
+
+.stab3__section {
+    margin-top: 28px;
+}
+
+
+.stab4__section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 28px;
+    margin-top: 28px;
+    align-items: stretch;
+    /* Растягиваем элементы по высоте */
+}
+
+.stab4_1__section,
+.stab4_2__section {
+    min-height: 0;
+    /* Устанавливаем минимальную высоту */
+    height: 100%;
+    /* Растягиваем элементы по высоте */
+}
+
+
+.stab5__section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+    margin-top: 28px;
+    align-items: stretch; /* Растягиваем элементы по высоте */
+}
+
+.stab5_1__section,
+.stab5_2__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-height: 0; /* Устанавливаем минимальную высоту */
+    height: 100%; /* Растягиваем элементы по высоте */
+}
+
+.stab6__section {
+    margin-top: 28px;
 }

@@ -1,0 +1,116 @@
+.top-selling-product-via {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #E0E2E7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    background-color: white;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #E0E2E7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #667085;
+    cursor: pointer;
+}
+
+.tsp-heading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.tsp-title {
+    /* Ваши стили здесь */
+}
+
+.tsp-badges {
+    margin-left: 8px;
+    background-color: #E9FAF7;
+    font-size: 12px;
+    padding: 4px;
+    color: #1A9882;
+}
+
+.tsp-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tsp-date-btn {
+    margin-right: 16px;
+}
+
+.tsp-filter-btn {
+    /* Ваши стили здесь */
+}
+
+.tsp-more-btn {
+    background-color: #1D1F2C;
+    color: #FFFFFF;
+    margin-left: 8px;
+}
+
+.pagination-block {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.pagination-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pagination-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pagination-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #F0F1F3;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D1F2C;
+    padding: 6px;
+}
+
+.pagination-btn:not(:last-of-type) {
+    margin-right: 8px;
+}
+
+.pagination-btn.active{
+    background-color: #1D1F2C;
+    color: #FFFFFF;
+}
+
+.fi.fi-rr-caret-left {
+    /* Ваши стили здесь */
+}
+
+.fi.fi-rr-caret-right {
+    /* Ваши стили здесь */
+}
