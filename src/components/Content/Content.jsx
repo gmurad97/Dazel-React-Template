@@ -46,7 +46,9 @@ const Content = () => {
             <section className="stab6__section">
                 <RecentOrders />
             </section>
-
+            <SectionContent>
+                <Statistic />
+            </SectionContent>
 
             {/*             <SectionContent>
                 <Statistic />

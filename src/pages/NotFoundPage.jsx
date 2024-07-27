@@ -1,16 +1,19 @@
-import Sidebar from "../components/Sidebar/Sidebar";
+import SectionRow from "../components/common/SectionRow/SectionRow.jsx";
+import Sidebar from "../components/Sidebar/Sidebar.jsx";
+import SectionContent from "../components/common/SectionContent/SectionContent.jsx";
+import BlockContent from "../components/common/BlockContent/BlockContent.jsx";
+import Error from "../components/Error/Error.jsx";
 
-import Content from "../components/Content/Content";
-import SectionRow from "../components/common/SectionRow/SectionRow";
 const NotFoundPage = () => {
     return (
-        <div className="dashboard">
-            <SectionRow>
-                <h1>dfsdfsdfds</h1>
-                <Sidebar />
-            </SectionRow>
-
-        </div>
+        <SectionRow>
+            <Sidebar />
+            <SectionContent>
+                <BlockContent>
+                    <Error errorCode={404} />
+                </BlockContent>
+            </SectionContent>
+        </SectionRow>
     );
 }
 

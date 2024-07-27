@@ -1,16 +1,18 @@
-import Sidebar from "../components/Sidebar/Sidebar";
+import SectionRow from "../components/common/SectionRow/SectionRow.jsx";
+import Sidebar from "../components/Sidebar/Sidebar.jsx";
+import SectionContent from "../components/common/SectionContent/SectionContent.jsx";
+import BlockContent from "../components/common/BlockContent/BlockContent.jsx";
 
-import Content from "../components/Content/Content";
-import SectionRow from "../components/common/SectionRow/SectionRow";
 const BlankPage = () => {
     return (
-        <div className="blank">
-            <SectionRow>
-                <Sidebar />
-                <Content />
-            </SectionRow>
-
-        </div>
+        <SectionRow>
+            <Sidebar />
+            <SectionContent>
+                <BlockContent>
+                    This is a blank page
+                </BlockContent>
+            </SectionContent>
+        </SectionRow>
     );
 }
 

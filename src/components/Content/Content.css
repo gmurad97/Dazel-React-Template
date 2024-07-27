@@ -1,10 +1,8 @@
-.content {
+/* .content {
     width: calc(100% - 264px);
-    /*264 sidebar if 100% page size that => 100% - 264px = content full size*/
-    /*this is interactive*/
     margin-left: 264px;
     padding: 14px 24px;
-}
+} */
 
 
 /*TEMPORARY STABS*/

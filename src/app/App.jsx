@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout.jsx";
+import MainLayout from "../layouts/MainLayout/MainLayout.jsx";
 import DashboardPage from "../pages/DashboardPage.jsx";
 import BlankPage from "../pages/BlankPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";

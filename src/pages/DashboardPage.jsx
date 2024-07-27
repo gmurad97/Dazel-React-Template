@@ -1,16 +1,16 @@
-import Sidebar from "../components/Sidebar/Sidebar";
+import SectionRow from "../components/common/SectionRow/SectionRow.jsx";
+import Sidebar from "../components/Sidebar/Sidebar.jsx";
+import SectionContent from "../components/common/SectionContent/SectionContent.jsx";
+import Content from "../components/Content/Content.jsx";
 
-import Content from "../components/Content/Content";
-import SectionRow from "../components/common/SectionRow/SectionRow";
 const DashboardPage = () => {
     return (
-        <div className="dashboard">
-            <SectionRow>
-                <Sidebar />
+        <SectionRow>
+            <Sidebar />
+            <SectionContent>
                 <Content />
-            </SectionRow>
-
-        </div>
+            </SectionContent>
+        </SectionRow>
     );
 }
 
