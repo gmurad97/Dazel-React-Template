@@ -14,7 +14,6 @@ const LanguageProvider = ({ children }) => {
     }
 
     const getTranslate = (collectionWord) => {
-        console.log(LanguageCollection)
         return LanguageCollection[collectionWord][currentLanguage];
     }
 

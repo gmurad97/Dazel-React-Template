@@ -1,28 +1,69 @@
+import React from "react";
 import "./MenuItem.css";
 import { NavLink } from "react-router-dom";
 
-const MenuItem = ({ icon, href, dropdown, children }) => {
+const MenuItem = ({ icon, href, dropdown, children, isCollapsed, isOpen, onToggle }) => {
     const setActiveClass = ({ isActive }) => isActive ? "menu__link menu__link--active" : "menu__link";
+
+    const handleClick = (event) => {
+        if (dropdown.length) {
+            event.preventDefault();
+            onToggle();
+        }
+    };
 
     return (
         <li className="menu__item">
-            <NavLink to={href} className={setActiveClass}>
-                <div className="menu__content">
-                    <div className="menu__icon-wrapper">
-                        <i className={icon}></i>
+            {dropdown.length ? (
+                <>
+                    <NavLink to={href} className={setActiveClass} onClick={handleClick}>
+                        <div className="menu__content">
+                            <div className="menu__icon-wrapper">
+                                <i className={icon}></i>
+                            </div>
+                            <div className="menu__text-wrapper">
+                                <span className="menu__text">{!isCollapsed && children}</span>
+                            </div>
+                        </div>
+                        {!isCollapsed && (
+                            <div className="menu__icon-wrapper">
+                                <i className="fi fi-sr-caret-down"></i>
+                            </div>)}
+                    </NavLink>
+
+                    {isOpen && (
+                        <ul className="menu__list" style={{ backgroundColor: 'rgba(0, 0, 0, 0.15)' }}>
+                            {dropdown.map((item, idx) => (
+                                <li className="menu__item" key={idx}>
+                                    <NavLink to={item.href} className={setActiveClass} end>
+                                        <div className="menu__content">
+                                            <div className="menu__icon-wrapper">
+                                                <i className="fi fi-sr-angle-circle-right"></i>
+                                            </div>
+                                            <div className="menu__text-wrapper">
+                                                <span className="menu__text">{!isCollapsed && item.name}</span>
+                                            </div>
+                                        </div>
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </>
+            ) : (
+                <NavLink to={href} className={setActiveClass}>
+                    <div className="menu__content">
+                        <div className="menu__icon-wrapper">
+                            <i className={icon}></i>
+                        </div>
+                        <div className="menu__text-wrapper">
+                            <span className="menu__text">{!isCollapsed && children}</span>
+                        </div>
                     </div>
-                    <div className="menu__text-wrapper">
-                        <span className="menu__text">{children}</span>
-                    </div>
-                </div>
-                {dropdown.length > 0 && (
-                    <div className="menu__icon-wrapper">
-                        <i className="fi fi-sr-caret-down"></i>
-                    </div>
-                )}
-            </NavLink>
+                </NavLink>
+            )}
         </li>
-    )
-}
+    );
+};
 
 export default MenuItem;

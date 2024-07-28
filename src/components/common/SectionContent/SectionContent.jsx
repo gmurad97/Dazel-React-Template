@@ -11,7 +11,7 @@ const SectionContent = ({ children }) => {
             sectionContentRef.current.style.width = theme.is_sidebar_collapsed ?
                 "calc(100% - 80px)" : "calc(100% - 264px)";
             sectionContentRef.current.style.marginLeft = theme.is_sidebar_collapsed ?
-                "margin-left: 80px" : "264px";
+                "80px" : "264px";
         }
     }, [theme]);
 

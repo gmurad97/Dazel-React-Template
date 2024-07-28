@@ -8,6 +8,12 @@
     padding: 24px 20px;
 }
 
+.logo.collapsed {
+    justify-content: center;
+    align-items: center;
+    padding: 24px 8px;
+}
+
 .logo__link {
     width: 100%;
     height: auto;

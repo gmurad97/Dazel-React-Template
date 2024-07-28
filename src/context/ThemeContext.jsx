@@ -7,7 +7,7 @@ const ThemeProvider = ({ children }) => {
         "is_sidebar_collapsed": false
     });
 
-    const toogleSidebar = () => {
+    const toggleSidebar = () => {
         setTheme((prev) => ({
             ...prev,
             "is_sidebar_collapsed": !prev.is_sidebar_collapsed
@@ -15,7 +15,7 @@ const ThemeProvider = ({ children }) => {
     }
 
     return (
-        <ThemeContext.Provider value={{ theme, toogleSidebar }}>
+        <ThemeContext.Provider value={{ theme, toggleSidebar }}>
             {children}
         </ThemeContext.Provider>
     );
