@@ -1,5 +1,5 @@
 import "./Menu.css";
-import LangEnPng from "../../assets/img/lang_en.png";
+/* import LangEnPng from "../../assets/img/lang_en.png"; */
 import ProfilePng from "../../assets/img/profile_img.png";
 
 import MenuItem from "./components/MenuItem/MenuItem.jsx";
@@ -12,8 +12,16 @@ const Menu = () => {
             <MenuItem icon="fi fi-sr-calendar" badgeCount={0} />
             <MenuItem icon="fi fi-sr-envelope" badgeCount={4} />
             <MenuItem icon="fi fi-sr-bell" badgeCount={7} />
-            <Language img={LangEnPng} />
+
+
+
+
+            <Language />
             <hr className="topbar__divider" />
+
+
+
+
             <Profile full_name="Jay Hargudson" position="Manager" img={ProfilePng} />
         </div>
     );

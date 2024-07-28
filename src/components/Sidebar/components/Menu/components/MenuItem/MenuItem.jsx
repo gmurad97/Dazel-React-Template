@@ -1,8 +1,7 @@
-import React from "react";
-import "./MenuItem.css";
 import { NavLink } from "react-router-dom";
+import "./MenuItem.css";
 
-const MenuItem = ({ icon, href, dropdown, children, isCollapsed, isOpen, onToggle }) => {
+const MenuItem = ({ icon, href, dropdown, isCollapsed, isExpanded, onToggle, children }) => {
     const setActiveClass = ({ isActive }) => isActive ? "menu__link menu__link--active" : "menu__link";
 
     const handleClick = (event) => {
@@ -30,15 +29,14 @@ const MenuItem = ({ icon, href, dropdown, children, isCollapsed, isOpen, onToggl
                                 <i className="fi fi-sr-caret-down"></i>
                             </div>)}
                     </NavLink>
-
-                    {isOpen && (
-                        <ul className="menu__list" style={{ backgroundColor: 'rgba(0, 0, 0, 0.15)' }}>
+                    {isExpanded && (
+                        <ul className="menu__list dropdown">
                             {dropdown.map((item, idx) => (
                                 <li className="menu__item" key={idx}>
                                     <NavLink to={item.href} className={setActiveClass} end>
                                         <div className="menu__content">
                                             <div className="menu__icon-wrapper">
-                                                <i className="fi fi-sr-angle-circle-right"></i>
+                                                <i className="fi fi-rr-bullet"></i>
                                             </div>
                                             <div className="menu__text-wrapper">
                                                 <span className="menu__text">{!isCollapsed && item.name}</span>
@@ -64,6 +62,23 @@ const MenuItem = ({ icon, href, dropdown, children, isCollapsed, isOpen, onToggl
             )}
         </li>
     );
-};
+}
 
 export default MenuItem;
+
+
+
+
+
+
+
+
+
+
+/* const handleClick = (event) => {
+    if (dropdown.length) {
+        event.preventDefault();
+        onToggle();
+    }
+}; */
+

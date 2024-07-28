@@ -54,4 +54,40 @@ export const LanguageCollection = {
         "ru": "Скрыть меню",
         "az": "Menyunu Gizlət",
     },
+
+
+
+
+
+
+    "error_404_title": {
+        "en": "404 Not Found",
+        "ru": "404 Не найдено",
+        "az": "404 Tapılmadı",
+    },
+    "error_404_description": {
+        "en": "Sorry, the page you’re looking for could not be found.",
+        "ru": "Извините, страница, которую вы ищете, не найдена.",
+        "az": "Üzr istəyirik, axtardığınız səhifə tapılmadı.",
+    },
+    "error_404_advice_title": {
+        "en": "Return to the",
+        "ru": "Вернуться на",
+        "az": "Geri dön",
+    },
+    "error_404_advice_link": {
+        "en": "Dashboard",
+        "ru": "Панель управления",
+        "az": "İdarəetmə paneli",
+    },
+    "error_unexpected_title": {
+        "en": "Unexpected Error",
+        "ru": "Неожиданная ошибка",
+        "az": "Gözlənilməz səhv",
+    },
+    "error_unexpected_description": {
+        "en": "We’re sorry, but something went wrong. Please try again later.",
+        "ru": "Извините, но что-то пошло не так. Пожалуйста, попробуйте позже.",
+        "az": "Üzr istəyirik, amma nəsə səhv oldu. Zəhmət olmasa, bir az sonra yenidən cəhd edin.",
+    }
 };

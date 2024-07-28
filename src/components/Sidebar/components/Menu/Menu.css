@@ -18,3 +18,19 @@
     align-items: flex-start;
     list-style-type: none;
 }
+
+.menu__list.dropdown {
+    margin-left: 16px;
+}
+
+.menu__list.dropdown>.menu__item {
+    margin: 0px;
+}
+
+.menu__list.dropdown>.menu__item:first-child {
+    margin-top: 8px;
+}
+
+.menu__list.dropdown>.menu__item:not(:last-of-type) {
+    margin-bottom: 8px;
+}
