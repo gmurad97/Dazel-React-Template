@@ -13,7 +13,7 @@ const CalendarItem = ({ badgeCount }) => {
                 <div className="topbar__menu-calendar">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DateCalendar
-                            defaultValue={dayjs()}
+                            value={dayjs()}
                             views={["year", "month", "day"]}
                         />
                     </LocalizationProvider>
@@ -54,7 +54,46 @@ const EnvelopeItem = ({ badgeCount }) => {
     );
 }
 
+
+
+
+
+
+
+
 const BellItem = ({ badgeCount }) => {
+
+    const notification_list = [
+        {
+            "type": "Stock",
+            "title": "New Order #30854",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
+            "is_readed": false,
+            "timestamp": 1722279766,
+        },
+        {
+            "type": "Orders",
+            "title": "New Order #30853",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
+            "is_readed": true,
+            "timestamp": 1722271766,
+        },
+        {
+            "type": "Orders",
+            "title": "New Order #30852",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
+            "is_readed": false,
+            "timestamp": 1722272766,
+        },
+        {
+            "type": "Stock",
+            "title": "New Order #30854",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
+            "is_readed": false,
+            "timestamp": 1722260766,
+        },
+    ]
+
     return (
         <div className="topbar__menu-item topbar__menu-item-bell">
             <i className="fi fi-sr-bell"></i>
@@ -68,37 +107,49 @@ const BellItem = ({ badgeCount }) => {
                         </span>
                     </div>
                     <div className="topbar__menu-bell-body">
-                        <div className="topbar__mbb-header">
-                            <span className="topbar__mbb-icon">
-                                <i className="fi fi-sr-shopping-cart"></i>
-                                Orders
-                            </span>
-                            <span className="topbar__mbb-icon">
-                                <i className="fi fi-sr-clock"></i>
-                                1 min ago
-                            </span>
-                        </div>
-                        <div className="topbar__mbb-body">
-                            <h1 className="topbar__mbb-title">New Order #30854</h1>
-                            <p className="topbar__mbb-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus
-                                vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.
-                            </p>
-                        </div>
-                        <div className="topbar__mbb-footer">
-                            <span className="topbar__mbb-icon">
-                                <i class="fi fi-sr-check"></i>
-                                Mark as Read
-                            </span>
-                        </div>
+                        {notification_list.map((item, idx) => (
+                            <div className={`topbar__menu-bell-item ${!item.is_readed && "unread"}`} key={idx}>
+                                <div className="topbar__mbb-header">
+                                    <span className="topbar__mbb-cart-icon">
+                                        {item.type === "Stock" ? (
+                                            <>
+                                                <i className="fi fi-sr-box"></i>
+                                                Stock
+                                            </>
+                                        ) : (
+                                            <>
+                                                <i className="fi fi-sr-shopping-cart"></i>
+                                                Orders
+                                            </>
+                                        )}
+                                    </span>
+                                    <span className="topbar__mbb-clock-icon">
+                                        <i className="fi fi-sr-clock"></i>
+                                        {Math.round((new Date() - new Date(item.timestamp * 1000)) / (1000 * 60))} min ago
+                                    </span>
+                                </div>
+                                <div className="topbar__mbb-body">
+                                    <h1 className="topbar__mbb-title">{item.title}</h1>
+                                    <p className="topbar__mbb-description">{item.description}</p>
+                                </div>
+                                {!item.is_readed && (
+                                    <div className="topbar__mbb-footer">
+                                        <span className="topbar__mbb-check-icon">
+                                            <i class="fi fi-sr-check"></i>
+                                            <span className="topbar__mbb-check-icon-text">Mark as Read</span>
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
                     </div>
                     <div className="topbar__menu-bell-footer">
-                        <span className="topbar__mbf-icon">
+                        <span className="topbar__mbf-check-icon">
                             <i class="fi fi-rr-list-check"></i>
-                            Mark All as Read
+                            <span className="topbar__mbf-check-icon-text">Mark All as Read</span>
                         </span>
-                        <span className="topbar__mbf-icon">
-                            See More
+                        <span className="topbar__mbf-ar-icon">
+                            <span className="topbar__mbf-ar-icon-text">See More</span>
                             <i class="fi fi-rr-arrow-right"></i>
                         </span>
                     </div>

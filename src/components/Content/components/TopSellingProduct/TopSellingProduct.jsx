@@ -125,7 +125,7 @@ const TopSellingProduct = () => {
                             <i className='fi fi-sr-calendar'></i>
                             Select Date</button>
                         <button className='btn tsp-filter-btn'>
-                            <i class="fi fi-rs-settings-sliders"></i>Filter</button>
+                            <i className="fi fi-rs-settings-sliders"></i>Filter</button>
                         <button className='btn tsp-more-btn'>See more</button>
                     </div>
                 </div>
@@ -139,6 +139,7 @@ const TopSellingProduct = () => {
                     hideFooterPagination={true}
                     hideFooter={true}
                     disableColumnResize={true}
+                    classes={{ root: 'data-grid-root' }}
                 />
                 <div className="pagination-block">
                     <h1 className='pagination-left'>Showing 1-5 from 15</h1>

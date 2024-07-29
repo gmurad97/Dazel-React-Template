@@ -9,14 +9,7 @@ const Menu = () => {
         <div className="topbar__menu">
             <CalendarItem />
             <EnvelopeItem badgeCount={2} />
-            <BellItem badgeCount={2} />
-
-
-
-
-
-
-
+            <BellItem badgeCount={3} />
             <Language />
             <hr className="topbar__divider" />
             <Profile full_name="Jay Hargudson" position="Manager" img={ProfilePng} />

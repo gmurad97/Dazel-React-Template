@@ -12,6 +12,23 @@ const Profile = ({ full_name, position, img }) => {
             </div>
             <div className="topbar__profile-icon">
                 <i className="fi fi-sr-caret-down"></i>
+                <i className="fi fi-sr-caret-up"></i>
+            </div>
+            <div className="topbar__profile-dropdown">
+                <ul className="topbar__pd-list">
+                    <li className="topbar__pd-item">
+                        <span className="topbar__pd-item-name">Profile</span>
+                    </li>
+                    <li className="topbar__pd-item">
+                        <span className="topbar__pd-item-name">Setting</span>
+                    </li>
+                    <li className="topbar__pd-item logout">
+                        <span className="topbar__pd-item-name">Sign Out</span>
+                        <span className="topbar__pd-item-icon">
+                            <i className="fi fi-rr-sign-out-alt"></i>
+                        </span>
+                    </li>
+                </ul>
             </div>
         </div>
     );

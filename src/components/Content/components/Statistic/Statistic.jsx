@@ -26,7 +26,7 @@ ChartJS.register(
 const Statistic = () => {
     const chartRef = useRef(null);
 
-    const[petlya, setPetlya] = useState(1);
+    const [petlya, setPetlya] = useState(1);
 
     useEffect(() => {
         const chart = chartRef.current;
@@ -53,15 +53,19 @@ const Statistic = () => {
                 label: 'Revenue',
                 data: [400, 600, 200, 800, 1200, 400, 680, 300, 600, 800, 400, 500],
                 backgroundColor: '#00C8F8', // Will be overridden by gradient
-                borderRadius: 10,
+                borderRadius: 20, // Increase border radius for more rounding
                 borderSkipped: false,
+                barPercentage: 0.5, // Adjust width of bars
+                categoryPercentage: 0.5, // Adjust width of bars
             },
             {
                 label: 'Sales',
                 data: [200, 400, 300, 600, 800, 200, 280, 150, 400, 600, 300, 400],
                 backgroundColor: '#FFBE0B', // Will be overridden by gradient
-                borderRadius: 10,
+                borderRadius: 20, // Increase border radius for more rounding
                 borderSkipped: false,
+                barPercentage: 0.5, // Adjust width of bars
+                categoryPercentage: 0.5, // Adjust width of bars
             },
         ],
     };
@@ -85,7 +89,7 @@ const Statistic = () => {
                                 lineWidth: 0,
                                 hidden: chart.getDatasetMeta(i).hidden,
                                 index: i,
-                                pointStyle: 'rectRounded', // Use 'rectRounded' for rounded rectangles
+                                pointStyle: 'circle', // Make legend icons circular
                             };
                         });
                     },
@@ -128,11 +132,11 @@ const Statistic = () => {
                 },
             },
         },
+
     };
 
     return (
         <div className='stats_block'>
-            <button onClick={()=>setPetlya(prev=>prev+1)}>UPDATE COMPONENT FORCE(DEBUG)</button>
             <h2 className='stats_block__title'>Statistic</h2>
             <p className='stats_block__description'>Income and Expenses</p>
             <Bar ref={chartRef} data={data} options={options} />

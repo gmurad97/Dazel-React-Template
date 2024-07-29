@@ -5,16 +5,19 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import App from "./app/App.jsx";
 import { LanguageProvider } from "./context/LanguageContext.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <LanguageProvider>
-            <ThemeProvider>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
-            </ThemeProvider>
-        </LanguageProvider>
+        <AuthProvider>
+            <LanguageProvider>
+                <ThemeProvider>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </ThemeProvider>
+            </LanguageProvider>
+        </AuthProvider>
     </React.StrictMode>
 );

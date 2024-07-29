@@ -1,4 +1,5 @@
 .topbar__profile {
+    position: relative;
     width: 178px;
     height: auto;
     display: flex;
@@ -59,4 +60,69 @@
 .topbar__profile-icon>i[class^="fi"] {
     font-size: 18px;
     color: #858D9D;
+}
+
+.topbar__profile-icon>i[class$="up"] {
+    display: none;
+}
+
+.topbar__profile-dropdown {
+    position: absolute;
+    display: none;
+    top: 40px;
+    right: 0px;
+    width: 240px;
+    padding: 8px;
+}
+
+.topbar__profile:hover>.topbar__profile-dropdown,
+.topbar__profile:hover>.topbar__profile-icon>i[class$="up"] {
+    display: flex;
+}
+
+.topbar__profile:hover>.topbar__profile-icon>i[class$="down"] {
+    display: none;
+}
+
+.topbar__pd-list {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style-type: none;
+    background-color: #FFFFFF;
+    border: 1px solid #F0F1F3;
+    border-radius: 8px;
+    box-shadow: 0px 4px 30px 0px rgba(46, 45, 116, 0.05);
+    cursor: default;
+    padding: 12px;
+}
+
+.topbar__pd-item {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.topbar__pd-item:hover {
+    background-color: #F0F1F3;
+}
+
+.topbar__pd-item.logout,
+.topbar__pd-item.logout>.topbar__pd-item-name {
+    color: #EB3D4D !important;
+}
+
+.topbar__pd-item-name {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4A4C56;
 }

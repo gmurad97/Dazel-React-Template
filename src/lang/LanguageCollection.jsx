@@ -54,12 +54,6 @@ export const LanguageCollection = {
         "ru": "Скрыть меню",
         "az": "Menyunu Gizlət",
     },
-
-
-
-
-
-
     "error_404_title": {
         "en": "404 Not Found",
         "ru": "404 Не найдено",
