@@ -6,3 +6,7 @@
     padding: 24px;
     border-radius: 8px;
 }
+
+.stats_block canvas{
+    width: 100% !important; /*debug*/
+}

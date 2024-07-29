@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Logo.css";
 
 const Logo = ({ img, href, title, isCollapsed }) => {
@@ -8,14 +9,14 @@ const Logo = ({ img, href, title, isCollapsed }) => {
                     <img src={img} className="logo__img" alt="Logo Dark" />
                 </div>
             ) : (
-                <a href={href} className="logo__link">
+                <Link to={href} className="logo__link">
                     <div className="logo__img-container">
                         <img src={img} className="logo__img" alt="Logo Dark" />
                     </div>
                     <div className="logo__title-container">
                         <span className="logo__title">{title}</span>
                     </div>
-                </a>
+                </Link>
             )}
         </figure>
     );

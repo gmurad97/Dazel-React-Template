@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {
@@ -25,6 +25,8 @@ ChartJS.register(
 
 const Statistic = () => {
     const chartRef = useRef(null);
+
+    const[petlya, setPetlya] = useState(1);
 
     useEffect(() => {
         const chart = chartRef.current;
@@ -130,6 +132,7 @@ const Statistic = () => {
 
     return (
         <div className='stats_block'>
+            <button onClick={()=>setPetlya(prev=>prev+1)}>UPDATE COMPONENT FORCE(DEBUG)</button>
             <h2 className='stats_block__title'>Statistic</h2>
             <p className='stats_block__description'>Income and Expenses</p>
             <Bar ref={chartRef} data={data} options={options} />
