@@ -4,26 +4,31 @@ const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState({
-        is_logged: false
+        is_logged: true
     });
 
     const Login = (username, password) => {
+        let success = false;
         setAuth((prevData) => {
-            if (username === "admin" && password === "123")
+            if (username === "admin" && password === "123") {
+                success = true;
                 return { ...prevData, is_logged: true };
+            }
+            return prevData;
         });
+        return success;
     }
 
     const Logout = () => {
         setAuth((prevData) => {
-            if (prevData.is_logged)
+            if (prevData.is_logged) {
                 return { ...prevData, is_logged: false };
+            }
+            return prevData;
         });
     }
 
-    const isAuth = () => {
-        return auth?.is_logged;
-    }
+    const isAuth = auth.is_logged;
 
     return (
         <AuthContext.Provider value={{ isAuth, Login, Logout }}>

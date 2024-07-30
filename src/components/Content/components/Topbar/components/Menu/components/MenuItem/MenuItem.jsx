@@ -135,7 +135,7 @@ const BellItem = ({ badgeCount }) => {
                                 {!item.is_readed && (
                                     <div className="topbar__mbb-footer">
                                         <span className="topbar__mbb-check-icon">
-                                            <i class="fi fi-sr-check"></i>
+                                            <i className="fi fi-sr-check"></i>
                                             <span className="topbar__mbb-check-icon-text">Mark as Read</span>
                                         </span>
                                     </div>
@@ -145,12 +145,12 @@ const BellItem = ({ badgeCount }) => {
                     </div>
                     <div className="topbar__menu-bell-footer">
                         <span className="topbar__mbf-check-icon">
-                            <i class="fi fi-rr-list-check"></i>
+                            <i className="fi fi-rr-list-check"></i>
                             <span className="topbar__mbf-check-icon-text">Mark All as Read</span>
                         </span>
                         <span className="topbar__mbf-ar-icon">
                             <span className="topbar__mbf-ar-icon-text">See More</span>
-                            <i class="fi fi-rr-arrow-right"></i>
+                            <i className="fi fi-rr-arrow-right"></i>
                         </span>
                     </div>
                 </div>

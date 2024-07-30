@@ -1,8 +1,9 @@
 import "./Content.css";
 import { FilterProvider } from "../../context/FilterContext.jsx";
+import SectionContent from "../common/SectionContent/SectionContent.jsx";
+import SectionGrid from "../common/SectionGrid/SectionGrid.jsx";
 import BadgeCards from "./components/BadgeCards/BadgeCards.jsx";
 import Topbar from "./components/Topbar/Topbar.jsx";
-import SectionContent from "../common/SectionContent/SectionContent.jsx";
 import PageHeader from "./components/PageHeader/PageHeader.jsx";
 import SalesByLocation from "./components/SalesByLocation/SalesByLocation.jsx";
 import Target from "./components/Target/Target.jsx";
@@ -10,11 +11,14 @@ import TopSellingProduct from "./components/TopSellingProduct/TopSellingProduct.
 import RecentOrders from "./components/RecentOrders/RecentOrders.jsx";
 import Statistic from "./components/Statistic/Statistic.jsx";
 
-
 const Content = () => {
     return (
         <FilterProvider>
-            <section className="content">
+            <SectionGrid templateColumns={"1fr"}>
+                <Topbar />
+            </SectionGrid>
+
+            {/* <section className="content">
                 <section className="stab1__section">
                     <Topbar />
                 </section>
@@ -52,7 +56,7 @@ const Content = () => {
                 <SectionContent>
                     <Statistic />
                 </SectionContent>
-            </section>
+            </section> */}
         </FilterProvider>
     );
 }

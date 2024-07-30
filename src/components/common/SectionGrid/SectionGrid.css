@@ -1,0 +1,9 @@
+.section__grid {
+    width: 100%;
+    height: auto;
+    display: grid;
+}
+
+.section__grid:not(:first-of-type):not(:last-of-type) {
+    margin: 28px 0px;
+}

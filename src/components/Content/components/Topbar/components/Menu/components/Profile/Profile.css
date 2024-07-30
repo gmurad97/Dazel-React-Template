@@ -126,3 +126,41 @@
     line-height: 20px;
     color: #4A4C56;
 }
+
+.topbar__login-register {
+    width: max-content;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.topbar__login-link {
+    font-weight: 500;
+    font-size: 14px;
+    color: #4A4C56;
+    text-decoration: none;
+}
+
+.topbar__register-link {
+    font-weight: 500;
+    font-size: 14px;
+    color: #4A4C56;
+    text-decoration: none;
+}
+
+.topbar__login-link:hover {
+    color: #1D1F2C;
+}
+
+.topbar__register-link:hover {
+    color: #1D1F2C;
+}
+
+.topbar__login-register-divider {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1D1F2C;
+    margin: 0px 8px;
+}
