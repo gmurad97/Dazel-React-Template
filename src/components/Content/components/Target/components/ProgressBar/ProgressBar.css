@@ -13,9 +13,9 @@
     align-items: center;
 }
 
-.progress-bar__progress-value{
+.progress-bar__progress-value {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
     color: #1D1F2C;
     margin-bottom: 4px;
 }

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import "./MenuItem.css";
+import { LanguageContext } from "../../../../../../../../context/LanguageContext";
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -24,6 +26,8 @@ const CalendarItem = ({ badgeCount }) => {
 }
 
 const EnvelopeItem = ({ badgeCount }) => {
+    const { getTranslate } = useContext(LanguageContext);
+
     return (
         <div className="topbar__menu-item topbar__menu-item-envelope">
             <i className="fi fi-sr-envelope"></i>
@@ -32,19 +36,19 @@ const EnvelopeItem = ({ badgeCount }) => {
                 <div className="topbar__menu-envelope">
                     <ul className="topbar__me-list">
                         <li className="topbar__me-item">
-                            <span className="topbar__me-item-title">Chat</span>
+                            <span className="topbar__me-item-title">{getTranslate("topbar_menu_chat")}</span>
                             <span className="topbar__me-item-badge">99+</span>
                         </li>
                         <li className="topbar__me-item">
-                            <span className="topbar__me-item-title">Discussion</span>
+                            <span className="topbar__me-item-title">{getTranslate("topbar_menu_discussion")}</span>
                             <span className="topbar__me-item-badge">99+</span>
                         </li>
                         <li className="topbar__me-item">
-                            <span className="topbar__me-item-title">Reviews</span>
+                            <span className="topbar__me-item-title">{getTranslate("topbar_menu_reviews")}</span>
                             <span className="topbar__me-item-badge">0</span>
                         </li>
                         <li className="topbar__me-item">
-                            <span className="topbar__me-item-title">Support</span>
+                            <span className="topbar__me-item-title">{getTranslate("topbar_menu_support")}</span>
                             <span className="topbar__me-item-badge">0</span>
                         </li>
                     </ul>
@@ -54,14 +58,8 @@ const EnvelopeItem = ({ badgeCount }) => {
     );
 }
 
-
-
-
-
-
-
-
 const BellItem = ({ badgeCount }) => {
+    const { getTranslate } = useContext(LanguageContext);
 
     const notification_list = [
         {
@@ -69,30 +67,49 @@ const BellItem = ({ badgeCount }) => {
             "title": "New Order #30854",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
             "is_readed": false,
-            "timestamp": 1722279766,
+            "timestamp": Math.floor(Date.now() / 1000) - 32,
         },
         {
             "type": "Orders",
             "title": "New Order #30853",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
             "is_readed": true,
-            "timestamp": 1722271766,
+            "timestamp": Math.floor(Date.now() / 1000) - 256,
         },
         {
             "type": "Orders",
             "title": "New Order #30852",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
             "is_readed": false,
-            "timestamp": 1722272766,
+            "timestamp": Math.floor(Date.now() / 1000) - 25600,
         },
         {
             "type": "Stock",
             "title": "New Order #30854",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
             "is_readed": false,
-            "timestamp": 1722260766,
+            "timestamp": Math.floor(Date.now() / 1000) - 256000,
         },
-    ]
+    ];
+
+    function timeAgo(timestamp) {
+        const now = new Date();
+        const past = new Date(timestamp * 1000);
+        const diffInSeconds = Math.floor((now - past) / 1000);
+        const diffInMinutes = Math.floor(diffInSeconds / 60);
+        const diffInHours = Math.floor(diffInMinutes / 60);
+        const diffInDays = Math.floor(diffInHours / 24);
+
+        if (diffInSeconds < 60) {
+            return `${diffInSeconds} second${diffInSeconds !== 1 ? 's' : ''} ago`;
+        } else if (diffInMinutes < 60) {
+            return `${diffInMinutes} min${diffInMinutes !== 1 ? 's' : ''} ago`;
+        } else if (diffInHours < 24) {
+            return `${diffInHours} hour${diffInHours !== 1 ? 's' : ''} ago`;
+        } else {
+            return `${diffInDays} day${diffInDays !== 1 ? 's' : ''} ago`;
+        }
+    }
 
     return (
         <div className="topbar__menu-item topbar__menu-item-bell">
@@ -101,7 +118,7 @@ const BellItem = ({ badgeCount }) => {
             <div className="topbar__menu-dropdown-bell">
                 <div className="topbar__menu-bell">
                     <div className="topbar__menu-bell-header">
-                        <h1 className="topbar__mbh-title">Notification</h1>
+                        <h1 className="topbar__mbh-title">{getTranslate("topbar_menu_notification")}</h1>
                         <span className="topbar__mbh-settings">
                             <i className="fi fi-sr-settings"></i>
                         </span>
@@ -114,18 +131,18 @@ const BellItem = ({ badgeCount }) => {
                                         {item.type === "Stock" ? (
                                             <>
                                                 <i className="fi fi-sr-box"></i>
-                                                Stock
+                                                {getTranslate("topbar_menu_stock")}
                                             </>
                                         ) : (
                                             <>
                                                 <i className="fi fi-sr-shopping-cart"></i>
-                                                Orders
+                                                {getTranslate("topbar_menu_orders")}
                                             </>
                                         )}
                                     </span>
                                     <span className="topbar__mbb-clock-icon">
                                         <i className="fi fi-sr-clock"></i>
-                                        {Math.round((new Date() - new Date(item.timestamp * 1000)) / (1000 * 60))} min ago
+                                        {timeAgo(item.timestamp)}
                                     </span>
                                 </div>
                                 <div className="topbar__mbb-body">
@@ -136,7 +153,9 @@ const BellItem = ({ badgeCount }) => {
                                     <div className="topbar__mbb-footer">
                                         <span className="topbar__mbb-check-icon">
                                             <i className="fi fi-sr-check"></i>
-                                            <span className="topbar__mbb-check-icon-text">Mark as Read</span>
+                                            <span className="topbar__mbb-check-icon-text">
+                                                {getTranslate("topbar_menu_mark_as_read")}
+                                            </span>
                                         </span>
                                     </div>
                                 )}
@@ -146,10 +165,14 @@ const BellItem = ({ badgeCount }) => {
                     <div className="topbar__menu-bell-footer">
                         <span className="topbar__mbf-check-icon">
                             <i className="fi fi-rr-list-check"></i>
-                            <span className="topbar__mbf-check-icon-text">Mark All as Read</span>
+                            <span className="topbar__mbf-check-icon-text">
+                                {getTranslate("topbar_menu_mark_all_as_read")}
+                            </span>
                         </span>
                         <span className="topbar__mbf-ar-icon">
-                            <span className="topbar__mbf-ar-icon-text">See More</span>
+                            <span className="topbar__mbf-ar-icon-text">
+                                {getTranslate("topbar_menu_see_more")}
+                            </span>
                             <i className="fi fi-rr-arrow-right"></i>
                         </span>
                     </div>

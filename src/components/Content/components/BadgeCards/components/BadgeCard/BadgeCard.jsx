@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import "./BadgeCard.css";
+import { LanguageContext } from "../../../../../../context/LanguageContext.jsx";
 
 const BadgeCard = ({ item: { title, count, price, percentage, today, icon, icon_style } }) => {
+    const { getTranslate } = useContext(LanguageContext);
+
     return (
         <div className="badge-card">
             <div className="badge-card__container">
@@ -30,9 +34,9 @@ const BadgeCard = ({ item: { title, count, price, percentage, today, icon, icon_
                 </span>
                 <div className="badge-card__today">
                     {today >= 0 ? (
-                        "+" + today.toLocaleString("en-US") + " today"
+                        "+" + today.toLocaleString("en-US") + (price ? "$" : "") + " " + getTranslate("badge_card_today")
                     ) : (
-                        today.toLocaleString("en-US") + " today"
+                        today.toLocaleString("en-US") + (price ? "$" : "") + " " + getTranslate("badge_card_today")
                     )}
                 </div>
             </div>

@@ -336,6 +336,7 @@
     font-size: 14px;
     line-height: 20px;
     color: #3250FF;
+    cursor: pointer;
 }
 
 .topbar__mbf-check-icon>i[class^="fi"] {
@@ -356,6 +357,7 @@
     font-size: 14px;
     line-height: 20px;
     color: #3250FF;
+    cursor: pointer;
 }
 
 .topbar__mbf-ar-icon>i[class^="fi"] {

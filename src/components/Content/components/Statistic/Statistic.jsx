@@ -31,17 +31,21 @@ const Statistic = () => {
         const chart = chartRef.current;
 
         if (chart) {
+            // Создание градиента для первого набора данных
             const gradientBlue = chart.ctx.createLinearGradient(0, 0, 0, chart.height);
-            gradientBlue.addColorStop(0, '#2BB2FE');
-            gradientBlue.addColorStop(1, '#22CAAD');
-
+            gradientBlue.addColorStop(0, '#22CAAD'); // Начало градиента
+            gradientBlue.addColorStop(1, '#2BB2FE'); // Конец градиента
+            
+            // Создание градиента для второго набора данных
             const gradientOrange = chart.ctx.createLinearGradient(0, 0, 0, chart.height);
-            gradientOrange.addColorStop(0, '#F86624');
-            gradientOrange.addColorStop(1, '#F9C80E');
-
+            gradientOrange.addColorStop(0, '#F9C80E'); // Начало градиента
+            gradientOrange.addColorStop(1, '#F86624'); // Конец градиента
+            
+            // Применение градиентов к наборам данных
             chart.data.datasets[0].backgroundColor = gradientBlue;
             chart.data.datasets[1].backgroundColor = gradientOrange;
             chart.update();
+            
         }
     }, []);
 
@@ -49,18 +53,22 @@ const Statistic = () => {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
             {
-                label: 'Revenue',
+                label: 'Доход',
                 data: [400, 600, 200, 800, 1200, 400, 680, 300, 600, 800, 400, 500],
-                backgroundColor: '#00C8F8', // Will be overridden by gradient
+                backgroundColor: '#00C8F8', // Будет переопределён градиентом
                 borderRadius: 10,
                 borderSkipped: false,
+                barPercentage: 0.8, // Adjust width of bars
+                categoryPercentage: 0.6, // Adjust width of bars
             },
             {
-                label: 'Sales',
+                label: 'Продажи',
                 data: [200, 400, 300, 600, 800, 200, 280, 150, 400, 600, 300, 400],
-                backgroundColor: '#FFBE0B', // Will be overridden by gradient
+                backgroundColor: '#FFBE0B', // Будет переопределён градиентом
                 borderRadius: 10,
                 borderSkipped: false,
+                barPercentage: 0.8, // Adjust width of bars
+                categoryPercentage: 0.6, // Adjust width of bars
             },
         ],
     };
@@ -84,7 +92,8 @@ const Statistic = () => {
                                 lineWidth: 0,
                                 hidden: chart.getDatasetMeta(i).hidden,
                                 index: i,
-                                pointStyle: 'rectRounded', // Use 'rectRounded' for rounded rectangles
+                                pointStyle: 'circle', // Круглые иконки в легенде
+                                pointRadius: 10, // Размер иконки
                             };
                         });
                     },
@@ -114,6 +123,9 @@ const Statistic = () => {
                 grid: {
                     display: false,
                 },
+                // Настройки отступов
+                categoryPercentage: 0.8, // Отступ между барами в категории
+                barPercentage: 0.9, // Отступ между различными наборами данных
             },
             y: {
                 beginAtZero: true,
@@ -131,8 +143,8 @@ const Statistic = () => {
 
     return (
         <div className='stats_block'>
-            <h2 className='stats_block__title'>Statistic</h2>
-            <p className='stats_block__description'>Income and Expenses</p>
+            <h2 className='stats_block__title'>Статистика</h2>
+            <p className='stats_block__description'>Доход и расходы</p>
             <Bar ref={chartRef} data={data} options={options} />
         </div>
     );

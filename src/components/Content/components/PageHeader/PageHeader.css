@@ -7,7 +7,12 @@
     align-items: flex-end;
 }
 
-.page-header__welcome {}
+.page-header__welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 
 .page-header__welcome-title {
     font-weight: 500;
@@ -24,7 +29,12 @@
     color: #667085;
 }
 
-.page-header__filter-container {}
+.page-header__filter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 
 .page-header__filter {
     border: 1px solid #E0E2E7;
@@ -47,7 +57,7 @@
     cursor: pointer;
 }
 
-.page-header__filter-btn:hover{
+.page-header__filter-btn:hover {
     background-color: #F0F1F3;
     color: #1D1F2C;
 }

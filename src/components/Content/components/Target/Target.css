@@ -75,8 +75,7 @@
     justify-content: flex-start;
     align-items: center;
     font-weight: 700;
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 11px;
     color: #1A9882;
     margin-right: 4px;
 }
@@ -87,8 +86,7 @@
 
 .target__pbd-today {
     font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 11px;
     color: #858D9D;
 }
 

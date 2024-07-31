@@ -123,5 +123,213 @@ export const LanguageCollection = {
         "en": "Login",
         "ru": "Войти",
         "az": "Daxil ol",
-    }
+    },
+    "topbar_menu_chat": {
+        "en": "Chat",
+        "ru": "Чат",
+        "az": "Söhbət",
+    },
+    "topbar_menu_discussion": {
+        "en": "Discussion",
+        "ru": "Обсуждение",
+        "az": "Müzakirə",
+    },
+    "topbar_menu_reviews": {
+        "en": "Reviews",
+        "ru": "Отзывы",
+        "az": "Rəylər",
+    },
+    "topbar_menu_support": {
+        "en": "Support",
+        "ru": "Поддержка",
+        "az": "Dəstək",
+    },
+    "topbar_menu_notification": {
+        "en": "Notification",
+        "ru": "Уведомление",
+        "az": "Bildiriş",
+    },
+    "topbar_menu_stock": {
+        "en": "Stock",
+        "ru": "Склад",
+        "az": "Anbar",
+    },
+    "topbar_menu_orders": {
+        "en": "Orders",
+        "ru": "Заказы",
+        "az": "Sifarişlər",
+    },
+    "topbar_menu_mark_as_read": {
+        "en": "Mark as Read",
+        "ru": "Отметить как прочитанное",
+        "az": "Oxundu kimi işarələyin",
+    },
+    "topbar_menu_mark_all_as_read": {
+        "en": "Mark All as Read",
+        "ru": "Отметить все как прочитанное",
+        "az": "Hamısını oxundu kimi işarələyin",
+    },
+    "topbar_menu_see_more": {
+        "en": "See More",
+        "ru": "Посмотреть больше",
+        "az": "Daha çox bax",
+    },
+    "profile_profile": {
+        "en": "Profile",
+        "ru": "Профиль",
+        "az": "Profil",
+    },
+    "profile_setting": {
+        "en": "Setting",
+        "ru": "Настройки",
+        "az": "Tənzimləmə",
+    },
+    "profile_sign_out": {
+        "en": "Sign Out",
+        "ru": "Выйти",
+        "az": "Çıxış",
+    },
+    "profile_img_alt": {
+        "en": "Profile Img",
+        "ru": "Изображение профиля",
+        "az": "Profil Şəkli",
+    },
+    "search_placeholder": {
+        "en": "Search",
+        "ru": "Поиск",
+        "az": "Axtarış",
+    },
+    "page_header_welcome_title": {
+        "en": "Welcome Back",
+        "ru": "С возвращением",
+        "az": "Xoş gəldin",
+    },
+    "page_header_welcome_description_part1": {
+        "en": "Welcome back, ",
+        "ru": "С возвращением, ",
+        "az": "Xoş gəldin, ",
+    },
+    "page_header_welcome_description_part2": {
+        "en": "! Let's get started.",
+        "ru": "! Давайте начнем.",
+        "az": "! Başlayaq.",
+    },
+    "page_header_filter_all_date": {
+        "en": "All Date",
+        "ru": "Вся дата",
+        "az": "Bütün tarix",
+    },
+    "page_header_filter_12_months": {
+        "en": "12 Months",
+        "ru": "12 месяцев",
+        "az": "12 ay",
+    },
+    "page_header_filter_30_days": {
+        "en": "30 Days",
+        "ru": "30 дней",
+        "az": "30 gün",
+    },
+    "page_header_filter_7_days": {
+        "en": "7 Days",
+        "ru": "7 дней",
+        "az": "7 gün",
+    },
+    "page_header_filter_24_hour": {
+        "en": "24 Hour",
+        "ru": "24 часа",
+        "az": "24 saat",
+    },
+    "badge_card_total_revenue": {
+        "en": "Total Revenue",
+        "ru": "Общая выручка",
+        "az": "Ümumi gəlir",
+    },
+    "badge_card_total_order": {
+        "en": "Total Order",
+        "ru": "Общее количество заказов",
+        "az": "Ümumi sifariş",
+    },
+    "badge_card_total_customer": {
+        "en": "Total Customer",
+        "ru": "Общее количество клиентов",
+        "az": "Ümumi müştəri",
+    },
+    "badge_card_total_product": {
+        "en": "Total Product",
+        "ru": "Общее количество продуктов",
+        "az": "Ümumi məhsul",
+    },
+    "badge_card_today": {
+        "en": "today",
+        "ru": "сегодня",
+        "az": "bu gün",
+    },
+    "target_title": {
+        "en": "Target",
+        "ru": "Цель",
+        "az": "Hədəf",
+    },
+    "target_description": {
+        "en": "Revenue Target",
+        "ru": "Цель по выручке",
+        "az": "Gəlir hədəfi",
+    },
+    "target_progress_today": {
+        "en": "Today",
+        "ru": "Сегодня",
+        "az": "Bu gün",
+    },
+    "target_detail_today_part1": {
+        "en": "You earned",
+        "ru": "Вы заработали",
+        "az": "Siz qazandınız",
+    },
+    "target_detail_today_part2": {
+        "en": "more today than yesterday",
+        "ru": "больше сегодня, чем вчера",
+        "az": "bu gün dünəndən daha çox",
+    },
+    "target_statistic_target": {
+        "en": "Target",
+        "ru": "Цель",
+        "az": "Hədəf",
+    },
+    "target_statistic_revenue": {
+        "en": "Revenue",
+        "ru": "Выручка",
+        "az": "Gəlir",
+    },
+    "target_statistic_this_week": {
+        "en": "This Week",
+        "ru": "На этой неделе",
+        "az": "Bu həftə",
+    },
+    "target_statistic_value_plus": {
+        "en": "Above Target",
+        "ru": "Выше цели",
+        "az": "Hədəfdən yuxarı",
+    },
+    "target_statistic_value_minus": {
+        "en": "Below Target",
+        "ru": "Ниже цели",
+        "az": "Hədəfdən aşağı",
+    },
+    "target_statistic_value_week": {
+        "en": "This Week's Earnings",
+        "ru": "Заработок этой недели",
+        "az": "Bu həftənin qazancı",
+    },
+
+
+
+
+
+
+
+    
+
+
+
+
+
 };

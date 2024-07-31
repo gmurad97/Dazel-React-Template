@@ -47,8 +47,6 @@ const ProgressBar = ({ progress, strokeWidth, children }) => {
                     {children}
                 </div>
             </foreignObject>
-
-
         </svg>
     );
 }
