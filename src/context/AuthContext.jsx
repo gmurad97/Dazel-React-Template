@@ -1,37 +1,52 @@
-import { useState, createContext } from "react";
+import { useState, useContext, createContext } from "react";
+import { LanguageContext } from "./LanguageContext.jsx";
+import ProfileImage from "./assets/img/profile_img.png";
 
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState({
-        is_logged: true
+    const { getTranslate } = useContext(LanguageContext);
+
+    const [authData, setAuthData] = useState({
+        isLogged: true, // WARNING! This is fake Auth...
+        userData: {
+            firstName: "Jay",
+            lastName: "Hargudson",
+            position: "Manager",
+            profileImg: ProfileImage,
+            isOnline: true,
+        },
+        error: null
     });
 
     const Login = (username, password) => {
-        let success = false;
-        setAuth((prevData) => {
-            if (username === "admin" && password === "123") {
-                success = true;
-                return { ...prevData, is_logged: true };
+        setAuthData((prevData) => {
+            if (username === "root" && password === "123") {
+                return { ...prevData, isLogged: true };
             }
-            return prevData;
+            else if (!username || !password) {
+                return { ...prevData, isLogged: false, error: getTranslate("auth_empty_credentials") };
+            }
+            else {
+                return { ...prevData, isLogged: false, error: getTranslate("auth_incorrect_credentials") };
+            }
         });
-        return success;
     }
 
     const Logout = () => {
-        setAuth((prevData) => {
-            if (prevData.is_logged) {
-                return { ...prevData, is_logged: false };
-            }
-            return prevData;
-        });
+        setAuthData((prevData) => {
+            if (prevData.isLogged)
+                return { ...prevData, isLogged: false, error: null }
+            return { ...prevData };
+        })
     }
 
-    const isAuth = auth.is_logged;
+    const isAuth = authData.isLogged;
+    const userData = authData.userData;
+    const Error = authData.error;
 
     return (
-        <AuthContext.Provider value={{ isAuth, Login, Logout }}>
+        <AuthContext.Provider value={{ Login, Logout, isAuth, userData, Error }}>
             {children}
         </AuthContext.Provider>
     );

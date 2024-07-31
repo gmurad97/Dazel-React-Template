@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Box, Avatar, Typography } from '@mui/material';
 import './RecentOrders.css';
 
-const columns = [
+const columns = (handleDelete) => [
     {
         field: 'orderId',
         headerName: 'Order ID',
@@ -77,14 +77,14 @@ const columns = [
         sortable: false,
         renderCell: (params) => (
             <Box display="flex" alignItems="center">
-                <span className='fi fi-rr-eye'></span>
-                <span className='fi fi-rr-trash'></span>
+                <span className='fi fi-rr-eye' style={{ marginRight: 8 }}></span>
+                <span className='fi fi-rr-trash' onClick={() => handleDelete(params.id)} style={{ cursor: 'pointer' }}></span>
             </Box>
         )
     },
 ];
 
-const rows = [
+const initialRows = [
     {
         id: 1,
         orderId: '#302012',
@@ -208,6 +208,12 @@ const rows = [
 ];
 
 const RecentOrders = () => {
+    const [rows, setRows] = useState(initialRows);
+
+    const handleDelete = (id) => {
+        setRows(rows.filter((row) => row.id !== id));
+    };
+
     return (
         <>
             <div className="top-selling-product-via" style={{ width: '100%' }}>
@@ -217,13 +223,13 @@ const RecentOrders = () => {
                     </h1>
                     <div className="tsp-filter">
                         <button className='btn tsp-filter-btn'>
-                            <i class="fi fi-rs-settings-sliders"></i>Filter</button>
+                            <i className="fi fi-rs-settings-sliders"></i>Filter</button>
                         <button className='btn tsp-more-btn'>See more</button>
                     </div>
                 </div>
                 <DataGrid
                     rows={rows}
-                    columns={columns}
+                    columns={columns(handleDelete)}
                     disableColumnMenu
                     hideFooterSelectedRowCount
                     autoHeight

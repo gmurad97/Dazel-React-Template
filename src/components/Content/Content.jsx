@@ -17,47 +17,24 @@ const Content = () => {
             <SectionGrid templateColumns={"1fr"}>
                 <Topbar />
             </SectionGrid>
-
-            {/* <section className="content">
-                <section className="stab1__section">
-                    <Topbar />
-                </section>
-
-                <section className="stab2__section">
-                    <PageHeader />
-                </section>
-
-                <section className="stab3__section">
-                    <BadgeCards />
-                </section>
-
-                <section className="stab4__section">
-                    <div className="stab4_1__section">
-                        <Target />
-                    </div>
-                    <div className="stab4_2__section">
-                        <Statistic />
-                    </div>
-                </section>
-
-
-                <section className="stab5__section">
-                    <div className="stab5_1__section">
-                        <TopSellingProduct />
-                    </div>
-                    <div className="stab5_2__section">
-                        <SalesByLocation />
-                    </div>
-                </section>
-
-                <section className="stab6__section">
-                    <RecentOrders />
-                </section>
-                <SectionContent>
-                    <Statistic />
-                </SectionContent>
-            </section> */}
-        </FilterProvider>
+            <SectionGrid templateColumns={"1fr"}>
+                <PageHeader />
+            </SectionGrid>
+            <SectionGrid templateColumns={"1fr"}>
+                <BadgeCards />
+            </SectionGrid>
+            <SectionGrid templateColumns={"1fr 2fr"}>
+                <Target />
+                <Statistic />
+            </SectionGrid>
+            <SectionGrid templateColumns={"1fr 2fr"}>
+                <TopSellingProduct />
+                <SalesByLocation />
+            </SectionGrid>
+            <SectionGrid templateColumns={"1fr"}>
+                <RecentOrders />
+            </SectionGrid>
+        </FilterProvider >
     );
 }
 

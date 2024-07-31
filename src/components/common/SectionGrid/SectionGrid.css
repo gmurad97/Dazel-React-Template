@@ -2,8 +2,9 @@
     width: 100%;
     height: auto;
     display: grid;
+    gap: 24px;
 }
 
-.section__grid:not(:first-of-type):not(:last-of-type) {
-    margin: 28px 0px;
+.section__grid:not(:first-of-type) {
+    margin-top: 28px;
 }

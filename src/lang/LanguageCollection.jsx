@@ -83,5 +83,45 @@ export const LanguageCollection = {
         "en": "We’re sorry, but something went wrong. Please try again later.",
         "ru": "Извините, но что-то пошло не так. Пожалуйста, попробуйте позже.",
         "az": "Üzr istəyirik, amma nəsə səhv oldu. Zəhmət olmasa, bir az sonra yenidən cəhd edin.",
+    },
+    "auth_incorrect_credentials": {
+        "en": "Incorrect username or password.",
+        "ru": "Неверное имя пользователя или пароль.",
+        "az": "İstifadəçi adı və ya şifrə səhvdir.",
+    },
+    "auth_empty_credentials": {
+        "en": "Username or password cannot be empty.",
+        "ru": "Имя пользователя или пароль не могут быть пустыми.",
+        "az": "İstifadəçi adı və ya şifrə boş ola bilməz.",
+    },
+    "login_heading": {
+        "en": "Authorization",
+        "ru": "Авторизация",
+        "az": "Avtorizasiya",
+    },
+    "login_label": {
+        "en": "Login:",
+        "ru": "Логин:",
+        "az": "Login:",
+    },
+    "password_label": {
+        "en": "Password:",
+        "ru": "Пароль:",
+        "az": "Şifrə:",
+    },
+    "login_placeholder": {
+        "en": "Enter login...",
+        "ru": "Введите логин...",
+        "az": "Logini daxil edin...",
+    },
+    "password_placeholder": {
+        "en": "Enter password...",
+        "ru": "Введите пароль...",
+        "az": "Şifrənizi daxil edin...",
+    },
+    "login_button": {
+        "en": "Login",
+        "ru": "Войти",
+        "az": "Daxil ol",
     }
 };

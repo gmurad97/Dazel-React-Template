@@ -7,18 +7,20 @@ import BlankPage from "../pages/BlankPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import LoginPage from "../pages/LoginPage.jsx";
 
-const App = () => {
+const AuthorizedRoute = ({ component }) => {
     const { isAuth } = useContext(AuthContext);
+    return isAuth ? component : <Navigate to="/login" replace />
+}
 
+const App = () => {
     return (
         <Routes>
             <Route path="/" element={<MainLayout />}>
                 <Route path="login" element={<LoginPage />} />
-                <Route index element={isAuth ? <DashboardPage /> : <Navigate to="/login" replace />} />
-                <Route path="dashboard" element={isAuth ? <DashboardPage /> : <Navigate to="/login" replace />} />
-                <Route path="blank" element={isAuth ? <BlankPage /> : <Navigate to="/login" replace />} />
-                <Route path="*" element={isAuth ? <NotFoundPage /> : <Navigate to="/login" replace />} />
-                <Route />
+                <Route index element={<AuthorizedRoute component={<DashboardPage />} />} />
+                <Route path="dashboard" element={<AuthorizedRoute component={<DashboardPage />} />} />
+                <Route path="blank" element={<AuthorizedRoute component={<BlankPage />} />} />
+                <Route path="*" element={<AuthorizedRoute component={<NotFoundPage />} />} />
             </Route>
         </Routes>
     );
