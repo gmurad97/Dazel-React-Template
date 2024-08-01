@@ -1,10 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Error.css";
 import { LanguageContext } from "../../context/LanguageContext";
 
 const Error = ({ errorCode }) => {
     const { getTranslate } = useContext(LanguageContext);
+
+    useEffect(()=>{
+        fetch("http://localhost:5000/api/status",{
+            method: "GET",
+        }).then((response)=>{
+            return response.json();
+        }).then((json)=>{
+            console.log(json) // express js server api/status object 
+            console.log(json.health_checks.api)// worked! :)
+        })
+    },[]);
+
 
     if (errorCode === 404) {
         return (
