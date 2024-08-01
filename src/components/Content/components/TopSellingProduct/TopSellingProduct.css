@@ -1,10 +1,160 @@
+.tsp__cell-avatar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tsp__cell-avatar .MuiAvatar-root {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    margin-right: 8px;
+    overflow: hidden;
+}
+
+.tsp__cell-typograpghy>p:nth-of-type(1) {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1D1F2C;
+}
+
+
+.tsp__cell-typograpghy>p:nth-of-type(2) {
+    font-weight: 500;
+    font-size: 12px;
+    color: #667085;
+}
+
+.MuiDataGrid-row {
+    margin: 12px 0px;
+}
+
+.MuiDataGrid-columnHeader {
+    background-color: #F9F9FC !important;
+    font-weight: 500;
+    font-size: 14px;
+    color: #4A4C56;
+}
+
+.tsp__stock-count {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.tsp__stock-count.low {
+    background-color: #FFF0EA;
+    color: #F86624;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.tsp__stock-count.published {
+    background-color: #E9FAF7;
+    color: #1A9882;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.MuiPaginationItem-root {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #F0F1F3;
+    border-radius: 8px !important;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D1F2C;
+    padding: 6px;
+}
+
+.MuiPaginationItem-previousNext {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #F0F1F3;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D1F2C;
+    padding: 6px;
+}
+
+.MuiPaginationItem-previousNext {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #F0F1F3 !important;
+    border-radius: 8px !important;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D1F2C;
+    padding: 6px;
+}
+
+.MuiDataGrid-cell{
+    border: none !important;
+}
+
 .top-selling-product {
     width: 100%;
     height: 100%;
+    max-height: 598px;
     border: 1px solid #E0E2E7;
     border-radius: 8px;
     padding: 20px 24px;
     background-color: white;
+}
+
+.tsp-heading {}
+
+.tsp-title {}
+
+.tsp-badges {}
+
+.tsp-filter {}
+
+.btn {}
+
+.tsp-date-btn {}
+
+.tsp-filter-btn {}
+
+.tsp-more-btn {}
+
+.data-grid-container {}
+
+.pagination-block {}
+
+.pagination-left {}
+
+
+
+
+
+
+
+
+
+
+
+.data-grid-container {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    max-height: calc(100% - 100px);
+    /* Вычислите высоту с учетом других элементов, например, заголовка и кнопок */
+    overflow: auto;
+}
+
+.MuiDataGrid-row {}
+
+.data-grid-root {
+    width: 500px;
+    height: auto;
+
+    display: flex;
+}
+
+.MuiDataGrid-root {
+    border-radius: 0px !important;
 }
 
 .btn {
@@ -49,92 +199,30 @@
     align-items: center;
 }
 
-.tsp-date-btn {
-    margin-right: 16px;
-}
-
-.tsp-filter-btn {
-    /* Ваши стили здесь */
-}
-
-.tsp-more-btn {
-    background-color: #1D1F2C;
-    color: #FFFFFF;
-    margin-left: 8px;
-}
-
-.pagination-block {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
-}
-
-.pagination-left {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.pagination-right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.pagination-btn {
-    width: 32px;
-    height: 32px;
-    border: 1px solid #F0F1F3;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #1D1F2C;
-    padding: 6px;
-}
-
-.pagination-btn:not(:last-of-type) {
-    margin-right: 8px;
-}
-
-.pagination-btn.active{
-    background-color: #1D1F2C;
-    color: #FFFFFF;
-}
-
-.fi.fi-rr-caret-left {
-    /* Ваши стили здесь */
-}
-
-.fi.fi-rr-caret-right {
-    /* Ваши стили здесь */
-}
 
 
 
 
 
-
-/* TopSellingProduct.css */
 
 /* Убираем рамки вокруг таблицы */
 .css-14mxsc7-MuiDataGrid-root {
-    border: none !important; /* Убираем border */
+    border: none !important;
+    /* Убираем border */
 }
+
 
 /* Убираем горизонтальные полоски в таблице */
 .data-grid-root .MuiDataGrid-cell {
-    border-bottom: none !important; /* Убираем горизонтальные полоски */
+    border-bottom: none !important;
+    /* Убираем горизонтальные полоски */
 }
 
 /* Убираем вертикальные полоски */
-.data-grid-root .MuiDataGrid-columnSeparator {
-    display: none !important; /* Убираем вертикальные разделители между столбцами */
+.data-grid-root .MuiDataGrid-columnSeparator,
+.MuiDataGrid-filler {
+    display: none !important;
+    /* Убираем вертикальные разделители между столбцами */
 }
 
 /* Убираем синюю обводку при фокусе */
@@ -151,17 +239,13 @@
 
 /* Убираем цвет рамки строк */
 .data-grid-root .MuiDataGrid-row {
-    border: none !important; /* Убираем обводку строк */
+    border: none !important;
+    /* Убираем обводку строк */
 }
 
-/* Устанавливаем цвет фона заголовка таблицы */
-.data-grid-root .MuiDataGrid-columnHeader {
-    background-color: rgba(0, 0, 0, 0.36) !important;
-}
 
-.data-grid-root .MuiDataGrid-columnHeaderTitle {
-    color: #fff !important;
-}
+
+
 
 /* Стили для пагинации */
 .pagination-block {

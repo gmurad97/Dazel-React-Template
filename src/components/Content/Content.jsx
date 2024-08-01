@@ -27,7 +27,7 @@ const Content = () => {
                 <Target />
                 <Statistic />
             </SectionGrid>
-            <SectionGrid templateColumns={"1fr 2fr"}>
+            <SectionGrid templateColumns={"2fr 1fr"}>
                 <TopSellingProduct />
                 <SalesByLocation />
             </SectionGrid>

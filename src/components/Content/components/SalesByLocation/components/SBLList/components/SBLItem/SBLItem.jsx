@@ -1,15 +1,19 @@
+import { useContext } from "react";
 import "./SBLItem.css";
+import { LanguageContext } from "../../../../../../../../context/LanguageContext.jsx";
 
 const SBLItem = ({ item: { country, img, sales, revenue, percentage } }) => {
+    const { getTranslate } = useContext(LanguageContext);
+
     return (
         <li className="sbl__item">
             <div className="sbl__flag-sales">
                 <div className="sbl__flag">
-                    <img src={img} className="sbl__flag-img" alt="Spain Flag" />
+                    <img src={img} className="sbl__flag-img" alt={country} />
                 </div>
                 <div className="sbl__location-sales">
                     <span className="sbl__location">{country}</span>
-                    <span className="sbl__sales">{sales} Sales</span>
+                    <span className="sbl__sales">{sales} {getTranslate("sbl_sales_label")}</span>
                 </div>
             </div>
             <div className="sbl__details">

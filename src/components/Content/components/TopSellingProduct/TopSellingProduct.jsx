@@ -1,21 +1,22 @@
-import { DataGrid } from '@mui/x-data-grid';
-import { Box, Avatar, Typography } from '@mui/material';
+import { useState } from "react";
 import "./TopSellingProduct.css";
+import { DataGrid } from "@mui/x-data-grid";
+import { Box, Avatar, Typography, Pagination } from "@mui/material";
 
 const columns = [
     {
-        field: 'image',
-        headerName: 'Product',
+        field: "image",
+        headerName: "Product",
         width: 200,
-        sortable: false,
+        sortable: true,
         renderCell: (params) => (
-            <Box display="flex" alignItems="center" height="100%">
-                <Avatar src={params.value} alt="product" style={{ marginRight: 8, width: 40, height: 40 }} />
-                <Box display="flex" flexDirection="column" justifyContent="center">
-                    <Typography variant="body2" style={{ marginBottom: 4 }}>
+            <Box className="tsp__cell-avatar">
+                <Avatar src={params.value} alt="product" />
+                <Box className="tsp__cell-typograpghy">
+                    <Typography>
                         {params.row.productName}
                     </Typography>
-                    <Typography variant="caption" color="textSecondary">
+                    <Typography>
                         SKU: {params.row.sku}
                     </Typography>
                 </Box>
@@ -23,37 +24,37 @@ const columns = [
         ),
     },
     {
-        field: 'sales',
-        headerName: 'Sales',
-        width: 100,
+        field: "sales",
+        headerName: "Sales",
+        flex: 1,
         renderHeader: () => <span>Sales</span>,
     },
     {
-        field: 'amount',
-        headerName: 'Amount',
-        width: 120,
+        field: "amount",
+        headerName: "Amount",
+        flex: 1,
         renderHeader: () => <span>Amount</span>,
     },
     {
-        field: 'price',
-        headerName: 'Price',
-        width: 100,
+        field: "price",
+        headerName: "Price",
+        flex: 1,
         renderHeader: () => <span>Price</span>,
     },
     {
-        field: 'status',
-        headerName: 'Status',
-        width: 120,
+        field: "status",
+        headerName: "Status",
+        flex: 1,
         renderHeader: () => <span>Status</span>,
         renderCell: (params) => (
-            <Box
-                component="span"
-                sx={{
-                    color: params.value === 'Low Stock' ? 'red' : 'green',
-                    fontWeight: 'bold',
-                }}
-            >
-                {params.value}
+            <Box>
+                <span className={`tsp__stock-count 
+                    ${params.value.toLowerCase().includes("low")
+                        ? "low"
+                        : "published"}`}
+                >
+                    {params.value}
+                </span>
             </Box>
         ),
     },
@@ -62,97 +63,214 @@ const columns = [
 const rows = [
     {
         id: 1,
-        image: 'https://via.placeholder.com/40',
-        productName: 'Handmade Pouch',
-        sku: '302012',
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
         sales: 401,
-        amount: '$84,611',
-        price: '$121.00',
-        status: 'Low Stock',
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
     },
     {
-        id: 2,
-        image: 'https://via.placeholder.com/40',
-        productName: 'Smartwatch E2',
-        sku: '302012',
+        id: 6571,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 898431,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 76571,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 6571,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 5461,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 531,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 3134,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 2121,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 1122,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 111,
+        image: "https://via.placeholder.com/40",
+        productName: "Handmade Pouch",
+        sku: "302012",
+        sales: 401,
+        amount: "$84,611",
+        price: "$121.00",
+        status: "Low Stock",
+    },
+    {
+        id: 112,
+        image: "https://via.placeholder.com/40",
+        productName: "Smartwatch E2",
+        sku: "302012",
         sales: 301,
-        amount: '$177,000',
-        price: '$590.00',
-        status: 'Published',
+        amount: "$177,000",
+        price: "$590.00",
+        status: "Published",
     },
     {
-        id: 3,
-        image: 'https://via.placeholder.com/40',
-        productName: 'Smartwatch E1',
-        sku: '302012',
+        id: 9,
+        image: "https://via.placeholder.com/40",
+        productName: "Smartwatch E1",
+        sku: "302012",
         sales: 300,
-        amount: '$37,500',
-        price: '$125.00',
-        status: 'Low Stock',
+        amount: "$37,500",
+        price: "$125.00",
+        status: "Low Stock",
     },
     {
-        id: 4,
-        image: 'https://via.placeholder.com/40',
-        productName: 'Headphone G1 Pro',
-        sku: '302012',
+        id: 123213,
+        image: "https://via.placeholder.com/40",
+        productName: "Headphone G1 Pro",
+        sku: "302012",
         sales: 298,
-        amount: '$103,704',
-        price: '$348.00',
-        status: 'Published',
+        amount: "$103,704",
+        price: "$348.00",
+        status: "Published",
     },
     {
-        id: 5,
-        image: 'https://via.placeholder.com/40',
-        productName: 'Iphone X',
-        sku: '302012',
+        id: 12132213,
+        image: "https://via.placeholder.com/40",
+        productName: "Iphone X",
+        sku: "302012",
         sales: 256,
-        amount: '$150,000',
-        price: '$607.00',
-        status: 'Published',
-    },
+        amount: "$150,000",
+        price: "$607.00",
+        status: "Published",
+    }
 ];
 
+
+
 const TopSellingProduct = () => {
+    const [page, setPage] = useState(1);
+    const rowsPerPage = 3;
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+    const handlePageChange = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const paginatedRows = rows.slice((page - 1) * rowsPerPage, page * rowsPerPage);
+
+    console.log("Page:", page);
+    console.log("Paginated rows:", paginatedRows);
+    console.log("Total rows:", rows.length);
+
     return (
-        <>
-            <div className="top-selling-product" style={{ width: '100%' }}>
-                <div className="tsp-heading">
-                    <h1 className='tsp-title'>Top Selling Product
-                        <span className='tsp-badges'>Badge</span>
-                    </h1>
-                    <div className="tsp-filter">
-                        <button className='btn tsp-date-btn'>
-                            <i className='fi fi-sr-calendar'></i>
-                            Select Date</button>
-                        <button className='btn tsp-filter-btn'>
-                            <i className="fi fi-rs-settings-sliders"></i>Filter</button>
-                        <button className='btn tsp-more-btn'>See more</button>
-                    </div>
+        <div className="top-selling-product">
+            <div className="tsp-heading">
+                <h1 className="tsp-title">Top Selling Product
+                    <span className="tsp-badges">Badge</span>
+                </h1>
+                <div className="tsp-filter">
+                    <button className="btn tsp-date-btn">
+                        <i className="fi fi-sr-calendar"></i>
+                        Select Date
+                    </button>
+                    <button className="btn tsp-filter-btn">
+                        <i class="fi fi-sr-settings-sliders"></i>
+                        Filter
+                    </button>
+                    <button className="btn tsp-more-btn">See more</button>
                 </div>
+            </div>
+            <div className="data-grid-container">
                 <DataGrid
-                    rows={rows}
+                    rows={paginatedRows}
                     columns={columns}
                     disableColumnMenu
                     hideFooterSelectedRowCount
-                    autoHeight
                     disableSelectionOnClick
                     hideFooterPagination={true}
                     hideFooter={true}
                     disableColumnResize={true}
-                    classes={{ root: 'data-grid-root' }}
                 />
-                <div className="pagination-block">
-                    <h1 className='pagination-left'>Showing 1-5 from 15</h1>
-                    <div className="pagination-right">
-                        <button className='pagination-btn'><i className='fi fi-rr-caret-left'></i></button>
-                        <button className='pagination-btn active'>1</button>
-                        <button className='pagination-btn'>2</button>
-                        <button className='pagination-btn'>3</button>
-                        <button className='pagination-btn'><i className='fi fi-rr-caret-right'></i></button>
-                    </div>
-                </div>
             </div>
-        </>
+            <div className="pagination-block">
+                <h1 className="pagination-left">
+                    Showing {((page - 1) * rowsPerPage) + 1}-{Math.min(page * rowsPerPage, rows.length)} from {rows.length}
+                </h1>
+                <Pagination
+                    count={totalPages}
+                    page={page}
+                    onChange={handlePageChange}
+                />
+            </div>
+        </div>
     );
 }
 

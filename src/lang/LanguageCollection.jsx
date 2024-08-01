@@ -319,6 +319,148 @@ export const LanguageCollection = {
         "ru": "Заработок этой недели",
         "az": "Bu həftənin qazancı",
     },
+    "stats_block_title": {
+        "en": "Statistic",
+        "ru": "Статистика",
+        "az": "Statistika",
+    },
+    "stats_block_description": {
+        "en": "Income and Expenses",
+        "ru": "Доходы и расходы",
+        "az": "Gəlir və xərclər",
+    },
+
+    "dataset_labels_revenue": {
+        "en": "Revenue",
+        "ru": "Доход",
+        "az": "Gəlir",
+    },
+    "dataset_labels_sales": {
+        "en": "Sales",
+        "ru": "Продажи",
+        "az": "Satışlar",
+    },
+    "month_labels_jan": {
+        "en": "Jan",
+        "ru": "Янв",
+        "az": "Yan",
+    },
+    "month_labels_feb": {
+        "en": "Feb",
+        "ru": "Фев",
+        "az": "Fev",
+    },
+    "month_labels_mar": {
+        "en": "Mar",
+        "ru": "Мар",
+        "az": "Mar",
+    },
+    "month_labels_apr": {
+        "en": "Apr",
+        "ru": "Апр",
+        "az": "Apr",
+    },
+    "month_labels_may": {
+        "en": "May",
+        "ru": "Май",
+        "az": "May",
+    },
+    "month_labels_jun": {
+        "en": "Jun",
+        "ru": "Июн",
+        "az": "İyun",
+    },
+    "month_labels_jul": {
+        "en": "Jul",
+        "ru": "Июл",
+        "az": "İyul",
+    },
+    "month_labels_aug": {
+        "en": "Aug",
+        "ru": "Авг",
+        "az": "Avq",
+    },
+    "month_labels_sep": {
+        "en": "Sep",
+        "ru": "Сен",
+        "az": "Sen",
+    },
+    "month_labels_oct": {
+        "en": "Oct",
+        "ru": "Окт",
+        "az": "Okt",
+    },
+    "month_labels_nov": {
+        "en": "Nov",
+        "ru": "Ноя",
+        "az": "Noy",
+    },
+    "month_labels_dec": {
+        "en": "Dec",
+        "ru": "Дек",
+        "az": "Dek",
+    },
+    "sbl_header_title": {
+        "en": "Sales by Location",
+        "ru": "Продажи по регионам",
+        "az": "Satışlar bölgələr üzrə",
+    },
+    "sbl_header_description": {
+        "en": "Sales performance by location",
+        "ru": "Эффективность продаж по регионам",
+        "az": "Satış performansı bölgələr üzrə",
+    },
+    "sales_location_uk": {
+        "en": "United Kingdom",
+        "ru": "Великобритания",
+        "az": "Birləşmiş Krallıq",
+    },
+    "sales_location_spain": {
+        "en": "Spain",
+        "ru": "Испания",
+        "az": "İspaniya",
+    },
+    "sales_location_indonesia": {
+        "en": "Indonesia",
+        "ru": "Индонезия",
+        "az": "İndoneziya",
+    },
+    "sales_location_france": {
+        "en": "France",
+        "ru": "Франция",
+        "az": "Fransa",
+    },
+    "sales_location_germany": {
+        "en": "Germany",
+        "ru": "Германия",
+        "az": "Almaniya",
+    },
+    "sales_location_uae": {
+        "en": "United Arab Emirates",
+        "ru": "Объединенные Арабские Эмираты",
+        "az": "Birləşmiş Ərəb Əmirlikləri",
+    },
+    "sales_location_turkey": {
+        "en": "Turkey",
+        "ru": "Турция",
+        "az": "Türkiyə",
+    },
+    "sales_location_usa": {
+        "en": "United States",
+        "ru": "США",
+        "az": "ABŞ",
+    },
+    "sales_location_japan": {
+        "en": "Japan",
+        "ru": "Япония",
+        "az": "Yaponiya",
+    },
+    "sbl_sales_label": {
+        "en": "Sales",
+        "ru": "Продажи",
+        "az": "Satışlar",
+    },
+
 
 
 
@@ -327,9 +469,4 @@ export const LanguageCollection = {
 
 
     
-
-
-
-
-
 };
