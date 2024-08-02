@@ -65,20 +65,3 @@ const MenuItem = ({ icon, href, dropdown, isCollapsed, isExpanded, onToggle, chi
 }
 
 export default MenuItem;
-
-
-
-
-
-
-
-
-
-
-/* const handleClick = (event) => {
-    if (dropdown.length) {
-        event.preventDefault();
-        onToggle();
-    }
-}; */
-

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { LanguageContext } from "../../../../context/LanguageContext.jsx";
 import "./HideButton.css";
+import { LanguageContext } from "../../../../context/LanguageContext.jsx";
 
 const HideButton = ({ isCollapsed, onClick }) => {
     const { getTranslate } = useContext(LanguageContext);

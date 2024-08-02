@@ -1,19 +1,21 @@
 import { useContext } from "react";
+import dayjs from "dayjs";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import "./MenuItem.css";
 import { LanguageContext } from "../../../../../../../../context/LanguageContext";
-import dayjs from 'dayjs';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 
 const CalendarItem = ({ badgeCount }) => {
+    const { currentLanguage } = useContext(LanguageContext);
+
     return (
         <div className="topbar__menu-item topbar__menu-item-calendar">
             <i className="fi fi-sr-calendar"></i>
             {badgeCount > 0 && <span className="topbar__menu-badge">{badgeCount}</span>}
             <div className="topbar__menu-dropdown-calendar">
                 <div className="topbar__menu-calendar">
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={currentLanguage}>
                         <DateCalendar
                             value={dayjs()}
                             views={["year", "month", "day"]}
@@ -25,31 +27,57 @@ const CalendarItem = ({ badgeCount }) => {
     );
 }
 
-const EnvelopeItem = ({ badgeCount }) => {
+const EnvelopeItem = ({ envelopeData }) => {
     const { getTranslate } = useContext(LanguageContext);
+
+    const totalCount = envelopeData?.total_count;
+    const chat = envelopeData?.data?.chat;
+    const discussion = envelopeData?.data?.discussion;
+    const reviews = envelopeData?.data?.reviews;
+    const support = envelopeData?.data?.support;
 
     return (
         <div className="topbar__menu-item topbar__menu-item-envelope">
             <i className="fi fi-sr-envelope"></i>
-            {badgeCount > 0 && <span className="topbar__menu-badge">{badgeCount}</span>}
+            {totalCount > 0 && (
+                <span className="topbar__menu-badge">
+                    {totalCount >= 100 ? "99+" : totalCount}
+                </span>
+            )}
             <div className="topbar__menu-dropdown-envelope">
                 <div className="topbar__menu-envelope">
                     <ul className="topbar__me-list">
                         <li className="topbar__me-item">
                             <span className="topbar__me-item-title">{getTranslate("topbar_menu_chat")}</span>
-                            <span className="topbar__me-item-badge">99+</span>
+                            {chat > 0 && (
+                                <span className="topbar__me-item-badge">
+                                    {chat >= 100 ? "99+" : chat}
+                                </span>
+                            )}
                         </li>
                         <li className="topbar__me-item">
                             <span className="topbar__me-item-title">{getTranslate("topbar_menu_discussion")}</span>
-                            <span className="topbar__me-item-badge">99+</span>
+                            {discussion > 0 && (
+                                <span className="topbar__me-item-badge">
+                                    {discussion >= 100 ? "99+" : discussion}
+                                </span>
+                            )}
                         </li>
                         <li className="topbar__me-item">
                             <span className="topbar__me-item-title">{getTranslate("topbar_menu_reviews")}</span>
-                            <span className="topbar__me-item-badge">0</span>
+                            {reviews > 0 && (
+                                <span className="topbar__me-item-badge">
+                                    {reviews >= 100 ? "99+" : reviews}
+                                </span>
+                            )}
                         </li>
                         <li className="topbar__me-item">
                             <span className="topbar__me-item-title">{getTranslate("topbar_menu_support")}</span>
-                            <span className="topbar__me-item-badge">0</span>
+                            {support > 0 && (
+                                <span className="topbar__me-item-badge">
+                                    {support >= 100 ? "99+" : support}
+                                </span>
+                            )}
                         </li>
                     </ul>
                 </div>
@@ -58,39 +86,31 @@ const EnvelopeItem = ({ badgeCount }) => {
     );
 }
 
-const BellItem = ({ badgeCount }) => {
-    const { getTranslate } = useContext(LanguageContext);
 
-    const notification_list = [
-        {
-            "type": "Stock",
-            "title": "New Order #30854",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
-            "is_readed": false,
-            "timestamp": Math.floor(Date.now() / 1000) - 32,
-        },
-        {
-            "type": "Orders",
-            "title": "New Order #30853",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
-            "is_readed": true,
-            "timestamp": Math.floor(Date.now() / 1000) - 256,
-        },
-        {
-            "type": "Orders",
-            "title": "New Order #30852",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
-            "is_readed": false,
-            "timestamp": Math.floor(Date.now() / 1000) - 25600,
-        },
-        {
-            "type": "Stock",
-            "title": "New Order #30854",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus vestibulum hendrerit. Nulla est diam, efficitur eu ullamcorper quis, ultrices nec nisl.",
-            "is_readed": false,
-            "timestamp": Math.floor(Date.now() / 1000) - 256000,
-        },
-    ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const BellItem = ({ bellData }) => {
+    const { getTranslate } = useContext(LanguageContext);
+    
+
+    const totalCount = bellData?.totalCount;
 
     function timeAgo(timestamp) {
         const now = new Date();
@@ -114,7 +134,11 @@ const BellItem = ({ badgeCount }) => {
     return (
         <div className="topbar__menu-item topbar__menu-item-bell">
             <i className="fi fi-sr-bell"></i>
-            {badgeCount > 0 && <span className="topbar__menu-badge">{badgeCount}</span>}
+            {totalCount > 0 && (
+                <span className="topbar__menu-badge">
+                    {totalCount >= 100 ? "99+" : totalCount}
+                </span>
+            )}
             <div className="topbar__menu-dropdown-bell">
                 <div className="topbar__menu-bell">
                     <div className="topbar__menu-bell-header">
@@ -124,7 +148,10 @@ const BellItem = ({ badgeCount }) => {
                         </span>
                     </div>
                     <div className="topbar__menu-bell-body">
-                        {notification_list.map((item, idx) => (
+
+
+
+                        {bellData?.data.map((item, idx) => (
                             <div className={`topbar__menu-bell-item ${!item.is_readed && "unread"}`} key={idx}>
                                 <div className="topbar__mbb-header">
                                     <span className="topbar__mbb-cart-icon">
@@ -161,6 +188,20 @@ const BellItem = ({ badgeCount }) => {
                                 )}
                             </div>
                         ))}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                     <div className="topbar__menu-bell-footer">
                         <span className="topbar__mbf-check-icon">

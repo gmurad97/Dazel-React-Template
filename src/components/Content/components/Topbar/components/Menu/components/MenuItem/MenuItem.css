@@ -300,11 +300,15 @@
 }
 
 .topbar__mbb-description {
+    height: 100px;
+    text-align: justify;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     color: #4A4C56;
     margin-bottom: 8px;
+    overflow-y: scroll;
+    padding-right: 16px;
 }
 
 .topbar__mbb-footer {

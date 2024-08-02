@@ -226,9 +226,9 @@ const TopSellingProduct = () => {
 
     const paginatedRows = rows.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
-    console.log("Page:", page);
+/*     console.log("Page:", page);
     console.log("Paginated rows:", paginatedRows);
-    console.log("Total rows:", rows.length);
+    console.log("Total rows:", rows.length); */
 
     return (
         <div className="top-selling-product">
@@ -242,7 +242,7 @@ const TopSellingProduct = () => {
                         Select Date
                     </button>
                     <button className="btn tsp-filter-btn">
-                        <i class="fi fi-sr-settings-sliders"></i>
+                        <i className="fi fi-sr-settings-sliders"></i>
                         Filter
                     </button>
                     <button className="btn tsp-more-btn">See more</button>

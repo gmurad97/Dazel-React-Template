@@ -3,18 +3,13 @@ import { Link } from "react-router-dom";
 import "./Error.css";
 import { LanguageContext } from "../../context/LanguageContext";
 
+import DazelAPI from "../../api/DazelApi";
+
 const Error = ({ errorCode }) => {
     const { getTranslate } = useContext(LanguageContext);
 
     useEffect(()=>{
-        fetch("http://localhost:5000/api/status",{
-            method: "GET",
-        }).then((response)=>{
-            return response.json();
-        }).then((json)=>{
-            console.log(json) // express js server api/status object 
-            console.log(json.health_checks.api)// worked! :)
-        })
+        DazelAPI.getApiStatus().then((response)=>console.log(response))
     },[]);
 
 
