@@ -53,7 +53,7 @@ app.get('/api/envelope', apiKeyMiddleware, (request, response) => {
 
 app.get('/api/notifications', apiKeyMiddleware, (request, response) => {
     const notifications = [];
-    const notifications_count = faker.number.int({ min: 16, max: 16 });
+    const notifications_count = faker.number.int({ min: 0, max: 16 });
 
     for (let idx = 0; idx < notifications_count; idx++) {
         notifications.push({

@@ -372,3 +372,29 @@
 .topbar__mbf-ar-icon-text {
     text-decoration: underline;
 }
+
+.topbar__menu-bell-body-empty {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 64px;
+}
+
+.topbar__menu-bell-body-empty-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    color: #1D1F2C;
+    margin-bottom: 16px;
+}
+
+.topbar__menu-bell-body-empty-description {
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    line-height: 24px;
+    color: #858D9D;
+}
