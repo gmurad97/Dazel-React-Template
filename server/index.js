@@ -22,6 +22,200 @@ const apiKeyMiddleware = (request, response, next) => {
 /* MIDDLEWARE - ENDED */
 
 /* ROUTES - START */
+app.get("/api/statistics", (request, response) => {
+    response.json({
+        "statistic": {
+            "badge": [
+                {
+                    "name": {
+                        "en": "Total Revenue",
+                        "ru": "Общая выручка",
+                        "az": "Ümumi gəlir"
+                    },
+                    "style": {
+                        "icon": "fi fi-sr-money",
+                        "linear_gradient": [
+                            "#3250FF",
+                            "#2BB2FE"
+                        ]
+                    },
+                    "date_data": {
+                        "all_date": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": true
+                        },
+                        "12_months": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": true
+                        },
+                        "30_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": true
+                        },
+                        "7_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": true
+                        },
+                        "24_hour": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": true
+                        }
+                    }
+                },
+                {
+                    "name": {
+                        "en": "Total Order",
+                        "ru": "Общее количество заказов",
+                        "az": "Ümumi sifariş"
+                    },
+                    "style": {
+                        "icon": "fi fi-sr-shopping-cart-check",
+                        "linear_gradient": [
+                            "#2BB2FE",
+                            "#22CAAD"
+                        ]
+                    },
+                    "date_data": {
+                        "all_date": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "12_months": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "30_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "7_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "24_hour": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        }
+                    }
+                },
+                {
+                    "name": {
+                        "en": "Total Customer",
+                        "ru": "Общее количество клиентов",
+                        "az": "Ümumi müştəri"
+                    },
+                    "style": {
+                        "icon": "fi fi-sr-user-add",
+                        "linear_gradient": [
+                            "#EB3D4D",
+                            "#FBA37C"
+                        ]
+                    },
+                    "date_data": {
+                        "all_date": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "12_months": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "30_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "7_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "24_hour": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        }
+                    }
+                },
+                {
+                    "name": {
+                        "en": "Total Product",
+                        "ru": "Общее количество продуктов",
+                        "az": "Ümumi məhsul"
+                    },
+                    "style": {
+                        "icon": "fi fi-sr-box",
+                        "linear_gradient": [
+                            "#3250FF",
+                            "#2BB2FE"
+                        ]
+                    },
+                    "date_data": {
+                        "all_date": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "12_months": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "30_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "7_days": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        },
+                        "24_hour": {
+                            "total_revenue": Math.floor(Math.random() * 100000),
+                            "percent_change": parseFloat((Math.random() * 20).toFixed(1)),
+                            "daily_change": Math.floor(Math.random() * 500),
+                            "is_money_eq": false
+                        }
+                    }
+                }
+            ]
+        }
+    });
+});
+
+
 app.post("/api/auth", apiKeyMiddleware, (request, response) => {
     response.json({
         "is_logged": true,
