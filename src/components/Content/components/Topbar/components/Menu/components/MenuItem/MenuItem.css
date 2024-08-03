@@ -109,6 +109,9 @@
 .topbar__me-item {
     width: 100%;
     height: auto;
+}
+
+.topbar__me-link {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -116,11 +119,11 @@
     border-radius: 8px;
     padding: 12px;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.topbar__me-item:hover {
+.topbar__me-link:hover {
     background-color: #F0F1F3;
-
 }
 
 .topbar__me-item-title {
@@ -270,24 +273,27 @@
     margin-right: 4px;
 }
 
-.topbar__mbb-check-icon {
+.topbar__mbb-mark-as-read {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    background-color: transparent;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
+    outline: none;
+    border: none;
     color: #3250FF;
     cursor: pointer;
 }
 
-.topbar__mbb-check-icon>i[class^="fi"] {
+.topbar__mbb-mark-as-read>i[class^="fi"] {
     display: flex;
     margin-right: 4px;
 }
 
-.topbar__mbb-check-icon-text {
+.topbar__mbb-mark-as-read-text {
     text-decoration: underline;
 }
 
@@ -331,45 +337,49 @@
     padding: 16px;
 }
 
-.topbar__mbf-check-icon {
+.topbar__mbf-mark-all-as-read {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    background-color: transparent;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
+    outline: none;
+    border: none;
     color: #3250FF;
     cursor: pointer;
 }
 
-.topbar__mbf-check-icon>i[class^="fi"] {
+.topbar__mbf-mark-all-as-read>i[class^="fi"] {
     display: flex;
     margin-right: 4px;
 }
 
-.topbar__mbf-check-icon-text {
+.topbar__mbf-mark-all-as-read-text {
     text-decoration: underline;
 }
 
-.topbar__mbf-ar-icon {
+.topbar__mbf-see-more {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     font-weight: 700;
     font-size: 14px;
+    text-decoration: none;
     line-height: 20px;
     color: #3250FF;
     cursor: pointer;
 }
 
-.topbar__mbf-ar-icon>i[class^="fi"] {
+.topbar__mbf-see-more>i[class^="fi"] {
     display: flex;
     margin-left: 4px;
 }
 
-.topbar__mbf-ar-icon-text {
+.topbar__mbf-see-more-text {
     text-decoration: underline;
 }
 

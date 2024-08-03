@@ -1,48 +1,59 @@
-import { useState, useContext, createContext } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 import { LanguageContext } from "./LanguageContext.jsx";
-import ProfileImage from "./assets/img/profile_img.png";
+import DazelApi from "../api/DazelApi.js";
 
 const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const { getTranslate } = useContext(LanguageContext);
-
     const [authData, setAuthData] = useState({
-        isLogged: true, // WARNING! This is fake Auth...
-        userData: {
-            firstName: "Jay",
-            lastName: "Hargudson",
-            position: "Manager",
-            profileImg: ProfileImage,
-            isOnline: true,
+        /* "is_logged": false,
+        "user_data": null,
+        "token": null,
+        "error": null */
+        "is_logged": true,
+        "user_data": {
+            "first_name": "FIRST",
+            "last_name": "LAST",
+            "position": {
+                "en": "Administrator",
+                "ru": "Администратор",
+                "az": "Administrator"
+            },
+            "profile_img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/599.jpg",
+            "is_online": true
         },
-        error: null
+        "token": "FAKE!",
+        "error": ""
     });
 
     const Login = (username, password) => {
-        setAuthData((prevData) => {
-            if (username === "root" && password === "123") {
-                return { ...prevData, isLogged: true };
-            }
-            else if (!username || !password) {
-                return { ...prevData, isLogged: false, error: getTranslate("auth_empty_credentials") };
-            }
-            else {
-                return { ...prevData, isLogged: false, error: getTranslate("auth_incorrect_credentials") };
-            }
-        });
+        if (username === "root" && password === "123") {
+            DazelApi.loginUser(username, password).then(response => setAuthData(response));
+        }
+        else if (!username || !password) {
+            setAuthData(prevData => ({ ...prevData, isLogged: false, error: getTranslate("auth_empty_credentials") }));
+        }
+        else {
+            setAuthData(prevData => ({ ...prevData, isLogged: false, error: getTranslate("auth_incorrect_credentials") }));
+        }
     }
 
     const Logout = () => {
         setAuthData((prevData) => {
-            if (prevData.isLogged)
-                return { ...prevData, isLogged: false, error: null }
+            if (prevData.is_logged)
+                return {
+                    "is_logged": false,
+                    "user_data": null,
+                    "token": null,
+                    "error": null
+                }
             return { ...prevData };
         })
     }
 
-    const isAuth = authData.isLogged;
-    const userData = authData.userData;
+    const isAuth = authData.is_logged;
+    const userData = authData.user_data;
     const Error = authData.error;
 
     return (

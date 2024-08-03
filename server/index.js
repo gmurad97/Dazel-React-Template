@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const { faker } = require("@faker-js/faker");
+const crypto = require("crypto");
+const { faker, fakerAZ, fakerEN, fakerRU } = require("@faker-js/faker");
 
 const app = express();
 const port = 5000;
@@ -21,6 +22,25 @@ const apiKeyMiddleware = (request, response, next) => {
 /* MIDDLEWARE - ENDED */
 
 /* ROUTES - START */
+app.post("/api/auth", apiKeyMiddleware, (request, response) => {
+    response.json({
+        "is_logged": true,
+        "user_data": {
+            "first_name": faker.person.firstName(),
+            "last_name": faker.person.lastName(),
+            "position": {
+                "en": faker.helpers.arrayElement(["Administrator", "Moderator", "Manager"]),
+                "ru": faker.helpers.arrayElement(["Администратор", "Модератор", "Менеджер"]),
+                "az": faker.helpers.arrayElement(["Administrator", "Moderator", "Menecer"]),
+            },
+            "profile_image": faker.image.avatarLegacy(),
+            "is_online": true
+        },
+        "token": crypto.randomBytes(16).toString("hex"),
+        "error": ""
+    });
+});
+
 app.get("/api/status", apiKeyMiddleware, (request, response) => {
     response.json({
         "status": "ok",
@@ -59,8 +79,17 @@ app.get('/api/notifications', apiKeyMiddleware, (request, response) => {
         notifications.push({
             "id": idx,
             "type": faker.helpers.arrayElement(["Stock", "Orders"]),
-            "title": `New Order #${faker.number.int({ min: 10000 + idx, max: 90000 + idx })}`,
-            "description": faker.lorem.sentence({ min: 16, max: 128 }),
+
+            "title": {
+                "en": `New Order #${faker.number.int({ min: 10000 + idx, max: 90000 + idx })}`,
+                "ru": `Новый Заказ #${faker.number.int({ min: 10000 + idx, max: 90000 + idx })}`,
+                "az": `Yeni Sifariş #${faker.number.int({ min: 10000 + idx, max: 90000 + idx })}`,
+            },
+            "description": {
+                "en": fakerEN.lorem.sentence({ min: 16, max: 128 }),
+                "ru": fakerRU.lorem.sentence({ min: 16, max: 128 }),
+                "az": fakerAZ.lorem.sentence({ min: 16, max: 128 })
+            },
             "is_readed": faker.datatype.boolean(),
             "timestamp": Math.floor(Date.now() / 1000) - faker.number.int({ min: 1, max: 256000 })
         });
@@ -71,8 +100,6 @@ app.get('/api/notifications', apiKeyMiddleware, (request, response) => {
         data: notifications
     });
 });
-
-
 /* ROUTES - ENDED */
 
 app.listen(port, () => {

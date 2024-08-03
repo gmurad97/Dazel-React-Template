@@ -159,6 +159,63 @@ export const LanguageCollection = {
         "ru": "Заказы",
         "az": "Sifarişlər",
     },
+
+
+
+
+
+
+
+
+
+
+
+
+    "topbar_menu_notification_time_second": {
+        "en": "s.",
+        "ru": "с.",
+        "az": "s."
+    },
+    "topbar_menu_notification_time_minute": {
+        "en": "min.",
+        "ru": "мин.",
+        "az": "dəq."
+    },
+    "topbar_menu_notification_time_hour": {
+        "en": "h.",
+        "ru": "ч.",
+        "az": "saat"
+    },
+    "topbar_menu_notification_time_day": {
+        "en": "d.",
+        "ru": "д.",
+        "az": "g."
+    },
+    "topbar_menu_notification_time_ago": {
+        "en": "ago",
+        "ru": "назад",
+        "az": "əvvəl"
+    },
+    "topbar_menu_notification_time_just_now": {
+        "en": "just now",
+        "ru": "только что",
+        "az": "indi"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     "topbar_menu_mark_as_read": {
         "en": "Mark as Read",
         "ru": "Отметить как прочитанное",
@@ -468,5 +525,5 @@ export const LanguageCollection = {
 
 
 
-    
+
 };

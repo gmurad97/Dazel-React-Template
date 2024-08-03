@@ -1,0 +1,31 @@
+{
+    "statistic": {
+        "badge": [
+            {
+                "name": {
+                    "en": "Total Revenue",
+                    "ru": "Общая выручка",
+                    "az": "Ümumi gəlir"
+                },
+                "style": {
+                    "icon": "fi fi-sr-money",
+                    "linear_gradient": [
+                        "#3250FF",
+                        "#2BB2FE"
+                    ]
+                },
+                "date_data": {
+                    "all_date": {
+                        "total_revenue": 75150,
+                        "percent_change": 10.2,
+                        "daily_change": 150
+                    }
+                    "12_months": [],
+                    "30_days": [],
+                    "7_days": [],
+                    "24_hour": []
+                }
+            }
+        ]
+    }
+}

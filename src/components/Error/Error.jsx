@@ -1,17 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Error.css";
-import { LanguageContext } from "../../context/LanguageContext";
-
-import DazelAPI from "../../api/DazelApi";
+import { LanguageContext } from "../../context/LanguageContext.jsx";
 
 const Error = ({ errorCode }) => {
     const { getTranslate } = useContext(LanguageContext);
-
-    useEffect(()=>{
-        DazelAPI.getApiStatus().then((response)=>console.log(response))
-    },[]);
-
 
     if (errorCode === 404) {
         return (

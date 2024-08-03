@@ -14,6 +14,29 @@ const composeApiUrl = (route) => {
 }
 
 class DazelApi {
+
+    static loginUser = async (username, password) => {
+        try {
+            const response = await axios.post(composeApiUrl("auth"),
+                {
+                    username: username,
+                    password: password
+                },
+                {
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    }
+                }
+            );
+            return response.data;
+        }
+        catch (error) {
+            console.error(`Error fetching data: ${error.message}`);
+            return null;
+        }
+    }
+
     static getNotificationData = async () => {
         try {
             const response = await axios.get(composeApiUrl("notifications"), {
