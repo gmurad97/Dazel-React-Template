@@ -1,10 +1,17 @@
 import { useContext } from "react";
 import "./Target.css";
 import { LanguageContext } from "../../../../context/LanguageContext.jsx";
+import { FilterContext } from "../../../../context/FilterContext.jsx";
 import ProgressBar from "./components/ProgressBar/ProgressBar.jsx";
 
 const Target = () => {
     const { getTranslate } = useContext(LanguageContext);
+    const { getFilter, getTarget } = useContext(FilterContext);
+
+    const { revenue, progress, change, earnings_today } = getTarget?.date_data[getFilter];
+
+
+
 
     return (
         <div className="target">
@@ -18,7 +25,7 @@ const Target = () => {
                 </div>
             </div>
             <div className="target__progress-bar">
-                <ProgressBar strokeWidth={8} progress={75.55}>
+                <ProgressBar strokeWidth={8} progress={getTarget}>
                     <div className="target__progress-bar-detail">
                         <span className="target__pbd-percent">
                             +10%

@@ -18,12 +18,18 @@ const FilterProvider = ({ children }) => {
     const setLast24Hour = () => setFilter("24_HOUR");
 
     const getFilter = filter.toLowerCase();
+
+    
     const getBadges = statistics?.badges ?? [];
+    const getTarget = statistics?.target ?? [];
 
     return (
         <FilterContext.Provider
             value={{
                 getBadges,
+                getTarget,
+
+
                 getFilter,
                 setLast24Hour,
                 setLast7Days,

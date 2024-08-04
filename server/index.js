@@ -3,6 +3,7 @@ const cors = require("cors");
 const crypto = require("crypto");
 const { faker, fakerAZ, fakerEN, fakerRU } = require("@faker-js/faker");
 const badges = require("./statistics/badges.js"); // Импортируйте массив badges
+const target = require("./statistics/target.js"); // Импортируйте массив badges
 
 const app = express();
 const port = 5000;
@@ -26,7 +27,8 @@ const apiKeyMiddleware = (request, response, next) => {
 
 app.get("/api/statistics", (request, response) => {
     response.json({
-        "badges": badges()
+        "badges": badges(),
+        "target": target(),
     });
 });
 
