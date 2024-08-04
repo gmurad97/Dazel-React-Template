@@ -37,6 +37,21 @@ class DazelApi {
         }
     }
 
+    static getStatsData = async () => {
+        try {
+            const response = await axios.get(composeApiUrl("statistics"), {
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+            return response.data;
+        }
+        catch (error) {
+            console.error(`Error fetching data: ${error.message}`);
+            return null;
+        }
+    }
+
     static getNotificationData = async () => {
         try {
             const response = await axios.get(composeApiUrl("notifications"), {

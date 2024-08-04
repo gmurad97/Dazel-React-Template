@@ -16,15 +16,15 @@
 
 .page-header__welcome-title {
     font-weight: 500;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 37.6px;
     color: #1D1F2C;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .page-header__welcome-description {
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
     color: #667085;
 }

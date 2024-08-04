@@ -40,7 +40,7 @@
 
 .badge-card__count {
     font-weight: 600;
-    font-size: 32px;
+    font-size: 30px;
     line-height: 37.6px;
     color: #1D1F2C;
 }
@@ -80,12 +80,16 @@
     display: flex;
 }
 
-.badge-card__percentage--plus {
+.badge-card__percentage--positive {
     color: #1A9882;
 }
 
-.badge-card__percentage--minus {
+.badge-card__percentage--negative {
     color: #EB3D4D;
+}
+
+.badge-card__percentage--neutral {
+    color: #858D9D;
 }
 
 .badge-card__today {
