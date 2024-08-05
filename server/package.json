@@ -4,7 +4,7 @@
   "description": "Mock server for the Dazel project (development environment)",
   "main": "index.js",
   "scripts": {
-    "serve-dev": "nodemon index.js"
+    "serve-dev": "nodemon ./src/index.js"
   },
   "license": "ISC",
   "dependencies": {
