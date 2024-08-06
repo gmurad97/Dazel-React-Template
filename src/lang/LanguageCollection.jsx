@@ -332,9 +332,9 @@ export const LanguageCollection = {
         "az": "Gəlir hədəfi",
     },
     "target_progress_today": {
-        "en": "Today",
-        "ru": "Сегодня",
-        "az": "Bu gün",
+        "en": "today",
+        "ru": "сегодня",
+        "az": "bu gün",
     },
     "target_detail_today_part1": {
         "en": "You earned",
@@ -376,12 +376,12 @@ export const LanguageCollection = {
         "ru": "Заработок этой недели",
         "az": "Bu həftənin qazancı",
     },
-    "stats_block_title": {
+    "statistic_block_title": {
         "en": "Statistic",
         "ru": "Статистика",
         "az": "Statistika",
     },
-    "stats_block_description": {
+    "statistic_block_description": {
         "en": "Income and Expenses",
         "ru": "Доходы и расходы",
         "az": "Gəlir və xərclər",
@@ -517,7 +517,11 @@ export const LanguageCollection = {
         "ru": "Продажи",
         "az": "Satışlar",
     },
-
+    "empty_page_label": {
+        "en": "This is a blank page",
+        "ru": "Это пустая страница",
+        "az": "Bu boş bir səhifədir"
+    }
 
 
 

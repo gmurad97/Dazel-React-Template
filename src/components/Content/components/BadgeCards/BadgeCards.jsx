@@ -4,13 +4,15 @@ import { FilterContext } from "../../../../context/FilterContext.jsx";
 import BadgeCard from "./components/BadgeCard/BadgeCard.jsx";
 
 const BadgeCards = () => {
-    const { getFilter, getBadges } = useContext(FilterContext);
+    const { getCurrentFilter, getBadges } = useContext(FilterContext);
 
     return (
         <div className="badge-cards">
-            {getBadges.map((item, idx) => (
-                <BadgeCard item={item} filter={getFilter} key={idx} />
-            ))}
+            {Array.isArray(getBadges) && getBadges.length > 0 && (
+                getBadges.map((item, idx) => (
+                    <BadgeCard item={item} currentFilter={getCurrentFilter} key={idx} />
+                ))
+            )}
         </div>
     );
 }

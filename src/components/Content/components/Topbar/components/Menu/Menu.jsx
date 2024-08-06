@@ -11,10 +11,10 @@ const Menu = () => {
     const [envelopeData, setEnvelopeData] = useState({});
     const [notificationList, setNotificationList] = useState({});
 
-    useEffect(() => {
+/*     useEffect(() => {
         DazelApi.getEnvelopeData().then(response => setEnvelopeData(response));
         DazelApi.getNotificationData().then(response => setNotificationList(response));
-    }, []);
+    }, []); */
 
     const handleLogout = (event) => {
         event.preventDefault();

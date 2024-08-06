@@ -8,7 +8,7 @@ const PageHeader = () => {
     const { getTranslate } = useContext(LanguageContext);
     const { userData } = useContext(AuthContext);
     const {
-        getFilter,
+        getCurrentFilter,
         setLast24Hour,
         setLast7Days,
         setLast30Days,
@@ -17,7 +17,7 @@ const PageHeader = () => {
     } = useContext(FilterContext);
 
     const filterActiveClass = (filterType) => {
-        return getFilter.toUpperCase() === filterType ? "page-header__filter-btn--active" : "";
+        return getCurrentFilter.toUpperCase() === filterType ? "page-header__filter-btn--active" : "";
     }
 
     return (

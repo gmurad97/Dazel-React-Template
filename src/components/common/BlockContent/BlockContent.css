@@ -12,3 +12,11 @@
     padding: 20px;
     overflow: hidden;
 }
+
+.block__content:not(:last-of-type) {
+    margin: 28px 0px;
+}
+
+.block__content:last-of-type {
+    margin-top: 28px;
+}

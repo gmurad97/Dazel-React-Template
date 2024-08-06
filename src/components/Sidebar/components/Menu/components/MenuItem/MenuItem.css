@@ -11,6 +11,10 @@
     margin-top: 16px;
 }
 
+.menu__item:last-child {
+    margin-bottom: 16px;
+}
+
 .menu__item:not(:last-of-type) {
     margin-bottom: 8px;
 }

@@ -1,143 +1,139 @@
-import { useContext, useEffect, useMemo, useRef } from 'react';
+import { useContext, useEffect, useRef, useMemo } from "react";
+import { Bar } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import "./Statistic.css";
+import { FilterContext } from "../../../../context/FilterContext.jsx";
 import { LanguageContext } from "../../../../context/LanguageContext.jsx";
-import { Bar } from 'react-chartjs-2';
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
 
 const Statistic = () => {
-    const { getTranslate } = useContext(LanguageContext);
-    const chartRef = useRef(null);
+    const { currentLanguage, getTranslate } = useContext(LanguageContext);
+    const { getCurrentFilter, getStatistic } = useContext(FilterContext);
 
-    const data = useMemo(() => (
-        {
-            labels: [
-                getTranslate("month_labels_jan"),
-                getTranslate("month_labels_feb"),
-                getTranslate("month_labels_mar"),
-                getTranslate("month_labels_apr"),
-                getTranslate("month_labels_may"),
-                getTranslate("month_labels_jun"),
-                getTranslate("month_labels_jul"),
-                getTranslate("month_labels_aug"),
-                getTranslate("month_labels_sep"),
-                getTranslate("month_labels_oct"),
-                getTranslate("month_labels_nov"),
-                getTranslate("month_labels_dec"),
-            ],
-            datasets: [
-                {
-                    label: getTranslate("dataset_labels_revenue"),
-                    data: [400, 600, 200, 800, 1200, 400, 680, 300, 600, 800, 400, 500],
-                    backgroundColor: "#00C8F8",
-                    borderRadius: 10,
-                    borderSkipped: false,
-                    barPercentage: 0.8,
-                    categoryPercentage: 0.6,
-                },
-                {
-                    label: getTranslate("dataset_labels_sales"),
-                    data: [200, 400, 300, 600, 800, 200, 280, 150, 400, 600, 300, 400],
-                    backgroundColor: "#FFBE0B",
-                    borderRadius: 10,
-                    borderSkipped: false,
-                    barPercentage: 0.8,
-                    categoryPercentage: 0.6,
-                },
-            ],
-        }
-    ), [getTranslate]);
+    const chartBarRef = useRef(null);
 
-    const options = useMemo(() => (
-        {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: "top",
-                    labels: {
-                        color: "#667085",
-                        usePointStyle: true,
-                        generateLabels: (chart) => {
-                            const datasets = chart.data.datasets;
-                            return datasets.map((dataset, i) => {
-                                return {
-                                    text: dataset.label,
-                                    fillStyle: dataset.backgroundColor,
-                                    strokeStyle: dataset.backgroundColor,
-                                    lineWidth: 0,
-                                    hidden: chart.getDatasetMeta(i).hidden,
-                                    index: i,
-                                    pointStyle: "circle",
-                                    pointRadius: 10,
-                                };
-                            });
-                        },
-                    },
-                },
-                datalabels: {
-                    display: false,
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function (context) {
-                            let label = context.dataset.label || "";
-                            if (label) {
-                                label += " : ";
-                            }
-                            if (context.parsed.y !== null) {
-                                label += `$${context.parsed.y}`;
-                            }
-                            return label;
-                        },
+    const chartDataGenerate = useMemo(() => {
+        return getStatistic?.map((item) => ({
+            "label": item?.label?.[currentLanguage],
+            "data": item?.date_data?.[getCurrentFilter]?.data,
+            "backgroundColor": item.bg_color,
+            "borderRadius": 10,
+            "borderSkipped": false,
+            "barPercentage": 0.8,
+            "categoryPercentage": 0.6
+        }));
+    }, [getCurrentFilter, getStatistic, currentLanguage]);
+
+    const chartData = useMemo(() => ({
+        "labels": [
+            getTranslate("month_labels_jan"),
+            getTranslate("month_labels_feb"),
+            getTranslate("month_labels_mar"),
+            getTranslate("month_labels_apr"),
+            getTranslate("month_labels_may"),
+            getTranslate("month_labels_jun"),
+            getTranslate("month_labels_jul"),
+            getTranslate("month_labels_aug"),
+            getTranslate("month_labels_sep"),
+            getTranslate("month_labels_oct"),
+            getTranslate("month_labels_nov"),
+            getTranslate("month_labels_dec"),
+        ],
+        "datasets": chartDataGenerate
+    }), [getTranslate, chartDataGenerate]);
+
+    const chartOptions = useMemo(() => ({
+        "responsive": true,
+        "plugins": {
+            "legend": {
+                "display": true,
+                "position": "top",
+                "labels": {
+                    "color": "#667085",
+                    "usePointStyle": true,
+                    "generateLabels": (chart) => {
+                        const datasets = chart.data.datasets;
+                        return datasets.map((dataset, i) => ({
+                            "text": dataset.label,
+                            "fillStyle": dataset.backgroundColor,
+                            "strokeStyle": dataset.backgroundColor,
+                            "lineWidth": 0,
+                            "hidden": chart.getDatasetMeta(i).hidden,
+                            "index": i,
+                            "pointStyle": "circle",
+                            "pointRadius": 10,
+                        }));
                     },
                 },
             },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    grid: {
-                        display: false,
-                    },
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function (value) {
-                            return `$${value}`;
-                        },
-                    },
-                    grid: {
-                        color: "#C2C6CE",
+            "datalabels": {
+                "display": false,
+            },
+            "tooltip": {
+                "callbacks": {
+                    "label": (context) => {
+                        let label = context.dataset.label || "";
+                        if (label)
+                            label += " : ";
+                        if (context.parsed.y !== null)
+                            label += `$${context.parsed.y}`;
+                        return label;
                     },
                 },
             },
-        }
-    ), []);
+        },
+        "scales": {
+            "x": {
+                "beginAtZero": true,
+                "grid": {
+                    "display": false,
+                },
+            },
+            "y": {
+                "beginAtZero": true,
+                "ticks": {
+                    callback: function (value) {
+                        return `$${value}`;
+                    },
+                },
+                "grid": {
+                    "color": "#F0F1F3",
+                },
+            },
+        },
+    }), []);
 
     useEffect(() => {
-        if (chartRef.current) {
-            const gradientBlue = chartRef.current.ctx.createLinearGradient(0, 0, 0, chartRef.current.height);
-            gradientBlue.addColorStop(0, "#22CAAD");
-            gradientBlue.addColorStop(1, "#2BB2FE");
-            const gradientOrange = chartRef.current.ctx.createLinearGradient(0, 0, 0, chartRef.current.height);
-            gradientOrange.addColorStop(0, "#F9C80E");
-            gradientOrange.addColorStop(1, "#F86624");
-            chartRef.current.data.datasets[0].backgroundColor = gradientBlue;
-            chartRef.current.data.datasets[1].backgroundColor = gradientOrange;
-            chartRef.current.update();
+        if (chartBarRef.current && chartBarRef.current.chart) {
+            const chart = chartBarRef.current.chart;
+            const ctx = chart.ctx;
+
+            chart.data.datasets.forEach((dataset, index) => {
+                const gradientColors = getStatistic[index]?.bg_gradient;
+                if (gradientColors && gradientColors.length > 0) {
+                    const gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
+                    gradientColors.forEach((colorStop, i) => {
+                        gradient.addColorStop(i / (gradientColors.length - 1), colorStop);
+                    });
+                    dataset.backgroundColor = gradient;
+                }
+            });
+
+            chart.update();
         }
-    }, [data, options]);
+    }, [chartData, getStatistic]);
 
     return (
-        <div className="stats_block">
-            <h2 className="stats_block__title">{getTranslate("stats_block_title")}</h2>
-            <p className="stats_block__description">{getTranslate("stats_block_description")}</p>
-            <Bar ref={chartRef} data={data} options={options} />
+        <div className="statistic-block">
+            <h2 className="statistic-block__title">{getTranslate("statistic_block_title")}</h2>
+            <p className="statistic-block__description">{getTranslate("statistic_block_description")}</p>
+            <div className="statistic-block__chart">
+                <Bar ref={chartBarRef} data={chartData} options={chartOptions} />
+            </div>
         </div>
     );
-};
+}
 
 export default Statistic;

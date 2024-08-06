@@ -2,10 +2,11 @@ import { useContext } from "react";
 import "./BadgeCard.css";
 import { LanguageContext } from "../../../../../../context/LanguageContext.jsx";
 
-const BadgeCard = ({ item, filter }) => {
+const BadgeCard = ({ item, currentFilter }) => {
     const { currentLanguage, getTranslate } = useContext(LanguageContext);
+
     const iconBg = `linear-gradient(180deg, ${item.style.linear_gradient[0]} 0%, ${item.style.linear_gradient[1]} 100%)`;
-    const { total_revenue, percent_change, daily_change, is_money_eq } = item?.date_data[filter];
+    const { total_revenue = 0, percent_change = 0, daily_change = 0, is_money_eq = 0 } = item?.date_data?.[currentFilter] ?? {};
 
     const percentChangeClass = () => {
         if (percent_change > 0) {

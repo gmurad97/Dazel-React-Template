@@ -8,8 +8,10 @@ const FilterProvider = ({ children }) => {
     const [statistics, setStatistics] = useState({});
 
     useEffect(() => {
-        DazelApi.getStatsData().then(stats => setStatistics(stats));
+        DazelApi.getStatisticsData().then(stats => setStatistics(stats));
     }, []);
+
+    const getCurrentFilter = filter.toLowerCase();
 
     const setAllTime = () => setFilter("ALL_TIME");
     const setLast12Months = () => setFilter("12_MONTHS");
@@ -17,25 +19,24 @@ const FilterProvider = ({ children }) => {
     const setLast7Days = () => setFilter("7_DAYS");
     const setLast24Hour = () => setFilter("24_HOUR");
 
-    const getFilter = filter.toLowerCase();
-
-    
     const getBadges = statistics?.badges ?? [];
-    const getTarget = statistics?.target ?? [];
+    const getTarget = statistics?.target ?? {};
+    const getStatistic = statistics?.statistic ?? [];
+    const getSalesByLocation = statistics?.sales_by_location ?? [];
 
     return (
         <FilterContext.Provider
             value={{
-                getBadges,
-                getTarget,
-
-
-                getFilter,
+                getCurrentFilter,
                 setLast24Hour,
                 setLast7Days,
                 setLast30Days,
                 setLast12Months,
-                setAllTime
+                setAllTime,
+                getBadges,
+                getTarget,
+                getStatistic,
+                getSalesByLocation,
             }}
         >
             {children}

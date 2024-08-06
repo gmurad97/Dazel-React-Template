@@ -1,4 +1,4 @@
-.stats_block {
+.statistic-block {
     width: 100%;
     height: auto;
     background-color: #FFFFFF;
@@ -7,18 +7,27 @@
     border-radius: 8px;
 }
 
-.stats_block canvas {
+.statistic-block__chart {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.statistic-block__chart canvas {
     width: 100% !important;
 }
 
-.stats_block__title {
+.statistic-block__title {
     font-weight: 600;
     font-size: 20px;
     line-height: 30px;
     color: #1D1F2C;
 }
 
-.stats_block__description {
+.statistic-block__description {
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;

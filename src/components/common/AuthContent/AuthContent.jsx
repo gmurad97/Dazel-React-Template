@@ -1,6 +1,6 @@
 import "./AuthContent.css";
 
-const AuthContent = ({children}) => {
+const AuthContent = ({ children }) => {
     return (
         <section className="section__auth">
             {children}

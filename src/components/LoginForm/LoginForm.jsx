@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef } from "react";
-import "./LoginForm.css";
-import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { LanguageContext } from "../../context/LanguageContext";
+import "./LoginForm.css";
+import { AuthContext } from "../../context/AuthContext.jsx";
+import { LanguageContext } from "../../context/LanguageContext.jsx";
 
 const LoginForm = () => {
     const { Login, isAuth, Error } = useContext(AuthContext);

@@ -13,8 +13,8 @@ const Statistic = () => {
         {
             "id": 1,
             "label": {
-                "en": "Income",
-                "ru": "Доход",
+                "en": "Incomes",
+                "ru": "Доходы",
                 "az": "Gəlir"
             },
             "bg_color": "#2BB2FE",
