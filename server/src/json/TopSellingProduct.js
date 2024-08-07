@@ -1,221 +1,33 @@
-const { faker } = require("@faker-js/faker");
+const { faker, fakerEN, fakerRU, fakerAZ } = require("@faker-js/faker");
 
 const TopSellingProduct = () => {
-    return {
-        "id": faker.string.uuid(),
-        "product_name": {
-            "en": faker.commerce.productName(),
-            "ru": faker.commerce.productName(), // Можно добавить локализацию, если нужно
-            "az": faker.commerce.productName()  // Можно добавить локализацию, если нужно
-        },
-        "sku": faker.string.numeric({ length: 6 }),
-        "amount": faker.number.int({ min: 1, max: 10000 }),
-        "price": faker.number.float({ min: 10, max: 1000, precision: 0.01 }),
-        "status": {
-            "en": faker.helpers.arrayElement(["In Stock", "Low Stock", "Out of Stock"]),
-            "ru": faker.helpers.arrayElement(["В наличии", "Мало на складе", "Нет в наличии"]),
-            "az": faker.helpers.arrayElement(["Mövcuddur", "Az var", "Stokda yoxdur"])
-        },
-        "thumbnail": faker.image.urlPicsumPhotos()
-    };
+    const products = [];
+    const numProducts = faker.number.int({ min: 16, max: 64 });
+    for (let idx = 0; idx < numProducts; idx++) {
+        const amount = faker.number.int({ min: 0, max: 500 });
+
+        const status = {
+            "en": amount === 0 ? "Out of Stock" : amount < 100 ? "Low Stock" : "In Stock",
+            "ru": amount === 0 ? "Нет в наличии" : amount < 100 ? "Мало в наличии" : "В наличии",
+            "az": amount === 0 ? "Satışda yoxdur" : amount < 100 ? "Az qalıb" : "Mövcuddur"
+        }
+
+        products.push({
+            "id": idx,
+            "image": faker.image.urlLoremFlickr(),
+            "productName": {
+                "en": fakerEN.commerce.productName(),
+                "ru": fakerRU.commerce.productName(),
+                "az": fakerAZ.commerce.productName()
+            },
+            "subtext": `SKU: ${faker.number.int({ min: 100000, max: 999999 }).toString()}`,
+            "sales": faker.number.int({ min: 0, max: 1000 }),
+            "amount": `${amount}`,
+            "price": `$${faker.number.float({ min: 10, max: 5000 }).toFixed(2)}`,
+            "status": status,
+        });
+    }
+    return products;
 }
 
 module.exports = TopSellingProduct;
-
-
-
-
-
-
-/* 
-
-
-const top_selling_product = () => {
-    return {
-        "badge": "DEVELOPMENT STAGE (TESTING API)",
-        "date_data": {
-            "all_date": [
-                {
-                    "id": "1",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                },
-                {
-                    "id": "2",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                }
-            ],
-            "12_months": [
-                {
-                    "id": "1",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                },
-                {
-                    "id": "2",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                }
-            ],
-            "30_days": [
-                {
-                    "id": "1",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                },
-                {
-                    "id": "2",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                }
-            ],
-            "7_days": [
-                {
-                    "id": "1",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                },
-                {
-                    "id": "2",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                }
-            ],
-            "24_hour": [
-                {
-                    "id": "1",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                },
-                {
-                    "id": "2",
-                    "product_name": {
-                        "en": "Handmade Pouch(en)",
-                        "ru": "Handmade Pouch(ru)",
-                        "az": "Handmade Pouch(az)"
-                    },
-                    "sku": "302012",
-                    "amount": 1001,
-                    "price": 150,
-                    "status": {
-                        "en": "Low Stock (en)",
-                        "ru": "Low Stock (ru)",
-                        "az": "Low Stock (az)"
-                    },
-                    "thumbnail": "https://avatars.githubusercontent.com/u/87978787"
-                }
-            ]
-        }
-    };
-}
-
-module.exports = top_selling_product; */

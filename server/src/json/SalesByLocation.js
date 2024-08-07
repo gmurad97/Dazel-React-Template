@@ -4,7 +4,7 @@ const SalesByLocation = () => {
     const generateDateData = (minRevenue, maxRevenue, minSales, maxSales) => {
         const revenue = faker.number.int({ min: minRevenue, max: maxRevenue });
         const salesCount = faker.number.int({ min: minSales, max: maxSales });
-        const percentage = parseFloat(((salesCount / maxSales) * 100)).toFixed(2);
+        const percentage = (faker.number.float({ min: -7, max: 15 })).toFixed(2);
 
         return {
             sales_count: salesCount,

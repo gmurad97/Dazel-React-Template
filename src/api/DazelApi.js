@@ -61,6 +61,21 @@ class DazelApi {
         }
     }
 
+    static getTopSellingProduct = async () => {
+        try {
+            const response = await axios.get(composeApiUrl("/topSellingProduct", true), {
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+            return response.data;
+        }
+        catch (error) {
+            console.error(`Error fetching data: ${error.message}`);
+            return null;
+        }
+    }
+
 
 
 

@@ -1,17 +1,39 @@
-.tsp__cell-avatar {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+.tsp__stock-count {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
 }
 
-.tsp__cell-avatar .MuiAvatar-root {
-    width: 44px;
-    height: 44px;
+.tsp__stock-count.low {
+    background-color: #FFF0EA;
+    color: #F86624;
     border-radius: 8px;
-    margin-right: 8px;
-    overflow: hidden;
+    padding: 4px 10px;
 }
+
+.tsp__stock-count.stock {
+    background-color: #E9FAF7;
+    color: #1A9882;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.tsp__stock-count.out {
+    background-color: #F0F1F3;
+    color: #4A4C56;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+
+
+
+
+
+
+
+
+
 
 .tsp__cell-typograpghy>p:nth-of-type(1) {
     font-weight: 500;
@@ -37,25 +59,6 @@
     color: #4A4C56;
 }
 
-.tsp__stock-count {
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.tsp__stock-count.low {
-    background-color: #FFF0EA;
-    color: #F86624;
-    border-radius: 8px;
-    padding: 4px 10px;
-}
-
-.tsp__stock-count.published {
-    background-color: #E9FAF7;
-    color: #1A9882;
-    border-radius: 8px;
-    padding: 4px 10px;
-}
-
 .MuiPaginationItem-root {
     width: 32px !important;
     height: 32px !important;
@@ -78,12 +81,12 @@
     padding: 6px !important;
 }
 
-.MuiPaginationItem-root.Mui-selected{
+.MuiPaginationItem-root.Mui-selected {
     background-color: #1D1F2C !important;
     color: #FFFFFF !important;
 }
 
-.MuiDataGrid-cell{
+.MuiDataGrid-cell {
     border: none !important;
 }
 
@@ -271,3 +274,11 @@
 .pagination-right .pagination-btn i {
     font-size: 16px;
 }
+
+
+
+
+
+
+
+/*==================================*/

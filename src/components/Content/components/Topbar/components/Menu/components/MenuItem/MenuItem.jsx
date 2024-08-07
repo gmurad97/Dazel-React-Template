@@ -155,7 +155,7 @@ const BellItem = ({ bellData }) => {
                     <div className="topbar__menu-bell-body">
                         {Array.isArray(notificationList) && notificationList.length > 0 ? (
                             notificationList.map((item, idx) => (
-                                <div className={`topbar__menu-bell-item ${!item.is_readed && "unread"}`} key={idx}>
+                                <div className={`topbar__menu-bell-item ${!item.is_readed ? "unread" : ""}`} key={idx}>
                                     <div className="topbar__mbb-header">
                                         <span className="topbar__mbb-cart-icon">
                                             {item.type === "Stock" ? (

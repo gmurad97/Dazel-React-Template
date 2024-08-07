@@ -81,17 +81,17 @@
     padding: 2px 8px;
 }
 
-.sbl__performance--plus {
+.sbl__performance--positive {
     background-color: #E9FAF7;
     color: #1A9882;
 }
 
-.sbl__performance--minus {
+.sbl__performance--negative {
     background-color: #FEECEE;
     color: #EB3D4D;
 }
 
-.sbl__performance--zero {
+.sbl__performance--neutral {
     background-color: #F0F1F3;
     color: #4A4C56;
 }

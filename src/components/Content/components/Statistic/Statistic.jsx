@@ -14,11 +14,25 @@ const Statistic = () => {
 
     const chartBarRef = useRef(null);
 
+    const getGradient = (colors) => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx)
+            return "#000000";
+
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        colors.forEach((color, i) => {
+            gradient.addColorStop(i / (colors.length - 1), color);
+        });
+
+        return gradient;
+    };
+
     const chartDataGenerate = useMemo(() => {
         return getStatistic?.map((item) => ({
             "label": item?.label?.[currentLanguage],
             "data": item?.date_data?.[getCurrentFilter]?.data,
-            "backgroundColor": item.bg_color,
+            "backgroundColor": getGradient(item.bg_gradient),
             "borderRadius": 10,
             "borderSkipped": false,
             "barPercentage": 0.8,
@@ -104,26 +118,6 @@ const Statistic = () => {
             },
         },
     }), []);
-
-    useEffect(() => {
-        if (chartBarRef.current && chartBarRef.current.chart) {
-            const chart = chartBarRef.current.chart;
-            const ctx = chart.ctx;
-
-            chart.data.datasets.forEach((dataset, index) => {
-                const gradientColors = getStatistic[index]?.bg_gradient;
-                if (gradientColors && gradientColors.length > 0) {
-                    const gradient = ctx.createLinearGradient(0, 0, 0, chart.height);
-                    gradientColors.forEach((colorStop, i) => {
-                        gradient.addColorStop(i / (gradientColors.length - 1), colorStop);
-                    });
-                    dataset.backgroundColor = gradient;
-                }
-            });
-
-            chart.update();
-        }
-    }, [chartData, getStatistic]);
 
     return (
         <div className="statistic-block">

@@ -1,31 +1,32 @@
 import { useContext, useEffect, useState } from "react";
 import "./Menu.css";
-import DazelApi from "../../../../../../api/DazelApi.js";
 import { AuthContext } from "../../../../../../context/AuthContext.jsx";
 import { CalendarItem, EnvelopeItem, BellItem } from "./components/MenuItem/MenuItem.jsx";
 import Language from "./components/Language/Language.jsx";
 import Profile from "./components/Profile/Profile.jsx";
+import DazelApi from "../../../../../../api/DazelApi.js";
 
 const Menu = () => {
     const { userData, Logout } = useContext(AuthContext);
-    const [envelopeData, setEnvelopeData] = useState({});
-    const [notificationList, setNotificationList] = useState({});
+    const [profileData, setProfileData] = useState({});
 
-/*     useEffect(() => {
-        DazelApi.getEnvelopeData().then(response => setEnvelopeData(response));
-        DazelApi.getNotificationData().then(response => setNotificationList(response));
-    }, []); */
+    useEffect(() => {
+        DazelApi.getProfileData().then(response => setProfileData(response));
+    }, []);
 
     const handleLogout = (event) => {
         event.preventDefault();
         Logout();
     }
 
+    const envelopeData = profileData?.envelope;
+    const notificationData = profileData?.notification;
+
     return (
         <div className="topbar__menu">
             <CalendarItem />
             <EnvelopeItem envelopeData={envelopeData} />
-            <BellItem bellData={notificationList} />
+            <BellItem bellData={notificationData} />
             <Language />
             <hr className="topbar__divider" />
             <Profile

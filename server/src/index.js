@@ -5,6 +5,7 @@ const ApiKeyMiddleware = require("./middleware/ApiKeyMiddleware.js");
 const ServerStatus = require("./routes/ServerStatus.js");
 const ProfileData = require("./routes/ProfileData.js");
 const Statistics = require("./routes/Statistics.js");
+const TopSellingProduct = require("./routes/TopSellingProduct.js");
 
 const app = express();
 const port = 5000;
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use("/api/v2", ServerStatus);
 app.use("/api/v2", ApiKeyMiddleware, ProfileData);
 app.use("/api/v2", ApiKeyMiddleware, Statistics);
+app.use("/api/v2", ApiKeyMiddleware, TopSellingProduct);
 /*==========MAIN - ENDED==========*/
 
 app.listen(port, () => {

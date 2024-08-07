@@ -34,3 +34,9 @@
     background-color: transparent;
     color: #4A4C56;
 }
+
+.topbar__search-input:focus {
+    border: 1px solid #E0E2E7;
+    box-shadow: 0px 0px 2px #E0E2E7;
+    background-color: #FFFFFF;
+}
