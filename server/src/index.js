@@ -6,6 +6,7 @@ const ServerStatus = require("./routes/ServerStatus.js");
 const ProfileData = require("./routes/ProfileData.js");
 const Statistics = require("./routes/Statistics.js");
 const TopSellingProduct = require("./routes/TopSellingProduct.js");
+const RecentOrders = require("./routes/RecentOrders.js");
 
 const app = express();
 const port = 5000;
@@ -19,6 +20,7 @@ app.use("/api/v2", ServerStatus);
 app.use("/api/v2", ApiKeyMiddleware, ProfileData);
 app.use("/api/v2", ApiKeyMiddleware, Statistics);
 app.use("/api/v2", ApiKeyMiddleware, TopSellingProduct);
+app.use("/api/v2", ApiKeyMiddleware, RecentOrders);
 /*==========MAIN - ENDED==========*/
 
 app.listen(port, () => {

@@ -1,15 +1,13 @@
-import "./Content.css";
 import { FilterProvider } from "../../context/FilterContext.jsx";
-import SectionContent from "../common/SectionContent/SectionContent.jsx";
 import SectionGrid from "../common/SectionGrid/SectionGrid.jsx";
-import BadgeCards from "./components/BadgeCards/BadgeCards.jsx";
 import Topbar from "./components/Topbar/Topbar.jsx";
 import PageHeader from "./components/PageHeader/PageHeader.jsx";
-import SalesByLocation from "./components/SalesByLocation/SalesByLocation.jsx";
+import BadgeCards from "./components/BadgeCards/BadgeCards.jsx";
 import Target from "./components/Target/Target.jsx";
-import TopSellingProduct from "./components/TopSellingProduct/TopSellingProduct.jsx";
-import RecentOrders from "./components/RecentOrders/RecentOrders.jsx";
 import Statistic from "./components/Statistic/Statistic.jsx";
+import TopSellingProduct from "./components/TopSellingProduct/TopSellingProduct.jsx";
+import SalesByLocation from "./components/SalesByLocation/SalesByLocation.jsx";
+import RecentOrders from "./components/RecentOrders/RecentOrders.jsx";
 
 const Content = () => {
     return (
@@ -32,7 +30,7 @@ const Content = () => {
                 <SalesByLocation />
             </SectionGrid>
             <SectionGrid templateColumns={"1fr"}>
-                
+                <RecentOrders />
             </SectionGrid>
         </FilterProvider >
     );

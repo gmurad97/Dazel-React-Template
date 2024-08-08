@@ -27,7 +27,7 @@ const TopSellingProduct = () => {
                         <img className="MuiCustomClass__img" src={params.value} alt="product" />
                     </div>
                     <div className="MuiCustomClass__typography">
-                        <h1 className="MuiCustomClass__typography-title">{params.row.productName[currentLanguage]}</h1>
+                        <h1 className="MuiCustomClass__typography-title">{params.row?.product_name?.[currentLanguage]}</h1>
                         <p className="MuiCustomClass__typography-subtext">{params.row.subtext}</p>
                     </div>
                 </div>
@@ -69,14 +69,15 @@ const TopSellingProduct = () => {
         {
             "field": "status",
             "headerName": "Status",
-            "width": 150,
+            "width": 100,
             "renderHeader": () => <span className="MuiCustomClass__table-header">Status</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">
-                        <span className={`tsp__stock-count ${params.value["en"].toLowerCase().includes("low stock") ? "low" : params.value["en"].toLowerCase().includes("in stock") ? "stock" : "out of stock"}`}>
+                        <span className={`tsp__stock-count ${params?.value?.["en"]?.toLowerCase()?.includes("low stock") ? "low" : params?.value?.["en"]?.toLowerCase()?.includes("in stock") ? "stock" : "out of stock"}`}>
                             {params.value[currentLanguage]}
                         </span>
+
                     </h1>
                 </div>
             )
