@@ -32,7 +32,7 @@ const Content = () => {
                 <SalesByLocation />
             </SectionGrid>
             <SectionGrid templateColumns={"1fr"}>
-                <RecentOrders />
+                
             </SectionGrid>
         </FilterProvider >
     );

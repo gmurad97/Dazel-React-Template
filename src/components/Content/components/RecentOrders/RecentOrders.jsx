@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Box, Avatar, Typography } from '@mui/material';
-import './RecentOrders.css';
+/* import './RecentOrders.css'; */
 
 const columns = (handleDelete) => [
     {

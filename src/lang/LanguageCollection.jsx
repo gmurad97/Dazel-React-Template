@@ -521,12 +521,21 @@ export const LanguageCollection = {
         "en": "This is a blank page",
         "ru": "Это пустая страница",
         "az": "Bu boş bir səhifədir"
+    },
+
+
+
+
+    "pagination_showing_text": {
+        "en": "Showing",
+        "ru": "Показано",
+        "az": "Göstərilir"
+    },
+    "pagination_from_text": {
+        "en": "from",
+        "ru": "из",
+        "az": "dən"
     }
-
-
-
-
-
 
 
 

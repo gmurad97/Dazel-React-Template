@@ -1,3 +1,121 @@
+.top-selling-product {
+    width: 100%;
+    min-width: 100%;
+    height: 598px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #FFFFFF;
+    border: 1px solid #E0E2E7;
+    border-radius: 8px;
+}
+
+.tsp__heading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+}
+
+.tsp__heading-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #1D1F2C;
+}
+
+.tsp__heading-title-badges {
+    background-color: #E9FAF7;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1A9882;
+    padding: 4px 10px;
+    margin-left: 8px;
+}
+
+.tsp__filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tsp__filter-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.tsp__filter-btn:not(:last-of-type) {
+    margin-right: 12px;
+}
+
+.tsp__filter-date-btn {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E2E7;
+    color: #667085;
+}
+
+.tsp__filter-date-btn>i[class^="fi"] {
+    display: flex;
+    margin-right: 8px;
+}
+
+.tsp__filter-filter-btn {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E2E7;
+    color: #667085;
+}
+
+.tsp__filter-filter-btn>i[class^="fi"] {
+    display: flex;
+    margin-right: 8px;
+}
+
+.tsp__filter-more-btn {
+    background-color: #1D1F2C;
+    color: #FFFFFF;
+}
+
+.tsp__data-grid-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+.tsp__pagination-block {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px 16px 24px;
+}
+
+.tsp__pagination-title {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #667085;
+}
+
 .tsp__stock-count {
     font-weight: 600;
     font-size: 14px;
@@ -24,261 +142,3 @@
     border-radius: 8px;
     padding: 4px 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-.tsp__cell-typograpghy>p:nth-of-type(1) {
-    font-weight: 500;
-    font-size: 14px;
-    color: #1D1F2C;
-}
-
-
-.tsp__cell-typograpghy>p:nth-of-type(2) {
-    font-weight: 500;
-    font-size: 12px;
-    color: #667085;
-}
-
-.MuiDataGrid-row {
-    margin: 12px 0px;
-}
-
-.MuiDataGrid-columnHeader {
-    background-color: #F9F9FC !important;
-    font-weight: 500;
-    font-size: 14px;
-    color: #4A4C56;
-}
-
-.MuiPaginationItem-root {
-    width: 32px !important;
-    height: 32px !important;
-    border: 1px solid #F0F1F3 !important;
-    border-radius: 8px !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    color: #1D1F2C !important;
-    padding: 6px !important;
-}
-
-.MuiPaginationItem-previousNext {
-    width: 32px !important;
-    height: 32px !important;
-    border: 1px solid #E0E2E7 !important;
-    border-radius: 8px !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    color: #1D1F2C !important;
-    padding: 6px !important;
-}
-
-.MuiPaginationItem-root.Mui-selected {
-    background-color: #1D1F2C !important;
-    color: #FFFFFF !important;
-}
-
-.MuiDataGrid-cell {
-    border: none !important;
-}
-
-.top-selling-product {
-    width: 100%;
-    height: 100%;
-    max-height: 598px;
-    border: 1px solid #E0E2E7;
-    border-radius: 8px;
-    padding: 20px 24px;
-    background-color: white;
-}
-
-.tsp-heading {}
-
-.tsp-title {}
-
-.tsp-badges {}
-
-.tsp-filter {}
-
-.btn {}
-
-.tsp-date-btn {}
-
-.tsp-filter-btn {}
-
-.tsp-more-btn {}
-
-.data-grid-container {}
-
-.pagination-block {}
-
-.pagination-left {}
-
-
-
-
-
-
-
-
-
-
-
-.data-grid-container {
-    max-width: 100%;
-    height: 100%;
-    display: flex;
-    max-height: calc(100% - 100px);
-    /* Вычислите высоту с учетом других элементов, например, заголовка и кнопок */
-    overflow: auto;
-}
-
-.MuiDataGrid-row {}
-
-.data-grid-root {
-    width: 500px;
-    height: auto;
-
-    display: flex;
-}
-
-.MuiDataGrid-root {
-    border-radius: 0px !important;
-}
-
-.btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #E0E2E7;
-    border-radius: 8px;
-    padding: 10px 12px;
-    color: #667085;
-    cursor: pointer;
-}
-
-.tsp-heading {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.tsp-title {
-    /* Ваши стили здесь */
-}
-
-.tsp-badges {
-    margin-left: 8px;
-    background-color: #E9FAF7;
-    font-size: 12px;
-    padding: 4px;
-    color: #1A9882;
-}
-
-.tsp-filter {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-
-
-
-
-
-
-/* Убираем рамки вокруг таблицы */
-.css-14mxsc7-MuiDataGrid-root {
-    border: none !important;
-    /* Убираем border */
-}
-
-
-/* Убираем горизонтальные полоски в таблице */
-.data-grid-root .MuiDataGrid-cell {
-    border-bottom: none !important;
-    /* Убираем горизонтальные полоски */
-}
-
-/* Убираем вертикальные полоски */
-.data-grid-root .MuiDataGrid-columnSeparator,
-.MuiDataGrid-filler {
-    display: none !important;
-    /* Убираем вертикальные разделители между столбцами */
-}
-
-/* Убираем синюю обводку при фокусе */
-.data-grid-root .MuiDataGrid-columnHeader:focus {
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/* Убираем обводку в целом */
-.data-grid-root .MuiDataGrid-columnHeader,
-.data-grid-root .MuiDataGrid-cell {
-    border: none !important;
-}
-
-/* Убираем цвет рамки строк */
-.data-grid-root .MuiDataGrid-row {
-    border: none !important;
-    /* Убираем обводку строк */
-}
-
-
-
-
-
-/* Стили для пагинации */
-.pagination-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.pagination-left {
-    font-size: 16px;
-    font-weight: normal;
-}
-
-.pagination-right .pagination-btn {
-    background-color: #f5f5f5;
-    border: none;
-    margin: 0 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.pagination-right .pagination-btn.active {
-    background-color: #1976d2;
-    color: #fff;
-}
-
-.pagination-right .pagination-btn i {
-    font-size: 16px;
-}
-
-
-
-
-
-
-
-/*==================================*/

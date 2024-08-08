@@ -34,23 +34,32 @@ body {
     font-family: "Public Sans", sans-serif;
 }
 
-.MuiTableHeader__title {
+.MuiCustomClass__table-header {
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     color: #4A4C56;
 }
 
-.MuiImageColumn {
+.MuiCustomClass__flex {
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.MuiCustomClass__box {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
 
-.MuiImageContainer {
+.MuiCustomClass__img-box {
     width: 44px;
     min-width: 44px;
     max-width: 44px;
@@ -62,13 +71,13 @@ body {
     overflow: hidden;
 }
 
-.MuiImage__img{
+.MuiCustomClass__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.MuiTypography {
+.MuiCustomClass__typography {
     width: 100%;
     height: auto;
     display: flex;
@@ -77,44 +86,102 @@ body {
     align-items: flex-start;
 }
 
-.MuiTypography__title {
+.MuiCustomClass__typography-title {
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     color: #1D1F2C;
 }
 
-.MuiTypography__subtext {
+.MuiCustomClass__typography-subtext {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     color: #667085;
 }
 
-.MuiFlexCenterContainer{
+.MuiDataGrid-root {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    background-color: #FFFFFF !important;
+    border: 1px solid #F0F1F3 !important;
+    border-radius: 0px !important;
+}
+
+.MuiDataGrid-columnHeader {
+    background-color: #F9F9FC !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #4A4C56 !important;
+}
+
+.MuiDataGrid-cell {
+    border: none !important;
+}
+
+.MuiDataGrid-cell:not(:last-of-type) {
+    border-bottom: 1px solid #F0F1F3 !important;
+}
+
+.MuiDataGrid-row {
+    box-sizing: content-box;
+    /*     padding: 0px 22px; */
+}
+
+.MuiPaginationItem-root {
+    width: 32px !important;
+    height: 32px !important;
+    border: 1px solid #F0F1F3 !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1D1F2C !important;
+    padding: 6px !important;
+}
+
+.MuiPaginationItem-ellipsis {
+    border: none !important;
+}
+
+.MuiPaginationItem-previousNext {
+    width: 32px !important;
+    height: 32px !important;
+    border: 1px solid #E0E2E7 !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1D1F2C !important;
+    padding: 6px !important;
+}
+
+.MuiPaginationItem-root.Mui-selected {
+    background-color: #1D1F2C !important;
+    color: #FFFFFF !important;
 }
 
 
 
+/* Убираем вертикальные полоски */
+/* .data-grid-root .MuiDataGrid-columnSeparator,
+.MuiDataGrid-filler {
+    display: none !important; */
+/* Убираем вертикальные разделители между столбцами */
+/* } */
 
-
-/* .MuiImageColumn__flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.MuiImageColumn__flex .MuiAvatar-root {
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
-    margin-right: 8px;
-    overflow: hidden;
+/* Убираем синюю обводку при фокусе */
+/* .data-grid-root .MuiDataGrid-columnHeader:focus {
+    outline: none !important;
+    box-shadow: none !important;
 } */
+
+/* Убираем обводку в целом */
+/* .data-grid-root .MuiDataGrid-columnHeader,
+.data-grid-root .MuiDataGrid-cell {
+    border: none !important;
+} */
+
+/* Убираем цвет рамки строк */
+/* .data-grid-root .MuiDataGrid-row {
+    border: none !important; */
+/* Убираем обводку строк */
+/* } */
