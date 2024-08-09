@@ -4,6 +4,8 @@ import { Pagination } from "@mui/material";
 import "./RecentOrders.css";
 import { LanguageContext } from "../../../../context/LanguageContext.jsx";
 import DazelApi from "../../../../api/DazelApi.js";
+import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 
 const RecentOrders = () => {
     const { currentLanguage, getTranslate } = useContext(LanguageContext);
@@ -11,6 +13,8 @@ const RecentOrders = () => {
     const [selectedRows, setSelectedRows] = useState([]);
     const [selectAll, setSelectAll] = useState(false);
     const [page, setPage] = useState(1);
+    const [selectedProduct, setSelectedProduct] = useState(false);
+    const [currentDataSelectedProduct, setCurrentDataSelectedProduct] = useState({});
 
     useEffect(() => {
         DazelApi.getRecentOrders().then(response => setTableRows(response));
@@ -47,6 +51,19 @@ const RecentOrders = () => {
         setSelectAll(isChecked);
         setSelectedRows(isChecked ? tableRows.map(row => row.orderId) : []);
     };
+
+    const handleShowDetail = (currentRows) => {
+        setSelectedProduct(true);
+        setCurrentDataSelectedProduct(currentRows);
+    }
+
+    useEffect(() => {
+        console.log(currentDataSelectedProduct);
+    });
+
+    const handleCloseDetail = () => {
+        setSelectedProduct(false);
+    }
 
     const tableColumns = [
         {
@@ -166,7 +183,7 @@ const RecentOrders = () => {
             "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_action_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex-row">
-                    <button className="MuiCustomClass__btn">
+                    <button className="MuiCustomClass__btn" onClick={() => handleShowDetail(params.row)}>
                         <i className="fi fi-sr-eye"></i>
                     </button>
                     <button className="MuiCustomClass__btn" onClick={() => handleDelete(params.id)}>
@@ -198,11 +215,13 @@ const RecentOrders = () => {
                     <span className="ro__heading-title-badges">+2 Orders</span>
                 </h1>
                 <div className="ro__filter">
-                    <button className="ro__filter-btn ro__filter-filter-btn">
+                    {/* <button className="ro__filter-btn ro__filter-filter-btn">
                         <i className="fi fi-sr-settings-sliders"></i>
                         Filters
-                    </button>
-                    <button className="ro__filter-btn ro__filter-more-btn">See more</button>
+                    </button> */}
+                    <Link to="/recent-orders" className="ro__filter-btn ro__filter-more-btn">
+                        {getTranslate("filter_see_more_button_text")}
+                    </Link>
                 </div>
             </div>
             <div className="ro__data-grid-container">
@@ -222,6 +241,66 @@ const RecentOrders = () => {
                 </h1>
                 <Pagination count={totalPages} page={page} onChange={handlePageChange} />
             </div>
+
+            {selectedProduct && createPortal(
+                <div className="recent-orders__dialog" onClick={() => handleCloseDetail()}>
+                    <div className="recent-orders__dialog-container" onClick={(e)=> e.stopPropagation()}>
+                        <h1 className="recent-orders__title">
+                            <span className="recent-orders__title order_id">{currentDataSelectedProduct.orderId}</span>
+                            <span className="recent-orders__title product_name">{currentDataSelectedProduct.product_name[currentLanguage]}</span>
+                        </h1>
+                        <div className="recent-orders__dialog-img-box">
+                            <img src={currentDataSelectedProduct.image} className="recent-orders__dialog-img" alt="" />
+                        </div>
+                        <p className="recent-orders__description">
+                            <span className="recent-orders__column-name">
+                                Subtext:
+                            </span>
+                            {currentDataSelectedProduct.subtext[currentLanguage]}
+                        </p>
+                        <p className="recent-orders__description">
+                            <span className="recent-orders__column-name">
+                                Total:
+                            </span>
+                            {currentDataSelectedProduct.total}
+                        </p>
+                        <p className="recent-orders__description">
+                            <span className="recent-orders__column-name">
+                                Payment:
+                            </span>
+                            {currentDataSelectedProduct.payment}
+                        </p>
+                        <p className="recent-orders__description">
+                            <span className="recent-orders__column-name">
+                                Status:
+                            </span>
+                            {currentDataSelectedProduct.status[currentLanguage]}
+                        </p>
+                        <p className="recent-orders__description">
+                            <span className="recent-orders__column-name">
+                                Customer:
+                            </span>
+                            {currentDataSelectedProduct.customer}
+                        </p>
+
+                        <p className="recent-orders__description">
+                            <span className="recent-orders__column-name">
+                                Customer Email:
+                            </span>
+                            {currentDataSelectedProduct.customer_email}
+                        </p>
+                        <p className="recent-orders__description">
+                            <span className="recent-orders__column-name">
+                                Data:
+                            </span>
+                            {computeTimeAgo(currentDataSelectedProduct.date)}
+                        </p>
+                        <button className="recent-orders__dialog-close" onClick={() => handleCloseDetail()}>
+                            <i class="fi fi-sr-cross"></i>
+                        </button>
+                    </div>
+                </div>
+                , document.body)}
         </div>
     );
 }

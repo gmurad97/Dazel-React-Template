@@ -51,17 +51,18 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    border: none;
+    border: 1px solid #E0E2E7;
     border-radius: 8px;
     text-wrap: nowrap;
     font-weight: 500;
     font-size: 14px;
+    text-decoration: none;
     line-height: 20px;
     padding: 10px 12px;
     cursor: pointer;
 }
 
-.tsp__filter-btn:not(:last-of-type) {
+.tsp__filter-btn:not(:last-child) {
     margin-right: 12px;
 }
 
@@ -90,6 +91,11 @@
 .tsp__filter-more-btn {
     background-color: #1D1F2C;
     color: #FFFFFF;
+}
+
+.tsp__filter-more-btn:hover {
+    background-color: #FFFFFF;
+    color: #1D1F2C;
 }
 
 .tsp__data-grid-container {

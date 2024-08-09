@@ -23,6 +23,7 @@
     width: 240px;
     height: max-content;
     padding: 8px;
+    z-index: 20480;
 }
 
 .topbar__menu-language:hover .ml__select {

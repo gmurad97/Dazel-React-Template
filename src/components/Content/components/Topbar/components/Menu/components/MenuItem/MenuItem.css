@@ -55,6 +55,7 @@
     top: 40px;
     left: -150px;
     padding-top: 8px;
+    z-index: 20480;
 }
 
 .topbar__menu-calendar {
@@ -79,6 +80,7 @@
     top: 40px;
     left: -110px;
     padding-top: 8px;
+    z-index: 20480;
 }
 
 .topbar__menu-item-envelope:hover .topbar__menu-dropdown-envelope {
@@ -154,6 +156,7 @@
     top: 40px;
     left: -206px;
     padding-top: 8px;
+    z-index: 20480;
 }
 
 .topbar__menu-item-bell:hover .topbar__menu-dropdown-bell {

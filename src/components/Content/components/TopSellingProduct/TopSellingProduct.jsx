@@ -4,6 +4,7 @@ import { Pagination } from "@mui/material";
 import "./TopSellingProduct.css";
 import { LanguageContext } from "../../../../context/LanguageContext.jsx";
 import DazelApi from "../../../../api/DazelApi.js";
+import { Link, useLocation } from "react-router-dom";
 
 const TopSellingProduct = () => {
     const { currentLanguage, getTranslate } = useContext(LanguageContext);
@@ -101,17 +102,19 @@ const TopSellingProduct = () => {
                     <span className="tsp__heading-title-badges">{getTranslate("tsp_heading_title_badge_text")}</span>
                 </h1>
                 <div className="tsp__filter">
-                    <button className="tsp__filter-btn tsp__filter-date-btn">
+                    {/* <button className="tsp__filter-btn tsp__filter-date-btn">
                         <i className="fi fi-sr-calendar"></i>
                         {getTranslate("filter_select_date_button_text")}
-                    </button>
-                    <button className="tsp__filter-btn tsp__filter-filter-btn">
+                    </button> */}
+                    {/* <button className="tsp__filter-btn tsp__filter-filter-btn">
                         <i className="fi fi-sr-settings-sliders"></i>
                         {getTranslate("filter_filters_button_text")}
-                    </button>
-                    <button className="tsp__filter-btn tsp__filter-more-btn">
+                    </button> */}
+
+                    {}
+                    <Link to="/top-selling-product" className="tsp__filter-btn tsp__filter-more-btn">
                         {getTranslate("filter_see_more_button_text")}
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div className="tsp__data-grid-container">

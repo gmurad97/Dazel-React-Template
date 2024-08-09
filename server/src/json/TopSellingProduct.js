@@ -14,7 +14,7 @@ const TopSellingProduct = () => {
 
         products.push({
             "id": idx,
-            "image": faker.image.urlLoremFlickr(),
+            "image": faker.image.avatarLegacy(),
             "product_name": {
                 "en": fakerEN.commerce.productName(),
                 "ru": fakerRU.commerce.productName(),

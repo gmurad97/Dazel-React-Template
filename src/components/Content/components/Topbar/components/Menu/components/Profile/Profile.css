@@ -89,6 +89,7 @@
     right: 0px;
     width: 240px;
     padding: 8px;
+    z-index: 20480;
 }
 
 .topbar__profile:hover>.topbar__profile-dropdown,

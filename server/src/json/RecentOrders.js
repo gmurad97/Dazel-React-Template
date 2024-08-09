@@ -34,7 +34,7 @@ const RecentOrders = () => {
         orders.push({
             "id": idx,
             "orderId": `#${faker.number.int({ min: 100000, max: 999999 }).toString()}`,
-            "image": faker.image.urlLoremFlickr(40, 40, 'product', true),
+            "image": faker.image.avatarLegacy(),
             "product_name": {
                 "en": fakerEN.commerce.productName(),
                 "ru": fakerRU.commerce.productName(),

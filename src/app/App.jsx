@@ -6,6 +6,8 @@ import DashboardPage from "../pages/DashboardPage.jsx";
 import BlankPage from "../pages/BlankPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import LoginPage from "../pages/LoginPage.jsx";
+import RecentOrdersPage from "../pages/RecentOrdersPage.jsx";
+import TopSellingProductPage from "../pages/TopSellingProductPage.jsx";
 
 const AuthorizedRoute = ({ component }) => {
     const { isAuth } = useContext(AuthContext);
@@ -19,6 +21,8 @@ const App = () => {
                 <Route path="login" element={<LoginPage />} />
                 <Route index element={<AuthorizedRoute component={<DashboardPage />} />} />
                 <Route path="dashboard" element={<AuthorizedRoute component={<DashboardPage />} />} />
+                <Route path="recent-orders" element={<AuthorizedRoute component={<RecentOrdersPage />} />} />
+                <Route path="top-selling-product" element={<AuthorizedRoute component={<TopSellingProductPage />} />} />
                 <Route path="blank" element={<AuthorizedRoute component={<BlankPage />} />} />
                 <Route path="*" element={<AuthorizedRoute component={<NotFoundPage />} />} />
             </Route>
