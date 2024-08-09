@@ -1,257 +1,227 @@
-import React, { useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import { Box, Avatar, Typography } from '@mui/material';
-/* import './RecentOrders.css'; */
-
-const columns = (handleDelete) => [
-    {
-        field: 'orderId',
-        headerName: 'Order ID',
-        width: 100,
-        renderHeader: () => <span>Order ID</span>,
-    },
-    {
-        field: 'image',
-        headerName: 'Product',
-        width: 300,
-        sortable: false,
-        renderCell: (params) => (
-            <Box display="flex" alignItems="center" height="100%">
-                <Avatar src={params.value} alt="product" style={{ marginRight: 8, width: 40, height: 40 }} />
-                <Box display="flex" flexDirection="column" justifyContent="center">
-                    <Typography variant="body2" style={{ marginBottom: 4 }}>
-                        {params.row.productName}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                        SKU: {params.row.sku}
-                    </Typography>
-                </Box>
-            </Box>
-        ),
-    },
-    {
-        field: 'date',
-        headerName: 'Date',
-        width: 100,
-        renderHeader: () => <span>Date</span>,
-    },
-    {
-        field: 'customer',
-        headerName: 'Customer',
-        width: 150,
-        renderHeader: () => <span>Customer</span>,
-    },
-    {
-        field: 'total',
-        headerName: 'Total',
-        width: 100,
-        renderHeader: () => <span>Total</span>,
-    },
-    {
-        field: 'payment',
-        headerName: 'Payment',
-        width: 100,
-        renderHeader: () => <span>Payment</span>,
-    },
-    {
-        field: 'status',
-        headerName: 'Status',
-        width: 120,
-        renderHeader: () => <span>Status</span>,
-        renderCell: (params) => (
-            <Box
-                component="span"
-                sx={{
-                    color: params.value === 'Cancelled' ? 'red' : 'green',
-                    fontWeight: 'bold',
-                }}
-            >
-                {params.value}
-            </Box>
-        ),
-    },
-    {
-        field: 'action',
-        headerName: 'Action',
-        width: 100,
-        sortable: false,
-        renderCell: (params) => (
-            <Box display="flex" alignItems="center">
-                <span className='fi fi-rr-eye' style={{ marginRight: 8 }}></span>
-                <span className='fi fi-rr-trash' onClick={() => handleDelete(params.id)} style={{ cursor: 'pointer' }}></span>
-            </Box>
-        )
-    },
-];
-
-const initialRows = [
-    {
-        id: 1,
-        orderId: '#302012',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Handmade Pouch',
-        sku: '302012',
-        date: '1 min ago',
-        customer: 'John Bushmill',
-        total: '$121.00',
-        payment: 'Mastercard',
-        status: 'Processing',
-    },
-    {
-        id: 2,
-        orderId: '#302011',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Smartwatch E2',
-        sku: '302012',
-        date: '1 min ago',
-        customer: 'Ilham Budi A',
-        total: '$590.00',
-        payment: 'Visa',
-        status: 'Processing',
-    },
-    {
-        id: 3,
-        orderId: '#302002',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Smartwatch E1',
-        sku: '302012',
-        date: '5 hour ago',
-        customer: 'Mohammad Karim',
-        total: '$125.00',
-        payment: 'Transfer',
-        status: 'Shipped',
-    },
-    {
-        id: 4,
-        orderId: '#301901',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Headphone G1 Pro',
-        sku: '302012',
-        date: '1 day ago',
-        customer: 'Linda Blair',
-        total: '$348.00',
-        payment: 'Paypal',
-        status: 'Shipped',
-    },
-    {
-        id: 5,
-        orderId: '#301900',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Iphone X',
-        sku: '302012',
-        date: '2 day ago',
-        customer: 'Josh Adam',
-        total: '$607.00',
-        payment: 'Visa',
-        status: 'Delivered',
-    },
-    {
-        id: 6,
-        orderId: '#301881',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Puma Shoes',
-        sku: '302012',
-        date: '5 Jan 2023',
-        customer: 'Sin Tae',
-        total: '$234.00',
-        payment: 'Visa',
-        status: 'Cancelled',
-    },
-    {
-        id: 7,
-        orderId: '#301643',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Imac 2021',
-        sku: '302012',
-        date: '1 Jan 2023',
-        customer: 'Rajesh Masvidal',
-        total: '$760.00',
-        payment: 'Transfer',
-        status: 'Shipped',
-    },
-    {
-        id: 8,
-        orderId: '#301600',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Nike Shoes',
-        sku: '302012',
-        date: '24 Dec 2022',
-        customer: 'Fajar Surya',
-        total: '$400.00',
-        payment: 'Mastercard',
-        status: 'Delivered',
-    },
-    {
-        id: 9,
-        orderId: '#301555',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Lego Car',
-        sku: '302012',
-        date: '2 Dec 2022',
-        customer: 'Francis Greg',
-        total: '$812.00',
-        payment: 'Paypal',
-        status: 'Delivered',
-    },
-    {
-        id: 10,
-        orderId: '#301002',
-        image: 'https://via.placeholder.com/40',
-        productName: 'Skincare Alia 1',
-        sku: '302012',
-        date: '2 Dec 2022',
-        customer: 'Linda Blair',
-        total: '$123.00',
-        payment: 'Paypal',
-        status: 'Delivered',
-    },
-];
+import { useContext, useEffect, useState } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import { Pagination } from "@mui/material";
+import "./RecentOrders.css";
+import { LanguageContext } from "../../../../context/LanguageContext.jsx";
+import DazelApi from "../../../../api/DazelApi.js";
 
 const RecentOrders = () => {
-    const [rows, setRows] = useState(initialRows);
+    const { currentLanguage, getTranslate } = useContext(LanguageContext);
+    const [tableRows, setTableRows] = useState([]);
+    const [selectedRows, setSelectedRows] = useState([]);
+    const [selectAll, setSelectAll] = useState(false);
+    const [page, setPage] = useState(1);
 
-    const handleDelete = (id) => {
-        setRows(rows.filter((row) => row.id !== id));
+    useEffect(() => {
+        DazelApi.getRecentOrders().then(response => setTableRows(response));
+    }, []);
+
+    const computeTimeAgo = (timestamp) => {
+        const timestampSeconds = Math.floor((Date.now() - (timestamp * 1000)) / 1000);
+        const intervals = [
+            { "label": getTranslate("topbar_menu_notification_time_second"), "divisor": 1 },
+            { "label": getTranslate("topbar_menu_notification_time_minute"), "divisor": 60 },
+            { "label": getTranslate("topbar_menu_notification_time_hour"), "divisor": 3600 },
+            { "label": getTranslate("topbar_menu_notification_time_day"), "divisor": 86400 }
+        ];
+        for (let idx = intervals.length - 1; idx >= 0; idx--) {
+            const { label, divisor } = intervals[idx];
+            const interval = Math.floor(timestampSeconds / divisor);
+            if (interval > 0)
+                return `${interval} ${label} ${getTranslate("topbar_menu_notification_time_ago")}`;
+        }
+        return getTranslate("topbar_menu_notification_time_just_now");
+    }
+
+    const handleCheckboxChange = (orderId) => {
+        setSelectedRows(prevSelectedRows => {
+            if (prevSelectedRows.includes(orderId))
+                return prevSelectedRows.filter(id => id !== orderId);
+            else
+                return [...prevSelectedRows, orderId];
+        });
     };
 
-    return (
-        <>
-            <div className="top-selling-product-via" style={{ width: '100%' }}>
-                <div className="tsp-heading">
-                    <h1 className='tsp-title'>Top Selling Product
-                        <span className='tsp-badges'>Badge</span>
-                    </h1>
-                    <div className="tsp-filter">
-                        <button className='btn tsp-filter-btn'>
-                            <i className="fi fi-rs-settings-sliders"></i>Filter</button>
-                        <button className='btn tsp-more-btn'>See more</button>
+    const handleSelectAllChange = (event) => {
+        const isChecked = event.target.checked;
+        setSelectAll(isChecked);
+        setSelectedRows(isChecked ? tableRows.map(row => row.orderId) : []);
+    };
+
+    const tableColumns = [
+        {
+            "field": "orderId",
+            "width": 100,
+            "sortable": false,
+            "renderHeader": () => (
+                <span className="MuiCustomClass__table-header">
+                    <input
+                        type="checkbox"
+                        className="MuiCustomClass__table-header-checkbox"
+                        checked={selectAll}
+                        onChange={handleSelectAllChange}
+                    />
+                    Order ID
+                </span>
+            ),
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__flex-row">
+                    <input
+                        type="checkbox"
+                        className="MuiCustomClass__table-header-checkbox"
+                        checked={selectedRows.includes(params.row.orderId)}
+                        onChange={() => handleCheckboxChange(params.row.orderId)}
+                    />
+                    <div className="MuiCustomClass__typography">
+                        <h1 className="MuiCustomClass__typography-title">{params.row.orderId}</h1>
                     </div>
                 </div>
+            )
+        },
+        {
+            "field": "image",
+            "headerName": "Product",
+            "width": 250,
+            "sortable": true,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">Product</span>,
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__box">
+                    <div className="MuiCustomClass__img-box">
+                        <img className="MuiCustomClass__img" src={params.value} alt="product" />
+                    </div>
+                    <div className="MuiCustomClass__typography">
+                        <h1 className="MuiCustomClass__typography-title">{params.row.product_name}</h1>
+                        <p className="MuiCustomClass__typography-subtext">{params.row.subtext}</p>
+                    </div>
+                </div>
+            )
+        },
+        {
+            "field": "date",
+            "headerName": "Date",
+            "width": 100,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">Date</span>,
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__flex">
+                    <h1 className="MuiCustomClass__typography-title">{computeTimeAgo(params.row.date)}</h1>
+                </div>
+            )
+        },
+        {
+            "field": "customer",
+            "headerName": "Customer",
+            "width": 150,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">Customer</span>,
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__flex">
+                    <div className="MuiCustomClass__typography">
+                        <h1 className="MuiCustomClass__typography-title">{params.row.customer}</h1>
+                        <p className="MuiCustomClass__typography-subtext">{params.row.customer_email}</p>
+                    </div>
+                </div>
+            )
+        },
+        {
+            "field": "total",
+            "headerName": "Total",
+            "width": 100,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">Total</span>,
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__flex">
+                    <h1 className="MuiCustomClass__typography-title">{params.row.total}</h1>
+                </div>
+            )
+        },
+        {
+            "field": "payment",
+            "headerName": "Payment",
+            "width": 100,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">Payment</span>,
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__flex">
+                    <h1 className="MuiCustomClass__typography-title">{params.row.payment}</h1>
+                </div>
+            )
+        },
+        {
+            "field": "status",
+            "headerName": "Status",
+            "width": 120,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">Status</span>,
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__flex">
+                    <h1 className="MuiCustomClass__typography-title">
+                        <span className={`ro__status ${params?.value?.["en"]?.toLowerCase()?.includes("processing") ? "processing" : params?.value?.["en"]?.toLowerCase()?.includes("shipped") ? "shipped" : params?.value?.["en"]?.toLowerCase()?.includes("delivered") ? "delivered" : "cancelled"}`}>
+                            {params.value[currentLanguage]}
+                        </span>
+                    </h1>
+                </div>
+            )
+        },
+        {
+            "field": "action",
+            "headerName": "Action",
+            "width": 100,
+            "sortable": false,
+            "renderCell": (params) => (
+                <div className="MuiCustomClass__flex-row">
+                    <button className="MuiCustomClass__btn">
+                        <i className="fi fi-sr-eye"></i>
+                    </button>
+                    <button className="MuiCustomClass__btn" onClick={() => handleDelete(params.id)}>
+                        <i className="fi fi-sr-trash"></i>
+                    </button>
+                </div>
+            )
+        },
+    ];
+
+    const handleDelete = (id) => {
+        setTableRows(prevRows => prevRows.filter((row) => row.id !== id));
+    };
+
+    const rowsPerPage = 10;
+    const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+    const handlePageChange = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const paginatedRows = tableRows.slice((page - 1) * rowsPerPage, page * rowsPerPage);
+
+    return (
+        <div className="recent-orders">
+            <div className="ro__heading">
+                <h1 className="ro__heading-title">
+                    Recent Orders
+                    <span className="ro__heading-title-badges">+2 Orders</span>
+                </h1>
+                <div className="ro__filter">
+                    <button className="ro__filter-btn ro__filter-filter-btn">
+                        <i className="fi fi-sr-settings-sliders"></i>
+                        Filters
+                    </button>
+                    <button className="ro__filter-btn ro__filter-more-btn">See more</button>
+                </div>
+            </div>
+            <div className="ro__data-grid-container">
                 <DataGrid
-                    rows={rows}
-                    columns={columns(handleDelete)}
-                    disableColumnMenu
+                    rows={paginatedRows}
+                    columns={tableColumns}
                     hideFooterSelectedRowCount
-                    autoHeight
                     disableSelectionOnClick
                     hideFooterPagination={true}
                     hideFooter={true}
+                    rowHeight={80}
                 />
-                <div className="pagination-block">
-                    <h1 className='pagination-left'>Showing 1-5 from 15</h1>
-                    <div className="pagination-right">
-                        <button className='pagination-btn'><i className='fi fi-rr-caret-left'></i></button>
-                        <button className='pagination-btn active'>1</button>
-                        <button className='pagination-btn'>2</button>
-                        <button className='pagination-btn'>3</button>
-                        <button className='pagination-btn'>4</button>
-                        <button className='pagination-btn'>5</button>
-                        <button className='pagination-btn'>...</button>
-                        <button className='pagination-btn'><i className='fi fi-rr-caret-right'></i></button>
-                    </div>
-                </div>
             </div>
-        </>
+            <div className="ro__pagination-block">
+                <h1 className="ro__pagination-title">
+                    {getTranslate("pagination_showing_text")} {((page - 1) * rowsPerPage) + 1}-{Math.min(page * rowsPerPage, tableRows.length)} {getTranslate("pagination_from_text")} {tableRows.length}
+                </h1>
+                <Pagination count={totalPages} page={page} onChange={handlePageChange} />
+            </div>
+        </div>
     );
 }
 

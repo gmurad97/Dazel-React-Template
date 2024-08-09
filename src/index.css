@@ -35,6 +35,10 @@ body {
 }
 
 .MuiCustomClass__table-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
@@ -48,6 +52,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+
+.MuiCustomClass__flex-row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .MuiCustomClass__box {
@@ -125,7 +138,6 @@ body {
 
 .MuiDataGrid-row {
     box-sizing: content-box;
-    /*     padding: 0px 22px; */
 }
 
 .MuiPaginationItem-root {
@@ -159,29 +171,20 @@ body {
     color: #FFFFFF !important;
 }
 
+.MuiCustomClass__table-header-checkbox{
+    display: flex;
+    margin-right: 8px;
+}
 
+.MuiCustomClass__btn{
+    background-color: transparent;
+    font-size: 18px;
+    color: #858D9D;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
 
-/* Убираем вертикальные полоски */
-/* .data-grid-root .MuiDataGrid-columnSeparator,
-.MuiDataGrid-filler {
-    display: none !important; */
-/* Убираем вертикальные разделители между столбцами */
-/* } */
-
-/* Убираем синюю обводку при фокусе */
-/* .data-grid-root .MuiDataGrid-columnHeader:focus {
-    outline: none !important;
-    box-shadow: none !important;
-} */
-
-/* Убираем обводку в целом */
-/* .data-grid-root .MuiDataGrid-columnHeader,
-.data-grid-root .MuiDataGrid-cell {
-    border: none !important;
-} */
-
-/* Убираем цвет рамки строк */
-/* .data-grid-root .MuiDataGrid-row {
-    border: none !important; */
-/* Убираем обводку строк */
-/* } */
+.MuiCustomClass__btn:not(:last-of-type){
+    margin-right: 12px;
+}

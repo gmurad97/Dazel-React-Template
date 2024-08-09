@@ -96,7 +96,8 @@ const TopSellingProduct = () => {
     return (
         <div className="top-selling-product">
             <div className="tsp__heading">
-                <h1 className="tsp__heading-title">Top Selling Product
+                <h1 className="tsp__heading-title">
+                    Top Selling Product
                     <span className="tsp__heading-title-badges">Badge</span>
                 </h1>
                 <div className="tsp__filter">
@@ -106,7 +107,7 @@ const TopSellingProduct = () => {
                     </button>
                     <button className="tsp__filter-btn tsp__filter-filter-btn">
                         <i className="fi fi-sr-settings-sliders"></i>
-                        Filter
+                        Filters
                     </button>
                     <button className="tsp__filter-btn tsp__filter-more-btn">See more</button>
                 </div>

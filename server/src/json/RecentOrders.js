@@ -4,23 +4,52 @@ const RecentOrders = () => {
     const orders = [];
     const numOrders = faker.number.int({ min: 16, max: 128 });
 
+    // Определите переводы статусов
+    const statusTranslations = {
+        "Processing": {
+            "en": "Processing",
+            "ru": "Обработка",
+            "az": "Emal olunur"
+        },
+        "Shipped": {
+            "en": "Shipped",
+            "ru": "Отправлено",
+            "az": "Göndərildi"
+        },
+        "Delivered": {
+            "en": "Delivered",
+            "ru": "Доставлено",
+            "az": "Təhvil verildi"
+        },
+        "Canceled": {
+            "en": "Canceled",
+            "ru": "Отменено",
+            "az": "Ləğv edilib"
+        }
+    };
+
     for (let idx = 0; idx < numOrders; idx++) {
+        const status = faker.helpers.arrayElement(["Processing", "Shipped", "Delivered", "Canceled"]);
         orders.push({
             "id": idx,
             "orderId": `#${faker.number.int({ min: 100000, max: 999999 }).toString()}`,
             "image": faker.image.urlLoremFlickr(40, 40, 'product', true),
-            "productName": faker.commerce.productName(),
+            "product_name": faker.commerce.productName(),
             "subtext": `+${faker.number.int({ min: 1, max: 5 })} other products`,
-            "date": faker.date.past().getTime(),
+            "date": faker.date.past().getTime() / 1000,
             "customer": `${faker.person.firstName()} ${faker.person.lastName()}`,
             "customer_email": faker.internet.email(),
             "total": `$${faker.number.float({ min: 20, max: 1000 }).toFixed(2)}`,
             "payment": faker.helpers.arrayElement(["Mastercard", "Visa", "PayPal", "American Express"]),
-            "status": faker.helpers.arrayElement(["Processing", "Shipped", "Delivered", "Canceled"]),
+            "status": {
+                "en": statusTranslations[status].en,
+                "ru": statusTranslations[status].ru,
+                "az": statusTranslations[status].az
+            }
         });
     }
     return orders;
-
 }
+
 
 module.exports = RecentOrders;
