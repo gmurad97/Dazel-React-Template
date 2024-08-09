@@ -61,7 +61,7 @@ const RecentOrders = () => {
                         checked={selectAll}
                         onChange={handleSelectAllChange}
                     />
-                    Order ID
+                    {getTranslate("table_header_order_id_text")}
                 </span>
             ),
             "renderCell": (params) => (
@@ -83,15 +83,15 @@ const RecentOrders = () => {
             "headerName": "Product",
             "width": 250,
             "sortable": true,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Product</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_product_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__box">
                     <div className="MuiCustomClass__img-box">
                         <img className="MuiCustomClass__img" src={params.value} alt="product" />
                     </div>
                     <div className="MuiCustomClass__typography">
-                        <h1 className="MuiCustomClass__typography-title">{params.row.product_name}</h1>
-                        <p className="MuiCustomClass__typography-subtext">{params.row.subtext}</p>
+                        <h1 className="MuiCustomClass__typography-title">{params.row.product_name[currentLanguage]}</h1>
+                        <p className="MuiCustomClass__typography-subtext">{params.row.subtext[currentLanguage]}</p>
                     </div>
                 </div>
             )
@@ -100,7 +100,7 @@ const RecentOrders = () => {
             "field": "date",
             "headerName": "Date",
             "width": 100,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Date</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_date_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">{computeTimeAgo(params.row.date)}</h1>
@@ -111,7 +111,7 @@ const RecentOrders = () => {
             "field": "customer",
             "headerName": "Customer",
             "width": 150,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Customer</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_customer_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <div className="MuiCustomClass__typography">
@@ -125,7 +125,7 @@ const RecentOrders = () => {
             "field": "total",
             "headerName": "Total",
             "width": 100,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Total</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_total_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">{params.row.total}</h1>
@@ -136,7 +136,7 @@ const RecentOrders = () => {
             "field": "payment",
             "headerName": "Payment",
             "width": 100,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Payment</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_payment_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">{params.row.payment}</h1>
@@ -147,7 +147,7 @@ const RecentOrders = () => {
             "field": "status",
             "headerName": "Status",
             "width": 120,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Status</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_status_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">
@@ -163,6 +163,7 @@ const RecentOrders = () => {
             "headerName": "Action",
             "width": 100,
             "sortable": false,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_action_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex-row">
                     <button className="MuiCustomClass__btn">

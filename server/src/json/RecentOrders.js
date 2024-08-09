@@ -1,10 +1,9 @@
-const { faker } = require("@faker-js/faker");
+const { faker, fakerAZ, fakerRU, fakerEN } = require("@faker-js/faker");
 
 const RecentOrders = () => {
     const orders = [];
     const numOrders = faker.number.int({ min: 16, max: 128 });
 
-    // Определите переводы статусов
     const statusTranslations = {
         "Processing": {
             "en": "Processing",
@@ -28,14 +27,24 @@ const RecentOrders = () => {
         }
     };
 
+    const subtext = faker.number.int({ min: 1, max: 5 });
+
     for (let idx = 0; idx < numOrders; idx++) {
         const status = faker.helpers.arrayElement(["Processing", "Shipped", "Delivered", "Canceled"]);
         orders.push({
             "id": idx,
             "orderId": `#${faker.number.int({ min: 100000, max: 999999 }).toString()}`,
             "image": faker.image.urlLoremFlickr(40, 40, 'product', true),
-            "product_name": faker.commerce.productName(),
-            "subtext": `+${faker.number.int({ min: 1, max: 5 })} other products`,
+            "product_name": {
+                "en": fakerEN.commerce.productName(),
+                "ru": fakerRU.commerce.productName(),
+                "az": fakerAZ.commerce.productName()
+            },
+            "subtext": {
+                "en": `+${subtext} other products`,
+                "ru": `+${subtext} другие продукты`,
+                "az": `+${subtext} digər məhsullar`
+            },
             "date": faker.date.past().getTime() / 1000,
             "customer": `${faker.person.firstName()} ${faker.person.lastName()}`,
             "customer_email": faker.internet.email(),

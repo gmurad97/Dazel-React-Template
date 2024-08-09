@@ -7,24 +7,24 @@ const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const { getTranslate } = useContext(LanguageContext);
     const [authData, setAuthData] = useState({
-        /* "is_logged": false,
+        "is_logged": false,
         "user_data": null,
         "token": null,
-        "error": null */
-        "is_logged": true,
+        "error": null
+        /* "is_logged": true,
         "user_data": {
-            "first_name": "FIRST",
-            "last_name": "LAST",
+            "first_name": "Jay",
+            "last_name": "Hargudson",
             "position": {
-                "en": "Administrator",
-                "ru": "Администратор",
-                "az": "Administrator"
+                "en": "Manager",
+                "ru": "Manager",
+                "az": "Manager"
             },
-            "profile_img": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/599.jpg",
+            "profile_img": "https://ipfs.io/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/100.jpg",
             "is_online": true
         },
-        "token": "FAKE!",
-        "error": ""
+        "token": "0x0123456789ABCDEF",
+        "error": null */
     });
 
     const Login = (username, password) => {

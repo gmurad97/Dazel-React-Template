@@ -5,6 +5,7 @@ import { LanguageContext } from "../../../../../../../../context/LanguageContext
 
 const Profile = ({ first_name, last_name, position, profile_img, is_online, onLogout }) => {
     const { currentLanguage, getTranslate } = useContext(LanguageContext);
+    
     return (
         <div className="topbar__profile">
             <div className={`topbar__profile-img-container ${is_online ? "online" : "offline"}`}>

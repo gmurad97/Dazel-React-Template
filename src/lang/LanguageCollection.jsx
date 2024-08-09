@@ -159,18 +159,6 @@ export const LanguageCollection = {
         "ru": "Заказы",
         "az": "Sifarişlər",
     },
-
-
-
-
-
-
-
-
-
-
-
-
     "topbar_menu_notification_time_second": {
         "en": "s.",
         "ru": "с.",
@@ -201,21 +189,6 @@ export const LanguageCollection = {
         "ru": "только что",
         "az": "indi"
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     "topbar_menu_mark_as_read": {
         "en": "Mark as Read",
         "ru": "Отметить как прочитанное",
@@ -522,10 +495,6 @@ export const LanguageCollection = {
         "ru": "Это пустая страница",
         "az": "Bu boş bir səhifədir"
     },
-
-
-
-
     "pagination_showing_text": {
         "en": "Showing",
         "ru": "Показано",
@@ -535,8 +504,95 @@ export const LanguageCollection = {
         "en": "from",
         "ru": "из",
         "az": "dən"
+    },
+    "table_header_product_text": {
+        "en": "Product",
+        "ru": "Продукт",
+        "az": "Məhsul"
+    },
+    "table_header_sales_text": {
+        "en": "Sales",
+        "ru": "Продажи",
+        "az": "Satışlar"
+    },
+    "table_header_amount_text": {
+        "en": "Amount",
+        "ru": "Количество",
+        "az": "Miqdar"
+    },
+    "table_header_price_text": {
+        "en": "Price",
+        "ru": "Цена",
+        "az": "Qiymət"
+    },
+    "table_header_status_text": {
+        "en": "Status",
+        "ru": "Статус",
+        "az": "Status"
+    },
+    "table_header_order_id_text": {
+        "en": "Order ID",
+        "ru": "Идентификатор заказа",
+        "az": "Sifariş ID"
+    },
+    "table_header_product_text": {
+        "en": "Product",
+        "ru": "Продукт",
+        "az": "Məhsul"
+    },
+    "table_header_date_text": {
+        "en": "Date",
+        "ru": "Дата",
+        "az": "Tarix"
+    },
+    "table_header_customer_text": {
+        "en": "Customer",
+        "ru": "Клиент",
+        "az": "Müştəri"
+    },
+    "table_header_total_text": {
+        "en": "Total",
+        "ru": "Итог",
+        "az": "Cəm"
+    },
+    "table_header_payment_text": {
+        "en": "Payment",
+        "ru": "Оплата",
+        "az": "Ödəniş"
+    },
+    "table_header_status_text": {
+        "en": "Status",
+        "ru": "Статус",
+        "az": "Status"
+    },
+    "table_header_action_text": {
+        "en": "Action",
+        "ru": "Действие",
+        "az": "Hərəkət"
+    },
+    "tsp_heading_title_text": {
+        "en": "Top Selling Product",
+        "ru": "Лидирующий по продажам продукт",
+        "az": "Ən çox satılan məhsul"
+    },
+    "tsp_heading_title_badge_text": {
+        "en": "Badge",
+        "ru": "Значок",
+        "az": "Nişan"
+    },
+    "filter_select_date_button_text": {
+        "en": "Select Date",
+        "ru": "Выбрать дату",
+        "az": "Tarixi seçin"
+    },
+    "filter_filters_button_text": {
+        "en": "Filters",
+        "ru": "Фильтры",
+        "az": "Filtrlər"
+    },
+    "filter_see_more_button_text": {
+        "en": "See more",
+        "ru": "Смотреть ещё",
+        "az": "Daha çox bax"
     }
-
-
-
 };

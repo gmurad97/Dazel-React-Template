@@ -20,7 +20,7 @@ const TopSellingProduct = () => {
             "headerName": "Product",
             "width": 250,
             "sortable": true,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Product</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_product_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__box">
                     <div className="MuiCustomClass__img-box">
@@ -37,7 +37,7 @@ const TopSellingProduct = () => {
             "field": "sales",
             "headerName": "Sales",
             "width": 80,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Sales</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_sales_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">{params.row.sales}</h1>
@@ -48,7 +48,7 @@ const TopSellingProduct = () => {
             "field": "amount",
             "headerName": "Amount",
             "width": 80,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Amount</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_amount_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">{params.row.amount}</h1>
@@ -59,7 +59,7 @@ const TopSellingProduct = () => {
             "field": "price",
             "headerName": "Price",
             "width": 80,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Price</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_price_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">{params.row.price}</h1>
@@ -70,7 +70,7 @@ const TopSellingProduct = () => {
             "field": "status",
             "headerName": "Status",
             "width": 100,
-            "renderHeader": () => <span className="MuiCustomClass__table-header">Status</span>,
+            "renderHeader": () => <span className="MuiCustomClass__table-header">{getTranslate("table_header_status_text")}</span>,
             "renderCell": (params) => (
                 <div className="MuiCustomClass__flex">
                     <h1 className="MuiCustomClass__typography-title">
@@ -97,19 +97,21 @@ const TopSellingProduct = () => {
         <div className="top-selling-product">
             <div className="tsp__heading">
                 <h1 className="tsp__heading-title">
-                    Top Selling Product
-                    <span className="tsp__heading-title-badges">Badge</span>
+                    {getTranslate("tsp_heading_title_text")}
+                    <span className="tsp__heading-title-badges">{getTranslate("tsp_heading_title_badge_text")}</span>
                 </h1>
                 <div className="tsp__filter">
                     <button className="tsp__filter-btn tsp__filter-date-btn">
                         <i className="fi fi-sr-calendar"></i>
-                        Select Date
+                        {getTranslate("filter_select_date_button_text")}
                     </button>
                     <button className="tsp__filter-btn tsp__filter-filter-btn">
                         <i className="fi fi-sr-settings-sliders"></i>
-                        Filters
+                        {getTranslate("filter_filters_button_text")}
                     </button>
-                    <button className="tsp__filter-btn tsp__filter-more-btn">See more</button>
+                    <button className="tsp__filter-btn tsp__filter-more-btn">
+                        {getTranslate("filter_see_more_button_text")}
+                    </button>
                 </div>
             </div>
             <div className="tsp__data-grid-container">
